@@ -252,11 +252,27 @@
                                     </tr>
                                     <!--Payment calculation start-->
                                     <tr>
-                                        <th colspan="3">
-                                            amount in words
-                                        </th>
-                                        <th colspan="2">
-                                            Bill calculation table
+                                        <th>
+                                            <table id="example2" class="table table-bordered table-hover">
+                                                <tr>
+                                                    <th style="width:70%;">
+                                                        Amount in words:
+                                                    </th>
+
+                                                    <th>
+                                                        <div class="row">
+                                                            <div style="border-right:0.5px solid lightgray; border-bottom:0.5px solid lightgray;" class="col-6">
+                                                                Room amount
+                                                            </div>
+                                                            <div class="col-6">
+                                                                14000
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </th>
+                                                </tr>
+
+                                            </table>
                                         </th>
                                     </tr>
                                     <!--Payment calculation end-->
@@ -265,7 +281,7 @@
 
                         </div>
                         <!--Room details and bill section end-->
-                        
+
                     </div>
                     <!-- /.card-body -->
                 </div>
