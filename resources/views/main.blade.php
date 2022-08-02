@@ -108,13 +108,13 @@
                                                             <option>Agoda</option>
                                                             <option>Xperia</option>
                                                         </select>
-                                                    </td>                                                   
+                                                    </td>
                                                 </tr>
-                                                 <!--Income-->
-                                                 <tr>
+                                                <!--Income-->
+                                                <tr>
                                                     <td>Advance</td>
                                                     <td>
-                                                    <select class="form-control">
+                                                        <select class="form-control">
                                                             <option>Bank Deposit</option>
                                                             <option>Cash</option>
                                                             <option>Phone Pay</option>
@@ -163,56 +163,109 @@
                         <!--Customer data section end-->
                         <!--Room details and bill section start-->
                         <div class="row">
-                            <table style="background-color:rgb(144,146,225, 0.2);" class="table table-bordered">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th>Room Type</th>
-                                        <th>Total Rooms</th>
-                                        <th>Days</th>
-                                        <th>Rate</th>
-                                        <th>Amount</th>
-                                        <th>GST</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
+                            <table style="background-color:rgb(183,155,225, 0.1);" class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                                <option>option 5</option>
-                                            </select>
-                                        </td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                    </tr>
+                                        <th>
+                                            <table id="example2" class="table table-bordered table-hover">
+                                                <tr>
+                                                    <th>Room Type</th>
+                                                    <th>Total Rooms</th>
+                                                    <th>Days</th>
+                                                    <th>Rate</th>
+                                                    <th>Amount</th>
+                                                    <th>GST</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width:20%;">
+                                                            <select class="form-control">
+                                                                <option>Double Bed Non AC</option>
+                                                                <option>Double Bed AC</option>
+                                                                <option>Triple Bed AC</option>
+                                                                <option>Extra Matress</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                    </tr>
 
-                                    <tr>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                                <option>option 5</option>
-                                            </select>
-                                        </td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
-                                        <td>Total Rooms</td>
+                                                    <tr>
+                                                        <td style="width:20%;">
+                                                            <select class="form-control">
+                                                                <option>Double Bed Non AC</option>
+                                                                <option>Double Bed AC</option>
+                                                                <option>Triple Bed AC</option>
+                                                                <option>Extra Matress</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="width:20%;">
+                                                            <select class="form-control">
+                                                                <option>Double Bed Non AC</option>
+                                                                <option>Double Bed AC</option>
+                                                                <option>Triple Bed AC</option>
+                                                                <option>Extra Matress</option>
+                                                            </select>
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td style="width:15%;">
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter email">
+                                                        </td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </th>
                                     </tr>
+                                    <!--Payment calculation start-->
+                                    <tr>
+                                        <th colspan="3">
+                                            amount in words
+                                        </th>
+                                        <th colspan="2">
+                                            Bill calculation table
+                                        </th>
+                                    </tr>
+                                    <!--Payment calculation end-->
                                 </tbody>
                             </table>
+
                         </div>
                         <!--Room details and bill section end-->
+                        
                     </div>
                     <!-- /.card-body -->
                 </div>
