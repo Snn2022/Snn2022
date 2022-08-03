@@ -47,8 +47,7 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('dist/js/demo.js')}}"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
@@ -61,7 +60,9 @@
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
-
+    $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    });
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
     //Datemask2 mm/dd/yyyy
@@ -71,6 +72,12 @@
 
     //Date picker
     $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    $('#check_in_date').datetimepicker({
+        format: 'L'
+    });
+    $('#check_out_date').datetimepicker({
         format: 'L'
     });
 
