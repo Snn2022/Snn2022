@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('main');
 });
+Route::post('invoice-submit',[InvoiceController::class,'index'])->name('invoice-submit');
 
 Route::middleware([
     'auth:sanctum',

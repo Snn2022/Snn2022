@@ -73,6 +73,12 @@
     $('#reservationdate').datetimepicker({
         format: 'L'
     });
+    $('#check_in_date').datetimepicker({
+        format: 'L'
+    });
+    $('#check_out_date').datetimepicker({
+        format: 'L'
+    });
 
     //Date and time picker
     $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
