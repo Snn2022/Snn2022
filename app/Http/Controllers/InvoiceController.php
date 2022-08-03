@@ -8,6 +8,7 @@ class InvoiceController extends Controller
 {
     public function index(Request $request ) {
         $data = $request->all();
-        return $data;
+        session()->flash('success','Invoice created successfully..!!');
+        return redirect()->route('main');       
     }
 }

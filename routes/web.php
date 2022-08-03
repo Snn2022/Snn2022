@@ -14,12 +14,25 @@ use App\Http\Controllers\InvoiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/', function () {
     return view('main');
+})->name('main');
+Route::get('login', function () {
+    return view('login');
 });
+
+Route::post('dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::get('invoice-list', function () {
+    return view('templates.Invoice.invoices');
+})->name('invoices-list');
+Route::get('room-list', function () {
+    return view('templates.Rooms.rooms');
+})->name('room-list');
+
 Route::post('invoice-submit',[InvoiceController::class,'index'])->name('invoice-submit');
 
 Route::middleware([

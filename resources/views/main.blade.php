@@ -6,9 +6,14 @@
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-lg-12 text-center">
-                            <h2>pad header</h2>
+                        <div class="col-lg-12 text-center p-2 bg-info">
+                            <h2>Hotel Somnath Atithigruh</h2>
                         </div>
+                        @if(session()->has('success'))
+                        <div class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
+                            <h5> {{session('success')}}</h5>
+                        </div>
+                        @endif
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
@@ -218,27 +223,31 @@
                                                             </td>
                                                             <td style="width:15%;">
                                                                 <input type="text" class="form-control" id="total_room"
-                                                                    name="total_room" placeholder="Number of rooms">
+                                                                    name="total_room" placeholder="Number of rooms" value="2">
                                                             </td>
                                                             <td style="width:15%;">
                                                                 <input type="text" class="form-control" id="total_days"
-                                                                    name="total_days" placeholder="Number of days">
+                                                                    name="total_days" placeholder="Number of days" value="1">
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control" id="room_rate"
-                                                                    name="room_rate">
+                                                                    name="room_rate" value="12000">
+                                                                    1200
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control"
-                                                                    id="total_room_rate" name="total_room_rate">
+                                                                    id="total_room_rate" name="total_room_rate" value="12000">
+                                                                    2400
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control" id="gst"
                                                                     name="gst">
+                                                                    288
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control"
-                                                                    id="total_room_amount" name="total_room_amount">
+                                                                    id="total_room_amount" name="total_room_amount" >
+                                                                    2688
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -525,7 +534,7 @@
                             </div>
                             <!--Room details and bill section end-->
                             <div class="row">
-                                <button class="col-md-4 btn btn-success">Save</button>
+                                <button class="col-md-4 btn btn-success toastrDefaultSuccess">Save</button>
                             </div>
                         </form>
                         <!-- form end -->
