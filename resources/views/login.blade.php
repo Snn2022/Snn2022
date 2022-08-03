@@ -9,11 +9,15 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-
-                <form action="{{route('dashboard')}}" method="post">
+                @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
+        <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" id="email" name="email" :value="old('email')" class="form-control" placeholder="Email" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -21,7 +25,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input id="password" type="password" name="password" class="form-control" placeholder="Password" required autocomplete="current-password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -31,7 +35,7 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
+                                <input type="checkbox"  id="remember_me" name="remember">
                                 <label for="remember">
                                     Remember Me
                                 </label>
@@ -45,7 +49,10 @@
                     </div>
                 </form>
                 <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
+                @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}">I forgot my password</a>
+                @endif
+                   
                 </p>
                 <!-- 
       <p class="mb-0">

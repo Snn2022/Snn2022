@@ -18,9 +18,10 @@ use App\Http\Controllers\InvoiceController;
 Route::get('/', function () {
     return view('main');
 })->name('main');
+
 Route::get('login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::post('dashboard', function () {
     return view('dashboard');
