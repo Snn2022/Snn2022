@@ -22,14 +22,28 @@ Route::get('/', function () {
 Route::get('login', function () {
     return view('login');
 })->name('login');
+Route::get('register', function () {
+    return view('register');
+})->name('register');
 
 Route::post('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
 Route::get('invoice-list', function () {
-    return view('templates.Invoice.invoices');
+    return view('templates.Invoice.index');
 })->name('invoices-list');
+
+Route::get('invoice-header', function () {
+    return view('templates.Invoice.set-header');
+})->name('invoices-set-header');
+
+Route::post('submit-invoice-header', function () {
+    return view('templates.Invoice.set-header');
+})->name('invoices-set-header');
+
+Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->name('submit-invoice-header');
+
 Route::get('room-list', function () {
     return view('templates.Rooms.rooms');
 })->name('room-list');
