@@ -9,12 +9,15 @@
      <div class="sidebar">
          <!-- Sidebar user panel (optional) -->
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
              <div class="image">
-                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                 <img class="img-circle elevation-2" src="{{ Auth::user()->profile_photo_url }}"
+                     alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Alexander Pierce</a>
+                 <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
              </div>
+             @endif
          </div>
          <!-- Sidebar Menu -->
          <nav class="mt-2">
@@ -25,7 +28,7 @@
                  <li class="nav-item">
                      <a href="./index.html" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
-                         <p>Dashboard v1</p>
+                         <p>Dashboard</p>
                      </a>
                  </li>
 
@@ -39,6 +42,12 @@
                          </p>
                      </a>
                      <ul class="nav nav-treeview">
+                     <li class="nav-item">
+                             <a href="{{route('invoice-create')}}" target="_blank" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Create Invoice</p>
+                             </a>
+                         </li>
                          <li class="nav-item">
                              <a href="{{route('invoices-list')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
@@ -46,7 +55,7 @@
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('invoices-set-header')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Set Invoice Header</p>
                              </a>
@@ -71,7 +80,7 @@
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-room')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Room Type</p>
                              </a>
@@ -96,13 +105,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{route('booking-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List of Sources</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Source</p>
                              </a>
@@ -127,13 +136,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{route('income-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List of Incomes</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-income')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Income</p>
                              </a>
@@ -169,13 +178,13 @@
                                  <p>Revenue Statement</p>
                              </a>
                          </li>
-                        
+
                      </ul>
                  </li>
 
                  <li class="nav-item">
                      <a href="#" class="nav-link">
-                     <i class="nav-icon fas fa-th"></i>
+                         <i class="nav-icon fas fa-th"></i>
                          <p>
                              Data Backup
                              <i class="fas fa-angle-left right"></i>
@@ -198,14 +207,20 @@
                          <li class="nav-item">
                              <a href="pages/layout/top-nav.html" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Clean  Invoices Data</p>
+                                 <p>Clean Invoices Data</p>
                              </a>
                          </li>
-                        
+
+
                      </ul>
                  </li>
 
-
+                 <li class="nav-item">
+                     <form method="POST" action="{{ route('logout') }}">
+                         @csrf
+                         <button class="btn btn-danger form-control">Logout</button>
+                     </form>
+                 </li>
              </ul>
          </nav>
          <!-- /.sidebar-menu -->
