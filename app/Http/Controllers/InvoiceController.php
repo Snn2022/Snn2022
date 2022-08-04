@@ -8,9 +8,10 @@ use App\Models\InvoiceHeader;
 class InvoiceController extends Controller
 {
     public function index(Request $request ) {
-        $data = $request->all();
-        session()->flash('success','Invoice created successfully..!!');
-        return redirect()->route('main');       
+        $data = InvoiceHeader::all();        
+        return view("templates.Invoice.index", ['data'=>$data]);
+       // session()->flash('success','Invoice created successfully..!!');      
+        //return redirect()->back();        
     }
 
     //set invoice header

@@ -28,7 +28,7 @@
                  <li class="nav-item">
                      <a href="./index.html" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
-                         <p>Dashboard v1</p>
+                         <p>Dashboard</p>
                      </a>
                  </li>
 
@@ -42,6 +42,12 @@
                          </p>
                      </a>
                      <ul class="nav nav-treeview">
+                     <li class="nav-item">
+                             <a href="{{route('invoice-create')}}" target="_blank" class="nav-link">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Create Invoice</p>
+                             </a>
+                         </li>
                          <li class="nav-item">
                              <a href="{{route('invoices-list')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
@@ -74,7 +80,7 @@
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-room')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Room Type</p>
                              </a>
@@ -99,13 +105,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{route('booking-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List of Sources</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Source</p>
                              </a>
@@ -130,13 +136,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav.html" class="nav-link">
+                             <a href="{{route('income-source')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>List of Incomes</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                             <a href="{{route('create-income')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Add New Income</p>
                              </a>

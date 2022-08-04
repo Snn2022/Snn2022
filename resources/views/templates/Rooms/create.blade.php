@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Set Invoice Header</h1>
+                            <h1 class="m-0">Create Room type</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Invoice Header</li>
+                                <li class="breadcrumb-item active">Create Room</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -30,10 +30,10 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 offset-md-3">
+                        <div class="col-md-8 offset-md-2">
                             <div class="card">
-                                <div class="card-body login-card-body class="bg-success p-4"">
-                                    <h5 class="card-header bg-success text-center">Set an invoice header</h5>
+                                <div class="card-body p-4">
+                                    <h5 class="card-header bg-success text-center">Create New Room Type</h5>
                                    
                                        @if(session()->has('success'))
                                        <div class="text-center text-success p-1">
@@ -41,28 +41,17 @@
                                        </div>
                                        @endif
                                    
-                                    <form method="POST" action="{{route('submit-invoice-header')}}" class="p-4">
+                                    <form method="POST" action="{{route('submit-room-type')}}" class="p-4">
                                         @csrf
                                         <div class="mb-3">
-                                            <input type="text" id="company_name" name="company_name"
-                                                class="form-control" placeholder="Enter Name" required>
+                                            <input type="text" id="room_name" name="room_name"
+                                                class="form-control" placeholder="Room Type Name" required>
+                                        </div>                                     
+                                       
+                                        <div class="mb-3">
+                                            <input type="number" id="room_rate" name="room_rate"
+                                                class="form-control" placeholder="Enter Room Rate">
                                         </div>                                       
-                                        <div class="mb-3">
-                                            <input type="email" id="email" name="email"
-                                                class="form-control" placeholder="Enter email address" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="number" id="phone" name="phone"
-                                                class="form-control" placeholder="Enter Phone no.">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="text" id="street_address" name="street_address"
-                                                class="form-control" placeholder="Enter street address">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="text" id="address" name="address"
-                                                class="form-control" placeholder="address line 2" required>
-                                        </div> 
                                         <div class="row">
                                             <div class="col-md-4 offset-md-4 text-center">
                                                 <button type="submit" class="btn btn-success btn-block">Submit</button>

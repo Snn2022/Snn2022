@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Invoices List</h1>
+                            <h1 class="m-0">Room List</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Invoices List</li>
+                                <li class="breadcrumb-item active">Room List</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -33,7 +33,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">All Invoice List</h3>
+                                    <h3 class="card-title">All Room List</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -41,32 +41,67 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <td>Company Name</td>
-                                                <td>Email</td>                                               
-                                                <td>Address</td>
+                                                <td>Room Type</td>
+                                                <td>Rate</td>                                               
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($data as $key => $item)
                                             <tr>
-                                                <td>{{$key+1}}</td>
-                                                <td>{{$item->company_name}}</td>
-                                                <td>{{$item->company_name}}</td>
-                                                <td>{{$item->company_name}}</td>
+                                                <td>
+                                                    01
+                                                </td>
+                                                <td>
+                                                Extra Matress
+                                                </td>
+                                                <td>1200</td>                                                
                                                 <td class="text-center">
-                                                    <button class="btn btn-success">View</button>
+                                                    <button class="btn btn-success">Edit</button>
                                                 </td>
                                             </tr>
-                                            @endforeach
-                                         
+                                            <tr>
+                                                <td>
+                                                    01
+                                                </td>
+                                                <td>
+                                                Four Bed Non AC
+                                                </td>
+                                                <td>1200</td>                                                
+                                                <td class="text-center">
+                                                    <button class="btn btn-success">Edit</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    01
+                                                </td>
+                                                <td>
+                                                Four Bed AC
+                                                </td>
+                                                <td>1200</td>                                                
+                                                <td class="text-center">
+                                                    <button class="btn btn-success">Edit</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    01
+                                                </td>
+                                                <td>
+                                                Triple Bed Non AC
+                                                </td>
+                                                <td>1200</td>                                                
+                                                <td class="text-center">
+                                                    <button class="btn btn-success">Edit</button>
+                                                </td>
+                                            </tr>
+                                          
                                         </tbody>
                                         <tfoot >
                                         <tr>
                                                 <th>SL</th>
-                                                <td>Company Name</td>
-                                                <td>Email</td>                                               
-                                                <td>Address</td>
+                                                <td>Room Type</td>
+                                                <td>Rate</td>                                               
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </tfoot>
