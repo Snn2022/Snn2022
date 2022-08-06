@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SourceController;
-
+use App\Http\Controllers\CollectionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,10 +40,8 @@ Route::get('invoice-header', function () {
 })->name('invoices-set-header');
 Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->name('submit-invoice-header');
 
-Route::get('invoice-create', function () {
-    return view('templates.Invoice.create');
-})->name('invoice-create');
 
+Route::get('invoice-create',[CollectionController::class,'index'])->name('room-list');
 
 //rooms start
 Route::get('room-list',[RoomController::class,'index'])->name('room-list');
