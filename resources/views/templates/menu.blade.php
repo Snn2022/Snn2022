@@ -51,7 +51,7 @@
                          <li class="nav-item">
                              <a href="{{route('invoices-list')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>List of Invoice</p>
+                                 <p>Invoice Header List</p>
                              </a>
                          </li>
                          <li class="nav-item">
