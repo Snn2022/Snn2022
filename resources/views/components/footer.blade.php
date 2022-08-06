@@ -136,5 +136,19 @@
 
   })
 </script>
+<!-- invoice calculation script--> 
+<script>
+$(document).ready(function(){
+  
+$('#number_of_days').keyup(function(event) {
+  var numberofroom = $('#number_of_room').val();
+  var numberofdays = $('#number_of_days').val();
+  var rate = $('#room_rate').val();
+  var price = numberofroom*numberofdays*rate;
+ $('#total_room_rate').htmnl(price);
+  
+});
+});
+</script>
 </body>
 </html>

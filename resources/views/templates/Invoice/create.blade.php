@@ -36,9 +36,8 @@
                                                     <tr>
                                                         <td>Invoice No :</td>
                                                         <td>
-                                                            <input type="text" id="invoice_no" name="invoice_no"
-                                                                value="312201">
-
+                                                            <input type="text" class="form-control" id="invoice_no"
+                                                                name="invoice_no" value="312201">
                                                         </td>
                                                         <td colspan="2">
                                                             <div class="input-group date" id="reservationdate"
@@ -63,6 +62,7 @@
                                                             <div class="input-group date" id="check_in_date"
                                                                 data-target-input="nearest">
                                                                 <input type="text" name="check_in_date"
+                                                                    id="check_in_date"
                                                                     class="form-control datetimepicker-input"
                                                                     data-target="#check_in_date"
                                                                     placeholder="Check-in Date" />
@@ -143,13 +143,8 @@
                                                         </td>
                                                         <td>Payment</td>
                                                         <td>
-                                                            <select class="form-control">
-                                                                <option value="">Select Option</option>
-                                                                <option value="OTA DEPOSIT">OTA DEPOSIT</option>
-                                                                <option value="Phone Pay">Phone Pay</option>
-                                                                <option value="Cash">Cash</option>
-                                                                <option value="Bank Deposit">Bank Deposit</option>
-                                                            </select>
+                                                            <input type="text" class="form-control" id="payment"
+                                                                name="payment">
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -167,12 +162,18 @@
                                                     <!--Customer Name -->
                                                     <tr>
                                                         <td>Customer Name</td>
-                                                        <td>Mr. Mohit Soni</td>
+                                                        <td>
+                                                            <input type="text" class="form-control" id="customer_name"
+                                                                name="customer_name">
+                                                        </td>
                                                     </tr>
                                                     <!--Customer Name -->
                                                     <tr>
                                                         <td>Contact No.</td>
-                                                        <td>01719466902</td>
+                                                        <td>
+                                                            <input type="text" class="form-control" id="customer_phone"
+                                                                name="customer_phone">
+                                                        </td>
                                                     </tr>
                                                     <!--Customer GSTN data -->
                                                     <tr>
@@ -208,23 +209,22 @@
                                                         <tr>
                                                             <td style="width:20%;">
                                                                 <select name="room_name" class="form-control">
-                                                                    <option value="{{$room->room_name}}">{{$room->room_name}}</option>
+                                                                    <option value="{{$room->room_name}}">
+                                                                        {{$room->room_name}}</option>
                                                                 </select>
                                                             </td>
                                                             <td style="width:15%;">
-                                                                <input type="text" class="form-control" id="total_room"
-                                                                    name="total_room" placeholder="Number of rooms"
-                                                                    value="0">
+                                                                <input type="text" class="form-control" id="number_of_room"
+                                                                    name="number_of_room" placeholder="Number of rooms">
                                                             </td>
                                                             <td style="width:15%;">
-                                                                <input type="text" class="form-control" id="total_days"
-                                                                    name="total_days" placeholder="Number of days"
-                                                                    value="0">
+                                                                <input type="text" class="form-control" id="number_of_days"
+                                                                    name="number_of_days" placeholder="Number of days">
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control" id="room_rate"
                                                                     name="room_rate" value="{{$room->room_rate}}">
-                                                                    {{$room->room_rate}}
+                                                                {{$room->room_rate}}
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control"
@@ -234,12 +234,12 @@
                                                             <td>
                                                                 <input type="hidden" class="form-control" id="gst"
                                                                     name="gst">
-                                                                
+
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control"
                                                                     id="total_room_amount" name="total_room_amount">
-                                                                
+
                                                             </td>
                                                         </tr>
                                                         @endforeach

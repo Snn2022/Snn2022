@@ -41,7 +41,7 @@ Route::get('invoice-header', function () {
 Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->name('submit-invoice-header');
 
 
-Route::get('invoice-create',[CollectionController::class,'index'])->name('room-list');
+Route::get('invoice-create',[CollectionController::class,'index'])->name('invoice-create');
 
 //rooms start
 Route::get('room-list',[RoomController::class,'index'])->name('room-list');
