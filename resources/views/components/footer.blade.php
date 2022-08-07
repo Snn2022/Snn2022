@@ -148,35 +148,63 @@ $(function() {
 <!-- invoice calculation script-->
 <script>
 $(document).ready(function() {
- 
+    fetchRooms()
+    // row data of table start
+    function fetchRooms() {
+        $.ajax({
+            type: 'GET',
+            url: 'fetch-rooms',
+            datatype: 'json',
+            success: function(response) {
+                //console.log(response.rooms);
+                var trOpen = '<tr>';
+                var roomName = '<td style="width:20%;">' +
+                    '<select id="room_name"  name="room_name" class="form-control">' +
+                    '<option>Select room</option>' +
+                    '</select>' +
+                    '</td>';
+                var noRoom = '<td style="width:15%;">' +
+                    '<input type="text" class="form-control" id="number_of_room" name="number_of_room" placeholder="Number of rooms">' +
+                    '</td>';
+                var noday = '<td style="width:15%;">' +
+                    '<input type="text" class="form-control" id="number_of_days" name="number_of_days" placeholder="Number of days">' +
+                    '</td>';
+                var roomRate = '<td>' +
+                    '<input type="hidden" class="form-control" id="room_rate" name="room_rate" value="">' +
+                    '</td>';
+                var totalRoomRate = '<td>' +
+                    '<input type="hidden" class="form-control" id="total_room_rate" name="total_room_rate" value="">' +
+                    '</td>';
+                var gst = '<td>' +
+                    '<input type="hidden" class="form-control" id="gst" name="gst" value="">' +
+                    '</td>';
+                var toralRoomAmount = '<td>' +
+                    '<input type="hidden" class="form-control" id="total_room_amount" name="total_room_amount" value="">' +
+                    '</td>';
+                var trclose = '<tr>';
+                var row = trOpen + roomName + noRoom + noday + roomRate +
+                    totalRoomRate + gst + toralRoomAmount;
 
-    $('#number_of_room').keyup(function(event) {
-      $('#total_room_amount').empty();
-      $(calculate_gst).empty();
-        var numberofroom = $('#number_of_room').val();
-        var numberofdays = $('#number_of_days').val();
-        var rate = $('#room_rate').val();
-        var price = numberofroom * numberofdays * rate;
-        var percentToGet = 12;
-        var calculate_gst = (percentToGet / 100) * price;
-        console.log(calculate_gst);
-        $('#total_room_amount').append(price);
-       
-    });
+                $('#rooms').append(row);
+                $.each(response.rooms, function(key, item) {
+                    var rowID = '<input'+ 'type="hidden"'+ 'class="form-control"'+ 'id="rowID"'+ 'name="rowID"'+ 'value'+ '='item.id'>';
+                    var option = '<option>' + item.room_name + '</option>';
+                    $('#room_name').append(rowID+option);
+                });
+                // dynamic data start
+                $('#rowID').change(function() {
+                  var sitem = $('#rowID').val();
+                  alert(sitem);
+                });
+                // dynamic data end
+            }
+        });
 
-    $('#number_of_days').keyup(function(event) {
-      $('#total_room_amount').empty();
-      $(calculate_gst).empty();
-        var numberofroom = $('#number_of_room').val();
-        var numberofdays = $('#number_of_days').val();
-        var rate = $('#room_rate').val();
-        var price = numberofroom * numberofdays * rate;
-        $('#total_room_amount').append(price);
-        var percentToGet = 12;
-        var calculate_gst = (percentToGet / 100) * price;
-        console.log(calculate_gst);
-    });
-    
+
+    }
+    // row data of table end
+
+
 });
 </script>
 </body>
