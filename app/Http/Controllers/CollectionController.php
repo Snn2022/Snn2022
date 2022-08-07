@@ -17,4 +17,23 @@ class CollectionController extends Controller
        // session()->flash('success','Invoice created successfully..!!');      
         //return redirect()->back();        
     }
+
+    public function test(Request $request ) {
+        $rooms = Room::all();
+        $bookingSource = BookingSource::all();
+        $incomeSource = IncomeSource::all();        
+        return view("templates.Invoice.test", ['rooms'=>$rooms, 'bookingSource'=>$bookingSource, 'incomeSource'=>$incomeSource]);
+       // session()->flash('success','Invoice created successfully..!!');      
+        //return redirect()->back();        
+    }
+
+    public function fetchRooms() {
+        $rooms = Room::all();
+            
+        return response()->json([
+            'rooms'=>$rooms,
+        ]);
+       // session()->flash('success','Invoice created successfully..!!');      
+        //return redirect()->back();        
+    }
 }
