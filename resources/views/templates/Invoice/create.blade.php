@@ -228,12 +228,15 @@
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control"
-                                                                    id="total_room_rate" name="total_room_rate"
-                                                                    value="12000">
+                                                                    id="total_room_rate" name="total_room_rate" value="1000"
+                                                                    >
+                                                                    <span id="total_room_amount"></span>
+                                                                   
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" class="form-control" id="gst"
                                                                     name="gst">
+                                                                    <span id="gst"></span>
 
                                                             </td>
                                                             <td>
