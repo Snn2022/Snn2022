@@ -42,7 +42,9 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <td>Company Name</td>
-                                                <td>Email</td>                                               
+                                                <td>Email</td>
+                                                <td>Phone</td>
+                                                <td>Street</td>
                                                 <td>Address</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
@@ -52,20 +54,24 @@
                                             <tr>
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$item->company_name}}</td>
-                                                <td>{{$item->company_name}}</td>
-                                                <td>{{$item->company_name}}</td>
+                                                <td>{{$item->email}}</td>
+                                                <td>{{$item->phone}}</td>
+                                                <td>{{$item->street_address}}</td>
+                                                <td>{{$item->address}}</td>
                                                 <td class="text-center">
-                                                    <button class="btn btn-success">View</button>
+                                                    <button class="btn btn-success form-control">Edit</button>
                                                 </td>
                                             </tr>
                                             @endforeach
-                                         
+
                                         </tbody>
-                                        <tfoot >
-                                        <tr>
+                                        <tfoot>
+                                            <tr>
                                                 <th>SL</th>
                                                 <td>Company Name</td>
-                                                <td>Email</td>                                               
+                                                <td>Email</td>
+                                                <td>Phone</td>
+                                                <td>Street</td>
                                                 <td>Address</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>

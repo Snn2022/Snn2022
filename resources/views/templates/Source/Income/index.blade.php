@@ -36,72 +36,30 @@
                                     <h3 class="card-title">All Income Source</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body">
+                                <div class="col-md-9 offset-md-1 card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <td>Room Type</td>
-                                                <td>Rate</td>                                               
+                                                <td>Income Source Type</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($data as $key => $item)
                                             <tr>
-                                                <td>
-                                                    01
-                                                </td>
-                                                <td>
-                                                Extra Matress
-                                                </td>
-                                                <td>1200</td>                                                
+                                                <td>{{$key+1}}</td>
+                                                <td>{{$item->income_source_name}}</td>
                                                 <td class="text-center">
-                                                    <button class="btn btn-success">Edit</button>
+                                                    <button class="btn btn-success form-control">Edit</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    01
-                                                </td>
-                                                <td>
-                                                Four Bed Non AC
-                                                </td>
-                                                <td>1200</td>                                                
-                                                <td class="text-center">
-                                                    <button class="btn btn-success">Edit</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    01
-                                                </td>
-                                                <td>
-                                                Four Bed AC
-                                                </td>
-                                                <td>1200</td>                                                
-                                                <td class="text-center">
-                                                    <button class="btn btn-success">Edit</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    01
-                                                </td>
-                                                <td>
-                                                Triple Bed Non AC
-                                                </td>
-                                                <td>1200</td>                                                
-                                                <td class="text-center">
-                                                    <button class="btn btn-success">Edit</button>
-                                                </td>
-                                            </tr>
-                                          
+                                            @endforeach
                                         </tbody>
-                                        <tfoot >
+                                        <tfoot>
                                         <tr>
                                                 <th>SL</th>
-                                                <td>Room Type</td>
-                                                <td>Rate</td>                                               
+                                                <td>Income Source Type</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </tfoot>

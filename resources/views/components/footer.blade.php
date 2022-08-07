@@ -4,7 +4,7 @@
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -52,21 +52,25 @@
 <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
 
 <script>
-    $(function () {
+$(function() {
     //Initialize Select2 Elements
     $('.select2').select2()
 
     //Initialize Select2 Elements
     $('.select2bs4').select2({
-      theme: 'bootstrap4'
+        theme: 'bootstrap4'
     })
     $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+        toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
     });
     //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    $('#datemask').inputmask('dd/mm/yyyy', {
+        'placeholder': 'dd/mm/yyyy'
+    })
     //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    $('#datemask2').inputmask('mm/dd/yyyy', {
+        'placeholder': 'mm/dd/yyyy'
+    })
     //Money Euro
     $('[data-mask]').inputmask()
 
@@ -82,40 +86,45 @@
     });
 
     //Date and time picker
-    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+    $('#reservationdatetime').datetimepicker({
+        icons: {
+            time: 'far fa-clock'
+        }
+    });
 
     //Date range picker
     $('#reservation').daterangepicker()
     //Date range picker with time picker
     $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-      }
+        timePicker: true,
+        timePickerIncrement: 30,
+        locale: {
+            format: 'MM/DD/YYYY hh:mm A'
+        }
     })
     //Date range as a button
-    $('#daterange-btn').daterangepicker(
-      {
-        ranges   : {
-          'Today'       : [moment(), moment()],
-          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
-          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    $('#daterange-btn').daterangepicker({
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                    .endOf('month')
+                ]
+            },
+            startDate: moment().subtract(29, 'days'),
+            endDate: moment()
         },
-        startDate: moment().subtract(29, 'days'),
-        endDate  : moment()
-      },
-      function (start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-      }
+        function(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+        }
     )
 
     //Timepicker
     $('#timepicker').datetimepicker({
-      format: 'LT'
+        format: 'LT'
     })
 
     //Bootstrap Duallistbox
@@ -127,14 +136,49 @@
     $('.my-colorpicker2').colorpicker()
 
     $('.my-colorpicker2').on('colorpickerChange', function(event) {
-      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
     })
 
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    $("input[data-bootstrap-switch]").each(function() {
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
     })
 
-  })
+})
+</script>
+<!-- invoice calculation script-->
+<script>
+$(document).ready(function() {
+ 
+
+    $('#number_of_room').keyup(function(event) {
+      $('#total_room_amount').empty();
+      $(calculate_gst).empty();
+        var numberofroom = $('#number_of_room').val();
+        var numberofdays = $('#number_of_days').val();
+        var rate = $('#room_rate').val();
+        var price = numberofroom * numberofdays * rate;
+        var percentToGet = 12;
+        var calculate_gst = (percentToGet / 100) * price;
+        console.log(calculate_gst);
+        $('#total_room_amount').append(price);
+       
+    });
+
+    $('#number_of_days').keyup(function(event) {
+      $('#total_room_amount').empty();
+      $(calculate_gst).empty();
+        var numberofroom = $('#number_of_room').val();
+        var numberofdays = $('#number_of_days').val();
+        var rate = $('#room_rate').val();
+        var price = numberofroom * numberofdays * rate;
+        $('#total_room_amount').append(price);
+        var percentToGet = 12;
+        var calculate_gst = (percentToGet / 100) * price;
+        console.log(calculate_gst);
+    });
+    
+});
 </script>
 </body>
+
 </html>
