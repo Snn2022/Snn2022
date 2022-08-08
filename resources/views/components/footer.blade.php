@@ -171,32 +171,132 @@ $(document).ready(function() {
                     '</td>';
                 var roomRate = '<td>' +
                     '<input type="hidden" class="form-control" id="room_rate" name="room_rate" value="">' +
+                    '<span id="view_room_rate">' + '</span>' +
                     '</td>';
                 var totalRoomRate = '<td>' +
                     '<input type="hidden" class="form-control" id="total_room_rate" name="total_room_rate" value="">' +
+                    '<span id="view_total_room_rate">' + '</span>' +
                     '</td>';
                 var gst = '<td>' +
                     '<input type="hidden" class="form-control" id="gst" name="gst" value="">' +
+                    '<span id="view_gst">' + '</span>' +
                     '</td>';
                 var toralRoomAmount = '<td>' +
                     '<input type="hidden" class="form-control" id="total_room_amount" name="total_room_amount" value="">' +
                     '</td>';
                 var trclose = '<tr>';
                 var row = trOpen + roomName + noRoom + noday + roomRate +
-                    totalRoomRate + gst + toralRoomAmount;
+                    totalRoomRate + gst + toralRoomAmount + trclose;
 
                 $('#rooms').append(row);
                 $.each(response.rooms, function(key, item) {
-                    var rowID = '<input'+ 'type="hidden"'+ 'class="form-control"'+ 'id="rowID"'+ 'name="rowID"'+ 'value'+ '='item.id'>';
                     var option = '<option>' + item.room_name + '</option>';
-                    $('#room_name').append(rowID+option);
+                    $('#room_name').append(option);
                 });
-                // dynamic data start
-                $('#rowID').change(function() {
-                  var sitem = $('#rowID').val();
-                  alert(sitem);
+                // select room change start
+                $('#room_name').change(function() {
+                    var sitem = $('#room_name').val();
+                    $.ajax({
+                        url: 'fetch-rooms-data',
+                        type: 'POST',
+                        data: 'sitem=' + sitem +
+                            '&_token={{csrf_token()}}',
+                        success: function(result) {
+                            $.each(result.fetchroomdata, function(key, item) {
+                                $('#total_room_rate').empty();
+                                $('#view_total_room_rate')
+                                    .empty();
+                                $('#room_rate').empty();
+                                $('#view_room_rate').empty();
+
+                                //form data get and assign dynamic value
+                                var room_rate = item.room_rate;
+                                $('#room_rate').val(room_rate);
+                                $('#view_room_rate').append(room_rate);
+
+                                //num of room change start
+                                $('#number_of_room ').keyup(
+                                    function() {
+                                        $('#total_room_rate')
+                                            .empty();
+                                        $('#view_total_room_rate')
+                                            .empty();
+                                        $('#gst')
+                                            .empty();
+                                        $('#view_gst')
+                                            .empty();
+
+
+                                        var number_of_room = $(
+                                                '#number_of_room')
+                                            .val();
+                                        var number_of_days = $(
+                                                '#number_of_days')
+                                            .val();
+                                        var total_room_rate =
+                                            number_of_room *
+                                            number_of_days *
+                                            room_rate;
+                                        var percentToGet = 12;
+                                        var calculate_gst = (
+                                            percentToGet / 100
+                                        ) * total_room_rate;
+                                        var calculate_gst = 
+                                        //assing into form value
+                                        $('#total_room_rate').val(
+                                            total_room_rate);
+                                        $('#view_total_room_rate')
+                                            .append(
+                                                total_room_rate);
+                                        $('#gst').val(
+                                            calculate_gst);
+                                        $('#view_gst').append(
+                                            calculate_gst);
+                                    });
+                                //num of room change end
+                                //num of days change start
+                                $('#number_of_days ').keyup(
+                                    function() {
+                                        $('#total_room_rate')
+                                            .empty();
+                                        $('#view_total_room_rate')
+                                            .empty();
+                                        $('#gst')
+                                            .empty();
+                                        $('#view_gst')
+                                            .empty();
+
+                                        var number_of_room = $(
+                                                '#number_of_room')
+                                            .val();
+                                        var number_of_days = $(
+                                                '#number_of_days')
+                                            .val();
+                                        var total_room_rate =
+                                            number_of_room *
+                                            number_of_days *
+                                            room_rate;
+                                        var percentToGet = 12;
+                                        var calculate_gst = (
+                                            percentToGet / 100
+                                        ) * total_room_rate;
+                                        //assing into form value
+                                        $('#total_room_rate').val(
+                                            total_room_rate);
+                                        $('#view_total_room_rate')
+                                            .append(
+                                                total_room_rate);
+                                        $('#gst').val(
+                                            calculate_gst);
+                                        $('#view_gst').append(
+                                            calculate_gst);
+                                    });
+                                //num of days change end
+                            });
+                        }
+                    });
                 });
-                // dynamic data end
+                // select room change end
             }
         });
 

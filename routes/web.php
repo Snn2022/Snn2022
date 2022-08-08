@@ -43,6 +43,7 @@ Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->nam
 
 Route::get('invoice-create',[CollectionController::class,'index'])->name('invoice-create');
 Route::get('fetch-rooms',[CollectionController::class,'fetchRooms']);
+Route::post('fetch-rooms-data',[CollectionController::class,'fetchRoomsData']);
 Route::get('test',[CollectionController::class,'test'])->name('test');
 
 //rooms start

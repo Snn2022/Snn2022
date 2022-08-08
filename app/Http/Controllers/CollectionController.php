@@ -32,8 +32,13 @@ class CollectionController extends Controller
             
         return response()->json([
             'rooms'=>$rooms,
+        ]);              
+    }
+
+    public function fetchRoomsData(Request $request) {         
+        $fetchroomdata =  Room::where('room_name', $request->sitem)->get();
+        return response()->json([
+            'fetchroomdata'=>$fetchroomdata,
         ]);
-       // session()->flash('success','Invoice created successfully..!!');      
-        //return redirect()->back();        
     }
 }
