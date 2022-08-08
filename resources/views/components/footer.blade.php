@@ -183,6 +183,7 @@ $(document).ready(function() {
                     '</td>';
                 var toralRoomAmount = '<td>' +
                     '<input type="hidden" class="form-control" id="total_room_amount" name="total_room_amount" value="">' +
+                    '<span id="view_total_room_amount">' + '</span>' +
                     '</td>';
                 var trclose = '<tr>';
                 var row = trOpen + roomName + noRoom + noday + roomRate +
@@ -225,6 +226,10 @@ $(document).ready(function() {
                                             .empty();
                                         $('#view_gst')
                                             .empty();
+                                        $('#total_room_amount')
+                                            .empty();
+                                        $('#view_total_room_amount')
+                                            .empty();
 
 
                                         var number_of_room = $(
@@ -241,7 +246,9 @@ $(document).ready(function() {
                                         var calculate_gst = (
                                             percentToGet / 100
                                         ) * total_room_rate;
-
+                                        var total_room_amount =
+                                            total_room_rate +
+                                            calculate_gst;
                                         //assing into form value
                                         $('#total_room_rate').val(
                                             total_room_rate);
@@ -252,6 +259,11 @@ $(document).ready(function() {
                                             calculate_gst);
                                         $('#view_gst').append(
                                             calculate_gst);
+                                        $('#total_room_amount').val(
+                                            total_room_amount);
+                                        $('#view_total_room_amount')
+                                            .append(
+                                                total_room_amount);
                                     });
                                 //num of room change end
                                 //num of days change start
@@ -265,6 +277,11 @@ $(document).ready(function() {
                                             .empty();
                                         $('#view_gst')
                                             .empty();
+                                        $('#total_room_amount')
+                                            .empty();
+                                        $('#view_total_room_amount')
+                                            .empty();
+
 
                                         var number_of_room = $(
                                                 '#number_of_room')
@@ -280,7 +297,9 @@ $(document).ready(function() {
                                         var calculate_gst = (
                                             percentToGet / 100
                                         ) * total_room_rate;
-
+                                        var total_room_amount =
+                                            total_room_rate +
+                                            calculate_gst;
                                         //assing into form value
                                         $('#total_room_rate').val(
                                             total_room_rate);
@@ -291,6 +310,11 @@ $(document).ready(function() {
                                             calculate_gst);
                                         $('#view_gst').append(
                                             calculate_gst);
+                                        $('#total_room_amount').val(
+                                            total_room_amount);
+                                        $('#view_total_room_amount')
+                                            .append(
+                                                total_room_amount);
                                     });
                                 //num of days change end
                             });
