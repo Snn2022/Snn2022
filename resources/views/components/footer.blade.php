@@ -241,7 +241,7 @@ $(document).ready(function() {
                                         var calculate_gst = (
                                             percentToGet / 100
                                         ) * total_room_rate;
-                                        var calculate_gst = 
+
                                         //assing into form value
                                         $('#total_room_rate').val(
                                             total_room_rate);
@@ -280,6 +280,7 @@ $(document).ready(function() {
                                         var calculate_gst = (
                                             percentToGet / 100
                                         ) * total_room_rate;
+
                                         //assing into form value
                                         $('#total_room_rate').val(
                                             total_room_rate);
