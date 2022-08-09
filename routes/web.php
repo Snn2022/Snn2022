@@ -42,6 +42,8 @@ Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->nam
 
 
 Route::get('invoice-create',[CollectionController::class,'index'])->name('invoice-create');
+Route::get('new-invoice',[InvoiceController::class,'create'])->name('new-invoice');
+
 Route::get('test',[CollectionController::class,'test'])->name('test');
 
 //rooms start

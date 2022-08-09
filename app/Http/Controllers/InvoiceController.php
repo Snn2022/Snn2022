@@ -14,6 +14,10 @@ class InvoiceController extends Controller
         //return redirect()->back();        
     }
 
+    public function create(Request $request) {
+        return view("templates.CreateInvoice.index");
+    }
+
     //set invoice header
     public function setHeader(Request $request ) {
         $data = $request->all();
