@@ -28,49 +28,8 @@
                                                         <th>GST</th>
                                                         <th>Total</th>
                                                     </tr>
-                                                    <tbody>
+                                                    <tbody id="rooms">
                                                        
-                                                        <tr>
-                                                            <td style="width:20%;">
-                                                                <select name="room_name" class="form-control">
-                                                                    <option value="{{'ac room'}}">
-                                                                        {{'ac room'}}</option>
-                                                                </select>
-                                                            </td>
-                                                            <td style="width:15%;">
-                                                                <input type="text" class="form-control"
-                                                                    id="number_of_room" name="number_of_room"
-                                                                    placeholder="Number of rooms">
-                                                            </td>
-                                                            <td style="width:15%;">
-                                                                <input type="text" class="form-control"
-                                                                    id="number_of_days" name="number_of_days"
-                                                                    placeholder="Number of days">
-                                                            </td>
-                                                            <td>
-                                                                <input type="hidden" class="form-control" id="room_rate"
-                                                                    name="room_rate" value="{{'ac room'}}">
-                                                                {{'ac room'}}
-                                                            </td>
-                                                            <td>
-                                                                <input type="hidden" class="form-control"
-                                                                    id="total_room_rate" name="total_room_rate"
-                                                                    value="1000">
-                                                                <span id="total_room_amount"></span>
-
-                                                            </td>
-                                                            <td>
-                                                                <input type="hidden" class="form-control" id="gst"
-                                                                    name="gst">
-                                                                <span id="gst"></span>
-
-                                                            </td>
-                                                            <td>
-                                                                <input type="hidden" class="form-control"
-                                                                    id="total_room_amount" name="total_room_amount">
-
-                                                            </td>
-                                                        </tr>
                                                        
                                                     </tbody>
                                                 </table>
