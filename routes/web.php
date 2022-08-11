@@ -41,8 +41,12 @@ Route::get('invoice-header', function () {
 Route::post('submit-invoice-header',[InvoiceController::class,'setHeader'])->name('submit-invoice-header');
 
 
-Route::get('invoice-create',[CollectionController::class,'index'])->name('invoice-create');
+//Route::get('invoice-create',[CollectionController::class,'index'])->name('invoice-create');
 Route::get('new-invoice',[InvoiceController::class,'create'])->name('new-invoice');
+Route::post('new-invoice',[InvoiceController::class,'invoiceCreate'])->name('invoice-create');
+Route::get('invoice-step2',[InvoiceController::class,'invoiceStep2'])->name('invoice-step2');
+
+Route::get('fetch-rooms',[CollectionController::class,'fetchRooms']);
 
 Route::get('test',[CollectionController::class,'test'])->name('test');
 
@@ -67,7 +71,7 @@ Route::get('create-income', function () {
 })->name('create-income');
 Route::post('submit-income-source',[SourceController::class,'createIncomeSource'])->name('submit-income-source');
 
-Route::post('invoice-submit',[InvoiceController::class,'index'])->name('invoice-submit');
+
 
 Route::middleware([
     'auth:sanctum',

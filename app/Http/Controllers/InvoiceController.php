@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\InvoiceHeader;
+use App\Models\Invoice;
+
 
 class InvoiceController extends Controller
 {
@@ -16,6 +18,21 @@ class InvoiceController extends Controller
 
     public function create(Request $request) {
         return view("templates.CreateInvoice.index");
+    }
+
+    public function invoiceCreate(Request $request) {
+        $data = $request->all();
+        Invoice::create($data);
+       
+        session()->flash('success','Customer Information submitted successfully..!!');
+        return redirect()->route('invoice-step2'); 
+    }
+
+    public function invoiceStep2(Request $request) {       
+        $data = Invoice::all();
+        
+        $noOfDays = 14;
+        return view("templates.CreateInvoice.step2",['data'=>$data,'noOfDays'=>$noOfDays]); 
     }
 
     //set invoice header
