@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\InvoiceHeader;
 use App\Models\Invoice;
-
+use PDF;
 
 class InvoiceController extends Controller
 {
     public function index(Request $request ) {
         $data = InvoiceHeader::all();        
-        return view("templates.Invoice.index", ['data'=>$data]);
+        return view("templates.Invoice.list", ['data'=>$data]);
        // session()->flash('success','Invoice created successfully..!!');      
         //return redirect()->back();        
     }
+public function pdf() {
+    $pdf = PDF::loadView("templates.PDF.invoice");    	
+    	$pdf->setPaper('A4');    
+    return $pdf->download("name.pdf");
+}
+
 
     public function create(Request $request) {
         return view("templates.CreateInvoice.index");

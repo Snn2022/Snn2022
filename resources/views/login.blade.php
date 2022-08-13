@@ -2,13 +2,17 @@
 
 <body class="hold-transition login-page">
     <div class="login-box">
-        <div class="login-logo">
-            <strong> Hotel Somnath Atithigruh </strong>
+        <div class="login-logo">           
+            <strong> The Watch Choice </strong>         
         </div>
+       
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+            <div class="login-logo">
+            <img class="col-md-4 img-fluid img-thumbnail" src="{{asset('images/twc_logo.png')}}" alt="">  
+                    
+        </div>
                 <div class="text-cener text-danger">
                     <x-jet-validation-errors />
                 </div>

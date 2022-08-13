@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Hotel Somnath Atithigruh</title>
+    <title> The Watch Choice</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="icon" type="image/x-icon" href="{{asset('images/twc_logo.png')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -48,12 +49,16 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
     <style>
-    #example2 tr th {
+    #example1 thead th {
         text-align: center;
+        font-size:16px;
+        text-transform:uppercase;
     }
+
     #example2 tr td {
         text-align: right;
     }
+
     #example2 tr td input {
         text-align: right;
     }

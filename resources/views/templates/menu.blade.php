@@ -1,8 +1,8 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
-         <span class="brand-text font-weight-light">Hotel Somnath Atithigruh</span>
+     <a href="index3.html" class="brand-link text-center">
+         <span class="brand-text font-weight-light">The Watch Choice</span>
      </a>
 
      <!-- Sidebar -->
@@ -11,7 +11,7 @@
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
              <div class="image">
-                 <img class="img-circle elevation-2" src="{{ Auth::user()->profile_photo_url }}"
+                 <img class="img-circle" src="{{asset('images/twc_logo.png')}}"
                      alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
@@ -26,7 +26,7 @@
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                  <li class="nav-item">
-                     <a href="./index.html" class="nav-link active">
+                     <a href="{{route('dashboard')}}" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>Dashboard</p>
                      </a>
@@ -51,7 +51,7 @@
                          <li class="nav-item">
                              <a href="{{route('invoices-list')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>Invoice Header List</p>
+                                 <p>Invoice List</p>
                              </a>
                          </li>
                          <li class="nav-item">

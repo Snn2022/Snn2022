@@ -35,6 +35,8 @@ Route::post('dashboard', function () {
 
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');
+Route::get('pdf',[InvoiceController::class,'pdf'])->name('pdf');
+
 Route::get('invoice-header', function () {
     return view('templates.Invoice.set-header');
 })->name('invoices-set-header');
