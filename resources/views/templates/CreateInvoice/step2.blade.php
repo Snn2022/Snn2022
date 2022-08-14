@@ -106,7 +106,7 @@
                                                         <td>
                                                             <input type="hidden" id="no_of_days" name="no_of_days"
                                                                 value="{{$date->check_out_date}}">
-                                                            <span>{{$noOfDays}}</span>
+                                                            <span>{{now()->diffInDays($date->check_out_date) }}</span>
                                                         </td>
                                                         <td colspan="2">
                                                             <input type="hidden" id="income_total" name="income_total">

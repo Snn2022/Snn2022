@@ -36,8 +36,14 @@
                                                     <tr>
                                                         <td>Invoice No :</td>
                                                         <td>
+                                                            @if(is_null($data))
                                                             <input type="text" class="form-control" id="invoice_no"
-                                                                name="invoice_no" value="312201">
+                                                                name="invoice_no" value="{{date('Ymd')}}">
+                                                            @else
+                                                            <input type="text" class="form-control" id="invoice_no"
+                                                                name="invoice_no" value="{{$data->invoice_no+1}}">
+                                                           @endif
+
                                                         </td>
                                                         <td colspan="2">
                                                             <div class="input-group date" id="reservationdate"
@@ -96,11 +102,13 @@
                                                     <tr>
                                                         <td>Days</td>
                                                         <td>
-                                                            <input type="hidden" id="no_of_days" name="no_of_days" value="">
+                                                            <input type="hidden" id="no_of_days" name="no_of_days"
+                                                                value="">
                                                             4
                                                         </td>
                                                         <td colspan="2">
-                                                            <input type="hidden" id="income_total" name="income_total" value="">
+                                                            <input type="hidden" id="income_total" name="income_total"
+                                                                value="">
                                                             Total of rooms
                                                         </td>
                                                     </tr>

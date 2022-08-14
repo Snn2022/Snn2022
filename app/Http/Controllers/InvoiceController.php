@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\InvoiceHeader;
 use App\Models\Invoice;
+use Illuminate\Support\Carbon;
 
 
 class InvoiceController extends Controller
@@ -17,7 +18,9 @@ class InvoiceController extends Controller
     }
 
     public function create(Request $request) {
-        return view("templates.CreateInvoice.index");
+        $data = Invoice::get('invoice_no')->max(); 
+        
+        return view("templates.CreateInvoice.index",['data'=>$data]);        
     }
 
     public function invoiceCreate(Request $request) {
@@ -29,10 +32,8 @@ class InvoiceController extends Controller
     }
 
     public function invoiceStep2(Request $request) {       
-        $data = Invoice::all();
-        
-        $noOfDays = 14;
-        return view("templates.CreateInvoice.step2",['data'=>$data,'noOfDays'=>$noOfDays]); 
+        $data = Invoice::all(); 
+        return view("templates.CreateInvoice.step2",['data'=>$data]); 
     }
 
     //set invoice header
