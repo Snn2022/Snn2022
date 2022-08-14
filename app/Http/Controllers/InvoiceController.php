@@ -32,8 +32,9 @@ class InvoiceController extends Controller
     }
 
     public function invoiceStep2(Request $request) {       
-        $data = Invoice::all(); 
-        return view("templates.CreateInvoice.step2",['data'=>$data]); 
+        $data = Invoice::where('invoice_no', $request->invoice_no)->get();
+        return $data;
+        //return view("templates.CreateInvoice.step2",['data'=>$data]); 
     }
 
     //set invoice header
