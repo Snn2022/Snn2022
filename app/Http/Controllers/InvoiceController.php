@@ -15,6 +15,14 @@ class InvoiceController extends Controller
        // session()->flash('success','Invoice created successfully..!!');      
         //return redirect()->back();        
     }
+
+    public function view(Request $request ) {
+        $data = InvoiceHeader::all();        
+        return view("templates.Invoice.view", ['data'=>$data]);
+       // session()->flash('success','Invoice created successfully..!!');      
+        //return redirect()->back();        
+    }
+
 public function pdf() {
     $pdf = PDF::loadView("templates.PDF.invoice");    	
     	$pdf->setPaper('A4');    

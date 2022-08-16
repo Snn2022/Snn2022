@@ -62,5 +62,19 @@
     #example2 tr td input {
         text-align: right;
     }
+    .table-bordered.main-table thead th {
+        font-size: 15px;
+        border: 1px solid #bd8d2f;
+        text-align: center;
+        color: #bd8d2f;
+        text-transform: uppercase;
+    }
+
+    .table-bordered.main-table td {
+        background-color: #fde9d1;
+        border: 0.5px solid #bd8d2f;
+        padding: 5px;
+        font-size: 13px;
+    }
     </style>
 </head>

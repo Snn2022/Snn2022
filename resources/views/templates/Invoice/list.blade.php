@@ -62,7 +62,16 @@
                                                     13/08/2022
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger form-control" href="{{route('pdf')}}">PDF</a>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-success form-control"
+                                                                href="{{route('invoices-view')}}">View</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-danger form-control"
+                                                                href="{{route('pdf')}}">PDF</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -79,7 +88,16 @@
                                                     13/08/2022
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger form-control" href="{{route('pdf')}}">PDF</a>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-success form-control"
+                                                                href="{{route('invoices-view')}}">View</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-danger form-control"
+                                                                href="{{route('pdf')}}">PDF</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -96,12 +114,21 @@
                                                     13/08/2022
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger form-control" href="{{route('pdf')}}">PDF</a>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-success form-control"
+                                                                href="{{route('invoices-view')}}">View</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <a class="btn btn-danger form-control"
+                                                                href="{{route('pdf')}}">PDF</a>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
                                         <tfoot class="bg-info text-white text-center text-uppercase">
-                                        <tr>
+                                            <tr>
                                                 <th>SL</th>
                                                 <th>Item Name</th>
                                                 <th>PAYMENT TERMS</th>
