@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CollectionController;
 /*
@@ -18,7 +18,7 @@ use App\Http\Controllers\CollectionController;
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('main');
 })->name('main');
 
 Route::get('login', function () {
@@ -32,6 +32,8 @@ Route::get('register', function () {
 Route::post('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('user-list',[UserController::class,'index'])->name('user-list');
 
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');

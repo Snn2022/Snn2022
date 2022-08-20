@@ -3,7 +3,7 @@
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <strong> Hotel Somnath Atithigruh </strong>
+        <h4 class="text-bold text-info"> Re-Union Member Registration </h4>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -16,7 +16,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <input class="form-control" type="text" id="name" name="name" :value="old('name')" required
-                            autofocus autocomplete="name" placeholder="Full name">
+                            autofocus autocomplete="name" placeholder="Enter full name">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -25,10 +25,19 @@
                     </div>
                     <div class="input-group mb-3">
                         <input class="form-control" type="email" id="email" name="email" :value="old('email')" required
-                            autofocus autocomplete="email" placeholder="Email">
+                            autofocus autocomplete="email" placeholder="Enter email address">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="number" id="phone" name="phone" :value="old('phone')" required
+                            autofocus autocomplete="phone" placeholder="Enter phone number">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-phone"></span>
                             </div>
                         </div>
                     </div>
@@ -64,7 +73,7 @@
                     </div>
                 </form>
 
-                <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+                <a href="{{route('main')}}" class="text-center">I already have a membership</a>
             </div>
         </div>
         <!-- /.login-box -->

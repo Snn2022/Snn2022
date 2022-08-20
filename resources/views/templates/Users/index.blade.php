@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Room List</h1>
+                            <h1 class="m-0">Users List</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Room List</li>
+                                <li class="breadcrumb-item active">Users List</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -33,16 +33,17 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">All Room List</h3>
+                                    <h3 class="card-title">All Users List</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="col-md-9 offset-md-1 card-body">
+                                <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <td>Room Type</td>
-                                                <td>Rate</td>
+                                                <td>Name</td>
+                                                <td>Email</td>
+                                                <td>Phone</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
@@ -50,10 +51,11 @@
                                             @foreach ($data as $key => $item)
                                             <tr>
                                                 <td>{{$key+1}}</td>
-                                                <td>{{$item->room_name}}</td>
-                                                <td>{{$item->room_rate}}</td>
+                                                <td>{{$item->name}}</td>
+                                                <td>{{$item->email}}</td>
+                                                <td>{{$item->phone}}</td>
                                                 <td class="text-center">
-                                                    <button class="btn btn-success form-control">Edit</button>
+                                                    <button class="btn btn-success form-control">View</button>
                                                 </td>
                                             </tr>
                                             @endforeach

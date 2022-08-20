@@ -58,11 +58,11 @@
                     @endif
 
                 </p>
-                <!-- 
+                
                 <p class="mb-0">
                 <a href="register.html" class="text-center">Register a new membership</a>
                 </p>
-                -->
+               
             </div>
             <!-- /.login-card-body -->
         </div>
