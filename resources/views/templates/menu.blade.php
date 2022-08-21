@@ -11,10 +11,10 @@
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
              <div class="image">
-                 <img class="img-circle" src="{{asset('images/twc_logo.png')}}" alt="{{ Auth::user()->name }}">
+                 <img class="img-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
-                 <a href="{{route('profile.show')}}" class="d-block"> {{ Auth::user()->name }}</a>
+                 <a href="{{route('user-profile')}}" class="d-block"> {{ Auth::user()->name }}</a>
              </div>
              @endif
          </div>
@@ -28,11 +28,11 @@
                      <a href="{{route('dashboard')}}" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>Dashboard</p>
-                         
+
                      </a>
                  </li>
-@if(Auth::user()->id == 1)
-<li class="nav-item">
+                 @if(Auth::user()->id == 1)
+                 <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="fas fa-user"></i>
                          <p>
@@ -50,8 +50,8 @@
                          </li>
                      </ul>
                  </li>
-@else
-<li class="nav-item">
+                 @else
+                 <li class="nav-item">
                      <a href="{{route('profile.show')}}" class="nav-link">
                          <i class="fas fa-user"></i>
                          <p>
@@ -59,10 +59,10 @@
                              <i class="fas fa-angle-left right"></i>
                              <span class="badge badge-info right">6</span>
                          </p>
-                     </a>                  
-                 </li>               
-@endif
-                
+                     </a>
+                 </li>
+                 @endif
+
 
                  <li class="nav-item mt-4">
                      <form method="POST" action="{{ route('logout') }}">

@@ -13,7 +13,7 @@
                              <i style="font-size:50px;" class="fas fa-cogs"></i>
                          </div>
                          </div>                        
-                         <a href="{{route('profile1')}}" class="btn btn-warning small-box-footer"><h5 class="text-default text-bold">Go to profile</h5></a>
+                         <a href="{{route('profile.show')}}" class="btn btn-warning small-box-footer"><h5 class="text-default text-bold">Profile Setting &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>
                  <!-- ./col -->
@@ -21,14 +21,14 @@
                      <!-- small box -->
                      <div class="small-box bg-danger">
                          <div class="inner p-4">
-                         <h2>Payment</h2>
+                         <h2>My Profile</h2>
                          <div class="icon">
                              <i class="ion ion-pie-graph"></i>
                          </div>
                            
                          </div>
                         
-                         <a href="{{route('profile.show')}}" class="btn btn-danger small-box-footer"><h5 class="text-default text-bold">Payment List</h5></a>
+                         <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer"><h5 class="text-default text-bold">Visit profile &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>
                  <div class="col-lg-3 col-6">

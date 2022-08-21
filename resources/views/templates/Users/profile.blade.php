@@ -22,37 +22,52 @@
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-            
+
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
 
                             <!-- Profile Image -->
                             <div class="card card-primary card-outline">
-                                <div class="card-body box-profile">
-                                    <div class="text-center">
+                                <div class="card-body">
+                                    <div class="image text-center">
+                                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                         <img class="profile-user-img img-fluid img-circle"
-                                            src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                                            src="{{ Auth::user()->profile_photo_url }}"
+                                            alt="{{ Auth::user()->name }}" />
+                                        @else
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ Auth::user()->name }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                        @endif
                                     </div>
 
-                                    <h3 class="profile-username text-center">Nina Mcintire</h3>
+                                    <h3 class="profile-username text-center"> {{ Auth::user()->name }}</h3>
 
                                     <p class="text-muted text-center">Software Engineer</p>
 
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
-                                            <b>Followers</b> <a class="float-right">1,322</a>
+                                            <b>SSC-Batch</b> <a class="float-right">1,322</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Following</b> <a class="float-right">543</a>
+                                            <b>Mobile</b> <a class="float-right">543</a>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Friends</b> <a class="float-right">13,287</a>
+                                            <b>Email</b> <a class="float-right">13,287</a>
                                         </li>
-                                    </ul>
-
-                                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                                    </ul>                                    
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -101,72 +116,76 @@
                             <!-- /.card -->
                         </div>
                         <!-- /.col -->
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <div class="card">
-                                <div class="card-header bg-info p-2">
-                                   <h4>Submit your profile information</h4>
+                                <div class="card-header bg-primary p-2 text-center">
+                                    <h4>Submit your profile information</h4>
                                 </div><!-- /.card-header -->
                                 <div class="card-body">
-                                <form method="POST" action="{{ route('register') }}">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="text" id="name" name="name" :value="old('name')" required
-                            autofocus autocomplete="name" placeholder="Enter full name">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="email" id="email" name="email" :value="old('email')" required
-                            autofocus autocomplete="email" placeholder="Enter email address">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="number" id="phone" name="phone" :value="old('phone')" required
-                            autofocus autocomplete="phone" placeholder="Enter phone number">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-phone"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input class="form-control" type="password" id="password" name="password" required
-                            placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        @error('password_confirmation')
-                        <span class="invalid-feedack text-danger" role="alert">
-                            <strong>{{$message}}</strong>
-                        </span>
-                        @enderror
-                        <input type="password" class="form-control" id="password_confirmation" type="password"
-                            name="password_confirmation" required placeholder="Retype password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
+                                        <div class="input-group mb-3">
+                                        <label for="ssc_batch" class="col-sm-3 col-form-label">SSC-Batch</label>
+                                            <input class="form-control" type="text" id="ssc_batch" name="ssc_batch"
+                                                :value="old('ssc_batch')" required autofocus autocomplete="ssc_batch"
+                                                placeholder="Example: 2006 - 2008">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="last_degree" class="col-sm-3 col-form-label">Your last degree</label>
+                                            <input class="form-control" type="text" id="last_degree" name="last_degree"
+                                                :value="old('last_degree')" required autofocus autocomplete="last_degree"
+                                                placeholder="Mention your last degree">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="occupation" class="col-sm-3 col-form-label">Your occupation</label>
+                                            <input class="form-control" type="text" id="occupation" name="occupation"
+                                                :value="old('occupation')" required autofocus autocomplete="occupation"
+                                                placeholder="Your occupation">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="designation" class="col-sm-3 col-form-label">Your designation</label>
+                                            <input class="form-control" type="text" id="designation" name="designation"
+                                                :value="old('designation')" required autofocus autocomplete="designation"
+                                                placeholder="Your designation">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="organization" class="col-sm-3 col-form-label">Your organization</label>
+                                            <input class="form-control" type="text" id="organization" name="organization"
+                                                :value="old('organization')" required autofocus autocomplete="designation"
+                                                placeholder="Your organization">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="present_address" class="col-sm-3 col-form-label">Your present address</label>
+                                            <input class="form-control" type="text" id="present_address" name="present_address"
+                                                :value="old('present_address')" required autofocus autocomplete="present_address"
+                                                placeholder="Your present address">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="participant_qty" class="col-sm-3 col-form-label">Participant quantity</label>
+                                            <input class="form-control" type="text" id="participant_qty" name="participant_qty"
+                                                :value="old('participant_qty')" required autofocus autocomplete="participant_qty"
+                                                placeholder="Enter participant quantity">                                          
+                                        </div>
+                                        <div class="input-group mb-3">
+                                        <label for="participant_qty" class="col-sm-3 col-form-label">T-shirt Size</label>
+                                            <select class="col-sm-6 " name="tShirt_size" id="tShirt_size">
+                                                <option value="">S</option>
+                                                <option value="">M</option>
+                                                <option value="">L</option>
+                                                <option value="">XL</option>
+                                            </select>                                         
+                                        </div>
+                                       
+                                       
+                                        <div class="row">
 
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
+                                            <div class="col-4">
+                                                <button type="submit"
+                                                    class="btn btn-primary btn-block">Submit</button>
+                                            </div>
+                                            <!-- /.col -->
+                                        </div>
+                                    </form>
                                 </div><!-- /.card-body -->
                             </div>
                             <!-- /.card -->
