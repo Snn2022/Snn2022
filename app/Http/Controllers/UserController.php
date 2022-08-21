@@ -11,4 +11,8 @@ class UserController extends Controller
         $data = User::where('id', '!=', 1)->get();
         return view("templates.Users.index", ['data'=>$data]);
     }
+    public function getProfile(Request $requests) {
+        $data = User::where('id', '!=', 1)->get();
+        return view("templates.Users.profile", ['data'=>$data]);
+    }
 }

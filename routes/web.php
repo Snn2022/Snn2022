@@ -34,6 +34,7 @@ Route::post('dashboard', function () {
 })->name('dashboard');
 
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
+Route::get('user/profile1',[UserController::class,'getProfile'])->name('profile1');
 
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');
