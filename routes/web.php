@@ -5,6 +5,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +35,10 @@ Route::post('dashboard', function () {
 })->name('dashboard');
 
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
-Route::get('user-profile',[UserController::class,'getProfile'])->name('user-profile');
+
+//profile
+Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
+Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
 
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');
