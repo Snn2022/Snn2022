@@ -67,7 +67,7 @@
                                         <li class="list-group-item">
                                             <b>Email</b> <a class="float-right">13,287</a>
                                         </li>
-                                    </ul>                                    
+                                    </ul>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -117,78 +117,174 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-md-8">
+                            @if(empty($profiles->user_id))
                             <div class="card">
                                 <div class="card-header bg-primary p-2 text-center">
                                     <h4>Submit your profile information</h4>
                                 </div><!-- /.card-header -->
+                                @if(session()->has('success'))
+                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
+                                    {{session('success')}}</h5>
+                                @endif
                                 <div class="card-body">
-                                    <form method="POST" action="{{ route('register') }}">
+                                    <form method="POST" action="{{ route('profile-info-submit') }}">
                                         @csrf
+                                        <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
                                         <div class="input-group mb-3">
-                                        <label for="ssc_batch" class="col-sm-3 col-form-label">SSC-Batch</label>
+                                            <label for="ssc_batch" class="col-sm-3 col-form-label">SSC-Batch</label>
                                             <input class="form-control" type="text" id="ssc_batch" name="ssc_batch"
                                                 :value="old('ssc_batch')" required autofocus autocomplete="ssc_batch"
-                                                placeholder="Example: 2006 - 2008">                                          
+                                                placeholder="Example: 2006 - 2008">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="last_degree" class="col-sm-3 col-form-label">Your last degree</label>
+                                            <label for="last_degree" class="col-sm-3 col-form-label">Your last
+                                                degree</label>
                                             <input class="form-control" type="text" id="last_degree" name="last_degree"
-                                                :value="old('last_degree')" required autofocus autocomplete="last_degree"
-                                                placeholder="Mention your last degree">                                          
+                                                :value="old('last_degree')" required autofocus
+                                                autocomplete="last_degree" placeholder="Mention your last degree">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="occupation" class="col-sm-3 col-form-label">Your occupation</label>
+                                            <label for="occupation" class="col-sm-3 col-form-label">Your
+                                                occupation</label>
                                             <input class="form-control" type="text" id="occupation" name="occupation"
                                                 :value="old('occupation')" required autofocus autocomplete="occupation"
-                                                placeholder="Your occupation">                                          
+                                                placeholder="Your occupation">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="designation" class="col-sm-3 col-form-label">Your designation</label>
+                                            <label for="designation" class="col-sm-3 col-form-label">Your
+                                                designation</label>
                                             <input class="form-control" type="text" id="designation" name="designation"
-                                                :value="old('designation')" required autofocus autocomplete="designation"
-                                                placeholder="Your designation">                                          
+                                                :value="old('designation')" required autofocus
+                                                autocomplete="designation" placeholder="Your designation">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="organization" class="col-sm-3 col-form-label">Your organization</label>
-                                            <input class="form-control" type="text" id="organization" name="organization"
-                                                :value="old('organization')" required autofocus autocomplete="designation"
-                                                placeholder="Your organization">                                          
+                                            <label for="organization" class="col-sm-3 col-form-label">Your
+                                                organization</label>
+                                            <input class="form-control" type="text" id="organization"
+                                                name="organization" :value="old('organization')" required autofocus
+                                                autocomplete="organization" placeholder="Your organization">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="present_address" class="col-sm-3 col-form-label">Your present address</label>
-                                            <input class="form-control" type="text" id="present_address" name="present_address"
-                                                :value="old('present_address')" required autofocus autocomplete="present_address"
-                                                placeholder="Your present address">                                          
+                                            <label for="present_address" class="col-sm-3 col-form-label">Your present
+                                                address</label>
+                                            <input class="form-control" type="text" id="present_address"
+                                                name="present_address" :value="old('present_address')" required
+                                                autofocus autocomplete="present_address"
+                                                placeholder="Your present address">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="participant_qty" class="col-sm-3 col-form-label">Participant quantity</label>
-                                            <input class="form-control" type="text" id="participant_qty" name="participant_qty"
-                                                :value="old('participant_qty')" required autofocus autocomplete="participant_qty"
-                                                placeholder="Enter participant quantity">                                          
+                                            <label for="participant_qty" class="col-sm-3 col-form-label">Participant
+                                                quantity</label>
+                                            <input class="form-control" type="text" id="participant_qty"
+                                                name="participant_qty" :value="old('participant_qty')" required
+                                                autofocus autocomplete="participant_qty"
+                                                placeholder="Enter participant quantity">
                                         </div>
                                         <div class="input-group mb-3">
-                                        <label for="participant_qty" class="col-sm-3 col-form-label">T-shirt Size</label>
+                                            <label for="participant_qty" class="col-sm-3 col-form-label">T-shirt
+                                                Size</label>
                                             <select class="col-sm-6 " name="tShirt_size" id="tShirt_size">
-                                                <option value="">S</option>
-                                                <option value="">M</option>
-                                                <option value="">L</option>
-                                                <option value="">XL</option>
-                                            </select>                                         
+                                                <option value="">Select T-Shirt Size</option>
+                                                <option value="Short">Short</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Large">Large</option>
+                                                <option value="Extra Large">Extra Large</option>
+                                            </select>
                                         </div>
-                                       
-                                       
+
+
                                         <div class="row">
 
                                             <div class="col-4">
-                                                <button type="submit"
-                                                    class="btn btn-primary btn-block">Submit</button>
+                                                <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                             </div>
                                             <!-- /.col -->
                                         </div>
                                     </form>
                                 </div><!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
+                            @else
+                            <div class="card">
+                                <div class="card-header bg-primary p-2 text-center">
+                                    <h4>Profile information</h4>
+                                </div><!-- /.card-header -->
+                                @if(session()->has('success'))
+                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
+                                    {{session('success')}}</h5>
+                                @endif
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            SSC-Batch
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->ssc_batch}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            Last Degree
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->last_degree}}
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            Occupation
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->occupation}}
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            Designation
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->designation}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            Organization
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->organization}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                           Present Address
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->present_address}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            Participant Quantity
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->participant_qty}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            T-shirt size
+                                        </div>
+                                        <div class="col-md-8">
+                                            {{$profiles->tShirt_size}}
+                                        </div>
+                                    </div>
+                               
+                              
+                                </div><!-- /.card-body -->
+                            </div>
+                            @endif
+
                         </div>
                         <!-- /.col -->
                     </div>

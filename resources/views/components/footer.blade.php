@@ -148,61 +148,11 @@ $(function() {
 <!-- invoice calculation script-->
 <script>
 $(document).ready(function() {
-    fetchRooms()
-    // row data of table start
-    function fetchRooms() {
-        $.ajax({
-            type: 'GET',
-            url: 'fetch-rooms',
-            datatype: 'json',
-            success: function(response) {
-                //console.log(response.rooms);
-                var trOpen = '<tr>';
-                var roomName = '<td style="width:20%;">' +
-                    '<select id="room_name"  name="room_name" class="form-control">' +
-                    '<option>Select room</option>' +
-                    '</select>' +
-                    '</td>';
-                var noRoom = '<td style="width:15%;">' +
-                    '<input type="text" class="form-control" id="number_of_room" name="number_of_room" placeholder="Number of rooms">' +
-                    '</td>';
-                var noday = '<td style="width:15%;">' +
-                    '<input type="text" class="form-control" id="number_of_days" name="number_of_days" placeholder="Number of days">' +
-                    '</td>';
-                var roomRate = '<td>' +
-                    '<input type="hidden" class="form-control" id="room_rate" name="room_rate" value="">' +
-                    '</td>';
-                var totalRoomRate = '<td>' +
-                    '<input type="hidden" class="form-control" id="total_room_rate" name="total_room_rate" value="">' +
-                    '</td>';
-                var gst = '<td>' +
-                    '<input type="hidden" class="form-control" id="gst" name="gst" value="">' +
-                    '</td>';
-                var toralRoomAmount = '<td>' +
-                    '<input type="hidden" class="form-control" id="total_room_amount" name="total_room_amount" value="">' +
-                    '</td>';
-                var trclose = '<tr>';
-                var row = trOpen + roomName + noRoom + noday + roomRate +
-                    totalRoomRate + gst + toralRoomAmount;
-
-                $('#rooms').append(row);
-                $.each(response.rooms, function(key, item) {
-                    var rowID = '<input'+ 'type="hidden"'+ 'class="form-control"'+ 'id="rowID"'+ 'name="rowID"'+ 'value'+ '='item.id'>';
-                    var option = '<option>' + item.room_name + '</option>';
-                    $('#room_name').append(rowID+option);
-                });
-                // dynamic data start
-                $('#rowID').change(function() {
-                  var sitem = $('#rowID').val();
-                  alert(sitem);
-                });
-                // dynamic data end
-            }
-        });
-
-
-    }
-    // row data of table end
+    
+    //success message autohide
+    setTimeout(function() {
+        $("#successMessage").fadeOut('slow')
+    }, 2000);
 
 
 });
