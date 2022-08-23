@@ -8,7 +8,7 @@
                      <!-- small box -->
                      <div class="small-box bg-warning">
                          <div class="inner p-4"> 
-                             <h2>Your Profile</h2>
+                             <h2>Setting</h2>
                              <div class="icon">
                              <i style="font-size:50px;" class="fas fa-cogs"></i>
                          </div>
@@ -21,26 +21,26 @@
                      <!-- small box -->
                      <div class="small-box bg-danger">
                          <div class="inner p-4">
-                         <h2>My Profile</h2>
+                         <h2>Profile</h2>
                          <div class="icon">
                              <i class="ion ion-pie-graph"></i>
                          </div>
                            
                          </div>
                         
-                         <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer"><h5 class="text-default text-bold">Visit profile &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
+                         <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer"><h5 class="text-default text-bold">Edit profile &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>
                  <div class="col-lg-3 col-6">
                      <!-- small box -->
                      <div class="small-box bg-info">
                          <div class="inner p-4">                            
-                             <h2>Invoices</h2>
+                             <h2>Members</h2>
                          </div>
                          <div class="icon">
                              <i class="ion ion-bag"></i>
                          </div>
-                         <a href="#" class="btn btn-info small-box-footer"><h5 class="text-default text-bold">Add Invoice</h5> </a>
+                         <a href="{{route('user-profile')}}" class="btn btn-info small-box-footer"><h5 class="text-default text-bold">All members &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>
                  <!-- ./col -->
@@ -48,12 +48,24 @@
                      <!-- small box -->
                      <div class="small-box bg-success">
                          <div class="inner p-4">
-                             <h2>Reports</h2>
+                             <h2>Payments</h2>
                          </div>
                          <div class="icon">
                              <i class="ion ion-stats-bars"></i>
                          </div>
-                         <a href="#" class="btn btn-success small-box-footer"><h5 class="text-default text-bold">View Report</h5> </a>
+                         <a href="{{route('user-profile')}}" class="btn btn-success small-box-footer"><h5 class="text-default text-bold">Payments &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
+                     </div>
+                 </div>                
+                 <div class="col-lg-3 col-6">
+                     <!-- small box -->
+                     <div class="small-box bg-dark">
+                         <div class="inner p-4">
+                             <h2>T-Shirt's</h2>
+                         </div>
+                         <div class="icon">
+                             <i class="ion ion-stats-bars"></i>
+                         </div>
+                         <a href="{{route('user-profile')}}" class="btn btn-dark small-box-footer"><h5 class="text-default text-bold">View Details &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>                
              </div>
