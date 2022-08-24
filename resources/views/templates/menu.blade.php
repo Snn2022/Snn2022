@@ -20,6 +20,8 @@
          </div>
          <!-- Sidebar Menu -->
          <nav class="mt-2">
+             @if(Auth::user()->id == 1)
+             <!--  Admin side-menu start-->
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false">
                  <!-- Add icons to the links using the .nav-icon class
@@ -31,12 +33,12 @@
 
                      </a>
                  </li>
-                 @if(Auth::user()->id == 1)
+
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="fas fa-user"></i>
                          <p>
-                             Users
+                             Members
                              <i class="fas fa-angle-left right"></i>
                              <span class="badge badge-info right">6</span>
                          </p>
@@ -45,24 +47,30 @@
                          <li class="nav-item">
                              <a href="{{route('user-list')}}" class="nav-link">
                                  <i class="far fa-circle nav-icon"></i>
-                                 <p>User List</p>
+                                 <p>Members List</p>
                              </a>
                          </li>
                      </ul>
                  </li>
-                 @else
+                 
                  <li class="nav-item">
                      <a href="{{route('profile.show')}}" class="nav-link">
-                         <i class="fas fa-user"></i>
-                         <p>
-                             Profile
-                             <i class="fas fa-angle-left right"></i>
-                             <span class="badge badge-info right">6</span>
-                         </p>
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Payments</p>
                      </a>
                  </li>
-                 @endif
-
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>T-Shirt's</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Settings</p>
+                     </a>
+                 </li>
 
                  <li class="nav-item mt-4">
                      <form method="POST" action="{{ route('logout') }}">
@@ -71,8 +79,63 @@
                      </form>
                  </li>
              </ul>
+             @else
+             <!--  member side-menu start-->
+             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                 data-accordion="false">
+                 <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                 <li class="nav-item">
+                     <a href="{{route('dashboard')}}" class="nav-link active">
+                         <i class="nav-icon fas fa-tachometer-alt"></i>
+                         <p>Dashboard</p>
+
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="fas fa-user"></i>
+                         <p>
+                             Profile
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="fas fa-cogs"></i>
+                         <p>
+                             Settings
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="ion ion-bag"></i>
+                         <p>
+                             Package
+                             <i class="fas fa-angle-left right"></i>
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('profile.show')}}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Payments</p>
+                     </a>
+                 </li>
+
+                 <li class="nav-item mt-4">
+                     <form method="POST" action="{{ route('logout') }}">
+                         @csrf
+                         <button class="btn btn-danger form-control">Logout</button>
+                     </form>
+                 </li>
+             </ul>
+             @endif
          </nav>
          <!-- /.sidebar-menu -->
      </div>
+
      <!-- /.sidebar -->
  </aside>

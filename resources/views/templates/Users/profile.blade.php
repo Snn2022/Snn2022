@@ -25,6 +25,12 @@
 
             <section class="content">
                 <div class="container-fluid">
+                    <div class="row">
+                    @if(session()->has('success'))
+                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
+                                    {{session('success')}}</h5>
+                                @endif
+                    </div>
                     @if(empty($profiles->user_id))
                     <div class="row">
                         <!-- profile sections start-->
@@ -94,11 +100,7 @@
                             <div class="card">
                                 <div class="card-header bg-primary p-2 text-center">
                                     <h4>Submit your profile information</h4>
-                                </div><!-- /.card-header -->
-                                @if(session()->has('success'))
-                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
-                                    {{session('success')}}</h5>
-                                @endif
+                                </div><!-- /.card-header -->                                
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('profile-info-submit') }}">
                                         @csrf
@@ -180,7 +182,119 @@
                         </div>
                     </div>
                     @else
-                    <h2>filled data</h2>
+                    <div class="row">
+                        <!-- profile sections start-->
+                        <div class="col-md-4">
+                            <!-- Profile Image -->
+                            <div class="card card-primary card-outline">
+                                <div class="card-body">
+                                    <div class="image text-center">
+                                        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                        <img class="profile-user-img img-fluid img-circle"
+                                            src="{{ Auth::user()->profile_photo_url }}"
+                                            alt="{{ Auth::user()->name }}" />
+                                        @else
+                                        <span class="inline-flex rounded-md">
+                                            <button type="button"
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ Auth::user()->name }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                        @endif
+                                    </div>
+
+                                    <h3 class="profile-username text-center"> {{ Auth::user()->name }}</h3>
+
+                                    <p class="text-muted text-center">{{$profiles->designation}}</p>
+
+                                    <ul class="list-group list-group-unbordered mb-3">
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-graduation-cap mr-1"></i> SSC-Batch</strong>
+                                            <strong class="float-right">{{$profiles->ssc_batch}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-phone-alt mr-1"></i> Mobile</strong>
+                                            <strong class="float-right">{{Auth::user()->phone}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-envelope mr-1"></i> Email</strong>
+                                            <strong class="float-right">{{Auth::user()->email}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-user-graduate mr-1"></i> Last Degree</strong>
+                                            <strong class="float-right">{{$profiles->last_degree}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                                            <strong class="float-right">{{$profiles->present_address}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-pencil-alt mr-1"></i> Occupation</strong>
+                                            <strong class="float-right">{{$profiles->occupation}}</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- profile sections end-->
+                        <!-- info sections start-->
+                        <div class="col-md-8">
+                        <div class="card">
+                                <div class="card-header bg-primary p-2 text-center">
+                                    <h4>Profile information</h4>
+                                </div><!-- /.card-header -->
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <table class="col-md-9 offset-md-1 table table-hover text-nowrap">
+                                            <tbody>
+                                                <tr>
+                                                    <td>SSC-Batch</td>
+                                                    <td>{{$profiles->ssc_batch}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Last Degree</td>
+                                                    <td>{{$profiles->last_degree}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Occupation</td>
+                                                    <td>{{$profiles->occupation}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Designation</td>
+                                                    <td>{{$profiles->designation}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Organization</td>
+                                                    <td>{{$profiles->organization}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Present Address</td>
+                                                    <td>{{$profiles->present_address}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Participant Quantity</td>
+                                                    <td>{{$profiles->participant_qty}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>T-shirt size</td>
+                                                    <td>{{$profiles->tShirt_size}}</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.card-body -->
+                                </div>
+                            <!-- info sections end-->
+                        </div>
+                    </div>
                     @endif
             </section>
 
