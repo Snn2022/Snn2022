@@ -25,9 +25,10 @@
 
             <section class="content">
                 <div class="container-fluid">
+                    @if(empty($profiles->user_id))
                     <div class="row">
+                        <!-- profile sections start-->
                         <div class="col-md-4">
-
                             <!-- Profile Image -->
                             <div class="card card-primary card-outline">
                                 <div class="card-body">
@@ -55,69 +56,41 @@
 
                                     <h3 class="profile-username text-center"> {{ Auth::user()->name }}</h3>
 
-                                    <p class="text-muted text-center">Software Engineer</p>
+                                    <p class="text-muted text-center"></p>
 
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
-                                            <b>SSC-Batch</b> <a class="float-right">1,322</a>
+                                            <strong><i class="fas fa-graduation-cap mr-1"></i> SSC-Batch</strong>
+                                            <strong class="float-right"></strong>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Mobile</b> <a class="float-right">543</a>
+                                            <strong><i class="fas fa-phone-alt mr-1"></i> Mobile</strong>
+                                            <strong class="float-right">{{Auth::user()->phone}}</strong>
                                         </li>
                                         <li class="list-group-item">
-                                            <b>Email</b> <a class="float-right">13,287</a>
+                                            <strong><i class="fas fa-envelope mr-1"></i> Email</strong>
+                                            <strong class="float-right">{{Auth::user()->email}}</strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-user-graduate mr-1"></i> Last Degree</strong>
+                                            <strong class="float-right"></strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                                            <strong class="float-right"></strong>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <strong><i class="fas fa-pencil-alt mr-1"></i> Occupation</strong>
+                                            <strong class="float-right"></strong>
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card -->
 
-                            <!-- About Me Box -->
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">About Me</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                                    <p class="text-muted">
-                                        B.S. in Computer Science from the University of Tennessee at Knoxville
-                                    </p>
-
-                                    <hr>
-
-                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                                    <p class="text-muted">Malibu, California</p>
-
-                                    <hr>
-
-                                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                                    <p class="text-muted">
-                                        <span class="tag tag-danger">UI Design</span>
-                                        <span class="tag tag-success">Coding</span>
-                                        <span class="tag tag-info">Javascript</span>
-                                        <span class="tag tag-warning">PHP</span>
-                                        <span class="tag tag-primary">Node.js</span>
-                                    </p>
-
-                                    <hr>
-
-                                    <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                                        fermentum enim neque.</p>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
+                        <!-- profile sections end-->
+                        <!-- info sections start-->
                         <div class="col-md-8">
-                            @if(empty($profiles->user_id))
                             <div class="card">
                                 <div class="card-header bg-primary p-2 text-center">
                                     <h4>Submit your profile information</h4>
@@ -203,93 +176,12 @@
                                     </form>
                                 </div><!-- /.card-body -->
                             </div>
-                            @else
-                            <div class="card">
-                                <div class="card-header bg-primary p-2 text-center">
-                                    <h4>Profile information</h4>
-                                </div><!-- /.card-header -->
-                                @if(session()->has('success'))
-                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
-                                    {{session('success')}}</h5>
-                                @endif
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            SSC-Batch
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->ssc_batch}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            Last Degree
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->last_degree}}
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            Occupation
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->occupation}}
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            Designation
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->designation}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            Organization
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->organization}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                           Present Address
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->present_address}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            Participant Quantity
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->participant_qty}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            T-shirt size
-                                        </div>
-                                        <div class="col-md-8">
-                                            {{$profiles->tShirt_size}}
-                                        </div>
-                                    </div>
-                               
-                              
-                                </div><!-- /.card-body -->
-                            </div>
-                            @endif
-
+                            <!-- info sections end-->
                         </div>
-                        <!-- /.col -->
                     </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
+                    @else
+                    <h2>filled data</h2>
+                    @endif
             </section>
 
 

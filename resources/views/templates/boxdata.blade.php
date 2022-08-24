@@ -40,7 +40,7 @@
                          <div class="icon">
                              <i class="ion ion-bag"></i>
                          </div>
-                         <a href="{{route('user-profile')}}" class="btn btn-info small-box-footer"><h5 class="text-default text-bold">All members &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
+                         <a href="{{route('user-list')}}" class="btn btn-info small-box-footer"><h5 class="text-default text-bold">All members &nbsp; <i class="fas fa-arrow-circle-right"></i></h5></a>
                      </div>
                  </div>
                  <!-- ./col -->

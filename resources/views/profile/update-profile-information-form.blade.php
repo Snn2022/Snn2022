@@ -1,55 +1,15 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
+        <strong style="font-size:36px;">
+            {{ __('Profile Information') }}
+        </strong>
 
     </x-slot>
 
     <x-slot name="description">
-        <x-header />
-        <!-- Profile Image -->
-        <div style="margin-top:50px;" class="card card-primary card-outline">
-            <div class="card-body box-profile">
-                <div class="image text-center">
-                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <img class="profile-user-img img-fluid img-circle" src="{{ Auth::user()->profile_photo_url }}"
-                        alt="{{ Auth::user()->name }}" />
-                    @else
-                    <span class="inline-flex rounded-md">
-                        <button type="button"
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
-                            {{ Auth::user()->name }}
-
-                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                fill="currentColor">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </span>
-                    @endif
-                </div>
-
-                <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
-
-                <p class="text-muted text-center">Software Engineer</p>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-header bg-primary">
-                <h3 class="card-title">About Me</h3>
-            </div>
-            <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                    B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-            </div>
-        </div>
+        <span style="font-size:24px;">
+            {{ __('Update your account\'s profile information and email address.') }}
+        </span>
 
     </x-slot>
 

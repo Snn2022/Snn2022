@@ -1,7 +1,7 @@
 <x-app-layout>
     
     <div>
-        <div style="margin-top:-30px;" class="max-w-7xl mx-auto py-0 sm:px-6 lg:px-8">
+        <div style="margin-top:10px;" class="max-w-7xl mx-auto py-0 sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 
