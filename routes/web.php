@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\TshirtController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,9 @@ Route::get('user-list',[UserController::class,'index'])->name('user-list');
 Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
 Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
 
+//package
+Route::get('participant',[PackageController::class,'index'])->name('participant');
+
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');
 Route::get('invoice-view',[InvoiceController::class,'view'])->name('invoices-view');
@@ -61,8 +66,10 @@ Route::get('fetch-rooms',[CollectionController::class,'fetchRooms']);
 
 Route::get('test',[CollectionController::class,'test'])->name('test');
 
-//rooms start
-Route::get('room-list',[RoomController::class,'index'])->name('room-list');
+//tshirt start
+Route::get('tshirt-list',[TshirtController::class,'index'])->name('tshirt-list');
+Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-submit');
+Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
 Route::get('create-room', function () {
     return view('templates.Rooms.create');
 })->name('create-room');
