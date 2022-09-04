@@ -44,6 +44,8 @@ Route::post('profile-info-submit',[ProfileController::class,'store'])->name('pro
 
 //package
 Route::get('participant',[PackageController::class,'index'])->name('participant');
+Route::post('submit-participant',[PackageController::class,'submitParticipant'])->name('submit-participant');
+Route::get('fetch-package',[PackageController::class,'fetchPackage'])->name('fetch-package');
 
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');

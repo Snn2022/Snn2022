@@ -31,6 +31,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
+                            @if(session()->has('success'))
+                                       <div id="successMessage" class="text-center text-success p-1">
+                                        {{session('success')}}
+                                       </div>
+                                       @endif
                                 <div class="card-header">
                                     <h3 class="card-title">T-Shirt List</h3>
                                 </div>
@@ -38,15 +43,15 @@
                                     <div class="text-cener text-danger">
                                         <x-jet-validation-errors />
                                     </div>
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{route('submit-participant')}}">
                                         @csrf
-                                        <div class="input-group mb-3">
-                                            <select class="col-md-6" name="tShirt_size" id="tShirt_size">
-                                                <option value="Small">Select T-Shirt Size</option>
-                                                <option value="Small">Small</option>
-                                                <option value="Small">Medium</option>
-                                                <option value="Small">Large</option>
-                                                <option value="Small">Extra Large</option>
+                                        <div class="input-group mb-3"> 
+                                            <input type="hidden" name="user_id" id="user_id" value="{{Auth::user()->id}}">                                           
+                                            <select class="col-md-6" name="tShirt_id" id="tShirt_id">
+                                            <option value="">Select T-Shirt Size</option>
+                                                @foreach($data as $key=>$tshirt)                                               
+                                                <option value="{{$tshirt->id}}">{{$tshirt->tShirt_size}}</option>
+                                                @endforeach  
                                             </select>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">                                               
@@ -88,37 +93,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {{$package}}
+                                                @foreach($package as $key=>$pacItem) 
                                                 <tr>
-                                                    <td> 1 </td>
-                                                    <td> <input type="hidden" name="tShirt_size">medium </td>
+                                                    <td> {{$key+1}}}</td>
+                                                    <td> <input type="hidden" name="tShirt_size">{{$pacItem->tShirt_id}} </td>
                                                     <td class="text-right"> <input type="hidden" name="participant_qty">
-                                                        1 </td>
-                                                    <td class="text-right"> <input type="hidden" name="amount">500</td>
+                                                    {{$pacItem->participant_qty}} </td>
+                                                    <td class="text-right"> <input type="hidden" name="amount">{{$pacItem->created_at}}</td>
                                                     <td class="text-center"> <a href="#"><button type="button"
                                                                 class="btn btn-sm btn-danger"><i
                                                                     class="bi bi-x-lg"></i></button></a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td> 2 </td>
-                                                    <td> <input type="hidden" name="tShirt_size">medium </td>
-                                                    <td class="text-right"> <input type="hidden" name="participant_qty">
-                                                        1 </td>
-                                                    <td class="text-right"> <input type="hidden" name="amount">500</td>
-                                                    <td class="text-center"> <a href="#"><button type="button"
-                                                                class="btn btn-sm btn-danger"><i
-                                                                    class="bi bi-x-lg"></i></button></a></td>
-                                                </tr>
-                                                <tr>
-
-                                                    <td colspan="3" class="text-right text-bold"> <input type="hidden"
-                                                            name="participant_qty"><span class="mr-2">Total =</span> 2
-                                                    </td>
-
-                                                    <td class="text-right text-bold"> <input type="hidden"
-                                                            name="amount"><span class="">1000</span></td>
-                                                    <td class="text-center"> </td>
-                                                </tr>
+                                                @endforeach  
                                             </tbody>
 
                                         </table>
