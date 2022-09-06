@@ -72,10 +72,7 @@ Route::get('test',[CollectionController::class,'test'])->name('test');
 Route::get('tshirt-list',[TshirtController::class,'index'])->name('tshirt-list');
 Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-submit');
 Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
-Route::get('create-room', function () {
-    return view('templates.Rooms.create');
-})->name('create-room');
-Route::post('submit-room-type',[RoomController::class,'createRoom'])->name('submit-room-type');
+Route::get('fetch-tshirts',[TshirtController::class,'fetchTshirts']);
 
 //booking ource start
 Route::get('source-list',[SourceController::class,'index'])->name('booking-source');

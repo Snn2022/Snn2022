@@ -93,11 +93,11 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{$package}}
+                                               
                                                 @foreach($package as $key=>$pacItem) 
                                                 <tr>
-                                                    <td> {{$key+1}}}</td>
-                                                    <td> <input type="hidden" name="tShirt_size">{{$pacItem->tShirt_id}} </td>
+                                                    <td> {{$key+1}}</td>
+                                                    <td> <input type="hidden" name="tShirt_size">{{'tshirt'}} </td>
                                                     <td class="text-right"> <input type="hidden" name="participant_qty">
                                                     {{$pacItem->participant_qty}} </td>
                                                     <td class="text-right"> <input type="hidden" name="amount">{{$pacItem->created_at}}</td>

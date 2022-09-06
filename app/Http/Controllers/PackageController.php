@@ -11,8 +11,12 @@ class PackageController extends Controller
 {
     //
     public function index(Request $request) {          
-           $data = Tshirt::all(); 
-           $package = Package::find(1)->tShirt;   
+           $data = Tshirt::all();             
+           $package = Package::where('user_id',Auth::user()->id)
+           ->with('getTshirt')
+           ->get();
+           //$package = Package::find($package->tShirt_id)->getTshirt; 
+           //return $package;
         return view("templates.Package.index",['data'=>$data,'package'=>$package]);
     }
     public function submitParticipant(Request $request) {          
@@ -23,7 +27,8 @@ class PackageController extends Controller
            return redirect()->back();  
     }
     public function fetchPackage(Request $request) {          
-          $package = Package::where('user_id',Auth::user()->id)->get();
-          return view("templates.Package.index",['package'=>$package]);
+          $data = Package::find(1)->getTshirt; 
+          return $data;
+          //return view("templates.Package.index",['package'=>$package]);
     }
 }

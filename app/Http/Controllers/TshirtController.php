@@ -23,4 +23,8 @@ class TshirtController extends Controller
         $data = Tshirt::findOrFail($id);
         return $data;               
     }
+    public function fetchTshirts(Request $request) {
+        $data = Tshirt::all(); 
+        return $data;               
+    }
 }
