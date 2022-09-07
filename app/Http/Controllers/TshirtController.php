@@ -24,7 +24,7 @@ class TshirtController extends Controller
         return $data;               
     }
     public function fetchTshirts(Request $request) {
-        $data = Tshirt::all(); 
-        return $data;               
+        $data = Tshirt::all();
+        return response()->json($data);              
     }
 }

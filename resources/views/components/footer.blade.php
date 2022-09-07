@@ -148,18 +148,38 @@ $(function() {
 <!-- invoice calculation script-->
 <script>
 $(document).ready(function() {
-    
     //success message autohide
     setTimeout(function() {
         $("#successMessage").fadeOut('slow')
     }, 2000);
 
+    function fetchTshirts() {
+        $.ajax({
+            url: "{{'fetch-tshirts'}}",
+            type: "GET",
+            success: function(response) {
+                $.each(response, function(key, value) {
+                    $('#tShirt_id').append('<option>'+value.tShirt_size+'</option>');
+                });
+               $('#tShirt_id').change(function() {
+              var data = $(this).val();
+                $('#participantTable').append('<tr>'+
+                '<td>'+data+'</td>'+
+                '<td>'+'data'+'</td>'+
+                '<td>'+'data'+'</td>'+
+                '</tr>');
+               });
+            }
+
+        });       
+    }
+    fetchTshirts();
 
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+</script>
 </body>
 
 </html>
