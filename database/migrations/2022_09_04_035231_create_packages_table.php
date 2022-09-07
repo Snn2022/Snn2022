@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('tShirt_id');
+            $table->string('tShirt_size');
+            $table->string('tShirt_rate');
             $table->string('participant_qty');
             $table->timestamps();
         });

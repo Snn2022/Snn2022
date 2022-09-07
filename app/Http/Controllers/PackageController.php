@@ -12,20 +12,20 @@ class PackageController extends Controller
     //
     public function index(Request $request) {          
            $data = Tshirt::all();             
-           $package = Package::where('user_id',Auth::user()->id)->get();
+           $participants = Package::where('user_id',Auth::user()->id)->get();
            //$package = Package::find($package->tShirt_id)->getTshirt; 
            //return $package;
-        return view("templates.Package.index",['data'=>$data,'package'=>$package]);
+        return view("templates.Package.index",['data'=>$data,'participants'=>$participants]);
     }
     public function submitParticipant(Request $request) {          
            $data = $request->all();
-           //Package::create($data);
-        return $data;
-           //session()->flash('success','Participant add success..!!');  
-           //return redirect()->back();  
+           Package::create($data);
+        
+           session()->flash('success','Participant add success..!!');  
+           return redirect()->back();  
     }
-    public function fetchPackage(Request $request) {          
-          $data = Package::find(1)->getTshirt; 
+    public function packageEdit(Request $request, $id) {          
+          $data = Package::findorFaill($id); 
           return $data;
           //return view("templates.Package.index",['package'=>$package]);
     }

@@ -86,20 +86,26 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-left">SL</th>
-                                                    <th>T-shirt size</th>
+                                                    <th>Size</th>
                                                     <th>Participant </th>
-                                                    <th>Amount</th>
-                                                    <th style="text-align: center">Action</th>
+                                                    <th>Amount</th>                                                   
                                                 </tr>
                                             </thead>
-                                            <tbody>
-
-                                               
+                                            <tbody>                                               
+                                                @foreach($participants as $key=> $participant)
+                                                <tr>
+                                                <td class="text-left">{{$key+1}}</td>
+                                                <td class="text-left">{{$participant->tShirt_size}}</td>
+                                                <td class="text-left">{{$participant->participant_qty}}</td>
+                                                <td class="text-left">{{$participant->participant_qty*$participant->tShirt_rate}}</td>                                                
+                                                </tr>                                               
+                                                @endforeach
                                             </tbody>
 
                                         </table>
                                         <div>
-                                            <button class="col-sm-2 btn btn-success float-end">Submit</button>
+                                           <a href="#"> <button class="col-xs-6 btn btn-info">Edit</button></a>
+                                            <a href="#"><button class="col-xs-6 btn btn-success">Payment</button> </a>                                         
                                         </div>
                                     </form>
                                 </div>

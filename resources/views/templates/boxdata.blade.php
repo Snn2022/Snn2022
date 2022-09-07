@@ -91,14 +91,14 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner p-4">
-                        <h2>Setting</h2>
+                        <h4>Setting</h4>
                         <div class="icon">
                             <i style="font-size:50px;" class="fas fa-cogs"></i>
                         </div>
                     </div>
                     <a href="{{route('profile.show')}}" class="btn btn-warning small-box-footer">
-                        <h5 class="text-default text-bold">Profile Setting &nbsp; <i
-                                class="fas fa-arrow-circle-right"></i></h5>
+                        <h6 class="text-default text-bold">Profile Setting &nbsp; <i
+                                class="fas fa-arrow-circle-right"></i></h6>
                     </a>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner p-4">
-                        <h2>Profile</h2>
+                        <h4>Profile</h4>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
@@ -115,8 +115,8 @@
                     </div>
 
                     <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer">
-                        <h5 class="text-default text-bold">Edit profile &nbsp; <i class="fas fa-arrow-circle-right"></i>
-                        </h5>
+                        <h6 class="text-default text-bold">Edit profile &nbsp; <i class="fas fa-arrow-circle-right"></i>
+                        </h6>
                     </a>
                 </div>
             </div>
@@ -124,14 +124,14 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner p-4">
-                        <h2>Participants</h2>
+                        <h4>Package</h4>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="{{route('participant')}}" class="btn btn-info small-box-footer">
-                        <h5 class="text-default text-bold">Submit Participant &nbsp; <i class="fas fa-arrow-circle-right"></i>
-                        </h5>
+                    <a href="{{route('package')}}" class="btn btn-info small-box-footer">
+                        <h6 class="text-default text-bold">Set Package &nbsp; <i class="fas fa-arrow-circle-right"></i>
+                        </h6>
                     </a>
                 </div>
             </div>
@@ -139,14 +139,14 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner p-4">
-                        <h2>Payments</h2>
+                        <h4>Payments</h4>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
                     <a href="{{route('user-profile')}}" class="btn btn-success small-box-footer">
-                        <h5 class="text-default text-bold">Payments &nbsp; <i class="fas fa-arrow-circle-right"></i>
-                        </h5>
+                        <h6 class="text-default text-bold">Payments &nbsp; <i class="fas fa-arrow-circle-right"></i>
+                        </h6>
                     </a>
                 </div>
             </div>

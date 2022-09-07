@@ -155,21 +155,28 @@ $(document).ready(function() {
 
     function fetchTshirts() {
         $('#tShirt_id').change(function() {
+            //set empty value 
+            $('#participantTable').empty();           
             var data = $(this).val();
 
             $.ajax({
                 url: "fetch-tshirts/" + data,
                 type: "GET",
                 success: function(response) {
+                    
+                    //get value
+                    var tShirtSize = response.tShirt_size;
+                    var tShirtRate = response.rate;
+                   //assign value
+                   $('#tShirt_size').val(tShirtSize);
+                   console.log(tShirtSize);
                     $('#participantTable').append('<tr>' +
                         '<td>' +
-                        '<input type="hidden" class="form-control text-center" id="participant_qty" name="tShirt_size" value="">' +
-                        response.tShirt_size +
+                        '<input type="hidden" class="form-control text-center" id="tShirt_size" name="tShirt_size" value='+tShirtSize+'>'+tShirtSize+
                         '</td>' +
 
                         '<td>' +
-                        '<input type="hidden" class="form-control text-center" id="participant_qty" name="tShirt_rate" value="">' +
-                        response.rate +
+                        '<input type="hidden" class="form-control text-center" id="tShirt_rate" name="tShirt_rate" value='+tShirtRate+'>' +tShirtRate+
                         '</td>' +
 
                         '<td>' +
