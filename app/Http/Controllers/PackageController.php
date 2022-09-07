@@ -19,10 +19,10 @@ class PackageController extends Controller
     }
     public function submitParticipant(Request $request) {          
            $data = $request->all();
-           Package::create($data);
-        
-           session()->flash('success','Participant add success..!!');  
-           return redirect()->back();  
+           //Package::create($data);
+        return $data;
+           //session()->flash('success','Participant add success..!!');  
+           //return redirect()->back();  
     }
     public function fetchPackage(Request $request) {          
           $data = Package::find(1)->getTshirt; 

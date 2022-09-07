@@ -45,12 +45,14 @@
                                     </div>
                                     <form method="POST" action="{{route('submit-participant')}}">
                                         @csrf
-                                        <div class="col-md-6 input-group mb-3">
+                                        <div class="input-group mb-3">
                                             <input type="hidden" name="user_id" id="user_id"
                                                 value="{{Auth::user()->id}}">
-                                            <select class="col-md-6" name="tShirt_id" id="tShirt_id">
-                                                <option id="selectOption" value="">Select T-Shirt Size</option>
-
+                                            <select class="col-md-4" name="tShirt_id" id="tShirt_id">
+                                                <option value="">Select T-Shirt Size</option>
+                                                @foreach($data as $key=>$tshirt)
+                                                <option value="{{$tshirt->id}}">{{$tshirt->tShirt_size}}</option>
+                                                @endforeach
                                             </select>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
@@ -58,11 +60,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       <table id="example1" class="table table-bordered table-striped">
+                                        <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <th>T-Shirt Size</th>
+                                            <th>T-Shirt Rate</th>
+                                            <th>Participant quantity</th>                                            
+                                        </thead>
                                         <tbody id="participantTable">
-                                           
+
                                         </tbody>
-                                      </table>
+                                        </table>
 
                                         <div class="row">
                                             <div class="col-4">
@@ -87,19 +94,7 @@
                                             </thead>
                                             <tbody>
 
-
-                                                <tr>
-                                                    <td> </td>
-                                                    <td> <input type="hidden" name="tShirt_size"> </td>
-                                                    <td class="text-right"> <input type="hidden" name="participant_qty">
-                                                    </td>
-                                                    <td class="text-right"> <input type="hidden" name="amount"></td>
-                                                    <td class="text-center"> <a href="#"><button type="button"
-                                                                class="btn btn-sm btn-danger"><i
-                                                                    class="bi bi-x-lg"></i></button></a>
-                                                    </td>
-                                                </tr>
-
+                                               
                                             </tbody>
 
                                         </table>

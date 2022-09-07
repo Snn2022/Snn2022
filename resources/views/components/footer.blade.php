@@ -154,24 +154,31 @@ $(document).ready(function() {
     }, 2000);
 
     function fetchTshirts() {
-        $.ajax({
-            url: "{{'fetch-tshirts'}}",
-            type: "GET",
-            success: function(response) {
-                $.each(response, function(key, value) {
-                    $('#tShirt_id').append('<option>'+value.tShirt_size+'</option>');
-                });
-               $('#tShirt_id').change(function() {
-              var data = $(this).val();
-                $('#participantTable').append('<tr>'+
-                '<td>'+data+'</td>'+
-                '<td>'+'data'+'</td>'+
-                '<td>'+'data'+'</td>'+
-                '</tr>');
-               });
-            }
+        $('#tShirt_id').change(function() {
+            var data = $(this).val();
 
-        });       
+            $.ajax({
+                url: "fetch-tshirts/" + data,
+                type: "GET",
+                success: function(response) {
+                    $('#participantTable').append('<tr>' +
+                        '<td>' +
+                        '<input type="hidden" class="form-control text-center" id="participant_qty" name="tShirt_size" value="">' +
+                        response.tShirt_size +
+                        '</td>' +
+
+                        '<td>' +
+                        '<input type="hidden" class="form-control text-center" id="participant_qty" name="tShirt_rate" value="">' +
+                        response.rate +
+                        '</td>' +
+
+                        '<td>' +
+                        '<input type="text" class="form-control text-center" id="participant_qty" name="participant_qty">' +
+                        '</td>' +
+                        '</tr>')
+                }
+            });
+        });
     }
     fetchTshirts();
 

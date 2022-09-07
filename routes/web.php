@@ -73,6 +73,7 @@ Route::get('tshirt-list',[TshirtController::class,'index'])->name('tshirt-list')
 Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-submit');
 Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
 Route::get('fetch-tshirts',[TshirtController::class,'fetchTshirts']);
+Route::get('fetch-tshirts/{id}',[TshirtController::class,'fetchTshirtsData']);
 
 //booking ource start
 Route::get('source-list',[SourceController::class,'index'])->name('booking-source');

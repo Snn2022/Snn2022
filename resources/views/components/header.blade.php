@@ -53,11 +53,16 @@
     #example1 thead th {
         text-align: center;
         font-size:16px;
-        text-transform:uppercase;
+        text-transform:capitalize;
+    }
+    #example1 tbody td {
+        text-align: center;
+        font-size:16px;
+        text-transform:capitalize;
     }
 
     #example2 tr td {
-        text-align: right;
+        text-align: center;
     }
 
     #example2 tr td input {
