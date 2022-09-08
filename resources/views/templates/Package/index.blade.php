@@ -13,7 +13,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">T-Shirt</h1>
+                            <h1 class="m-0">Package</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -91,7 +91,7 @@
                                                     <th>Amount</th>                                                   
                                                 </tr>
                                             </thead>
-                                            <tbody>                                               
+                                            <tbody>                                                                                             
                                                 @foreach($participants as $key=> $participant)
                                                 <tr>
                                                 <td class="text-left">{{$key+1}}</td>
@@ -103,10 +103,12 @@
                                             </tbody>
 
                                         </table>
+                                        @if(!empty($participant))
                                         <div>
-                                           <a href="#"> <button class="col-xs-6 btn btn-info">Edit</button></a>
+                                           <a href="{{route('package-edit',['id'=>$participant->user_id])}}" class="col-xs-6 btn btn-info"> Edit </a>
                                             <a href="#"><button class="col-xs-6 btn btn-success">Payment</button> </a>                                         
                                         </div>
+                                        @endif                                       
                                     </form>
                                 </div>
                                 <!-- /.card-body -->

@@ -25,8 +25,18 @@ class PackageController extends Controller
            return redirect()->back();  
     }
     public function packageEdit(Request $request, $id) {          
-          $data = Package::findorFaill($id); 
-          return $data;
-          //return view("templates.Package.index",['package'=>$package]);
+          $data = Package::where('user_id',$id)->get();
+          
+          return view("templates.Package.edit",['data'=>$data]);
+    }
+    public function fetchPackage(Request $request, $id) {          
+          $data = Package::where('user_id',$id)->get();
+          
+          return view("templates.Package.edit",['data'=>$data]);
+    }
+    public function packageDelete($id) {          
+       $delete = Package::find($id)->delete();
+       session()->flash('success','Record Deleted!!');  
+       return redirect()->back(); 
     }
 }
