@@ -8,6 +8,7 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\TshirtController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,9 @@ Route::get('package-edit/{id}',[PackageController::class,'packageEdit'])->name('
 Route::get('fetch-package',[PackageController::class,'fetchPackage'])->name('fetch-package');
 Route::get('package-delete/{id}',[PackageController::class,'packageDelete'])->name('package-delete');
 
+//payment start
+Route::get('payment',[PaymentController::class,'index'])->name('payment');
+
 //invoice start
 Route::get('invoice-list',[InvoiceController::class,'index'])->name('invoices-list');
 Route::get('invoice-view',[InvoiceController::class,'view'])->name('invoices-view');
@@ -76,22 +80,6 @@ Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-sub
 Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
 Route::get('fetch-tshirts',[TshirtController::class,'fetchTshirts']);
 Route::get('fetch-tshirts/{id}',[TshirtController::class,'fetchTshirtsData']);
-
-//booking ource start
-Route::get('source-list',[SourceController::class,'index'])->name('booking-source');
-Route::get('create-source', function () {
-    return view('templates.Source.create');
-})->name('create-source');
-Route::post('submit-source',[SourceController::class,'createSource'])->name('submit-source');
-
-//income source start
-Route::get('income-list',[SourceController::class,'incomeIndex'])->name('income-source');
-Route::get('create-income', function () {
-    return view('templates.Source.Income.create');
-})->name('create-income');
-Route::post('submit-income-source',[SourceController::class,'createIncomeSource'])->name('submit-income-source');
-
-
 
 Route::middleware([
     'auth:sanctum',

@@ -167,6 +167,7 @@ $(document).ready(function() {
                     //get value
                     var tShirtSize = response.tShirt_size;
                     var tShirtRate = response.rate;
+                    var total= tShirtSize*tShirtRate;
                    //assign value
                    $('#tShirt_size').val(tShirtSize);
                    console.log(tShirtSize);
@@ -188,7 +189,7 @@ $(document).ready(function() {
         });
     }
     fetchTshirts();
-
+  
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

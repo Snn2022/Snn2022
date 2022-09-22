@@ -106,7 +106,7 @@
                                         @if(!empty($participant))
                                         <div>
                                            <a href="{{route('package-edit',['id'=>$participant->user_id])}}" class="col-xs-6 btn btn-info"> Edit </a>
-                                            <a href="#"><button class="col-xs-6 btn btn-success">Payment</button> </a>                                         
+                                            <a href="{{route('payment')}}"  class="col-xs-6 btn btn-success">Payment </a>                                         
                                         </div>
                                         @endif                                       
                                     </form>
