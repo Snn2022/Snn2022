@@ -156,28 +156,30 @@ $(document).ready(function() {
     function fetchTshirts() {
         $('#tShirt_id').change(function() {
             //set empty value 
-            $('#participantTable').empty();           
+            $('#participantTable').empty();
             var data = $(this).val();
 
             $.ajax({
                 url: "fetch-tshirts/" + data,
                 type: "GET",
                 success: function(response) {
-                    
+
                     //get value
                     var tShirtSize = response.tShirt_size;
                     var tShirtRate = response.rate;
-                    var total= tShirtSize*tShirtRate;
-                   //assign value
-                   $('#tShirt_size').val(tShirtSize);
-                   console.log(tShirtSize);
+                    var total = tShirtSize * tShirtRate;
+                    //assign value
+                    $('#tShirt_size').val(tShirtSize);
+                    console.log(tShirtSize);
                     $('#participantTable').append('<tr>' +
                         '<td>' +
-                        '<input type="hidden" class="form-control text-center" id="tShirt_size" name="tShirt_size" value='+tShirtSize+'>'+tShirtSize+
+                        '<input type="hidden" class="form-control text-center" id="tShirt_size" name="tShirt_size" value=' +
+                        tShirtSize + '>' + tShirtSize +
                         '</td>' +
 
                         '<td>' +
-                        '<input type="hidden" class="form-control text-center" id="tShirt_rate" name="tShirt_rate" value='+tShirtRate+'>' +tShirtRate+
+                        '<input type="hidden" class="form-control text-center" id="tShirt_rate" name="tShirt_rate" value=' +
+                        tShirtRate + '>' + tShirtRate +
                         '</td>' +
 
                         '<td>' +
@@ -189,7 +191,7 @@ $(document).ready(function() {
         });
     }
     fetchTshirts();
-  
+
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

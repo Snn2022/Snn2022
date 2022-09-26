@@ -12,8 +12,14 @@ class PaymentController extends Controller
 {
     public function index(Request $request) { 
         $data = Package::where('user_id',Auth::user()->id)->get();        
-        $data->total = $data->tShirt_size*$data->participant_qty;
+       
      return view("templates.Payment.index",['data'=>$data]);
+ }
+    public function paymentCheckout(Request $request) { 
+        $checkout = Package::where('user_id', Auth::user()->id)->get();  
+        
+        return view("templates.Payment.checkout",['checkout'=>$checkout]);
+
  }
 
 }

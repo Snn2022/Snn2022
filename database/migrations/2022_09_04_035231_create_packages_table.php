@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('tShirt_id');
             $table->string('tShirt_size');
             $table->string('tShirt_rate');
-            $table->string('participant_qty');
+            $table->string('participant_qty');           
             $table->timestamps();
         });
     }

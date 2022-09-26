@@ -18,7 +18,8 @@ class PackageController extends Controller
         return view("templates.Package.index",['data'=>$data,'participants'=>$participants]);
     }
     public function submitParticipant(Request $request) {          
-           $data = $request->all();
+           $data = $request->all();           
+          //return $data;
            Package::create($data);
         
            session()->flash('success','Participant add success..!!');  

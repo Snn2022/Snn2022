@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     use HasFactory;
-    protected $guarded = [];    
+    protected $guarded = [];   
+    
+    public function getTotalAttribute()
+    {
+        return $this->tShirt_rate*$this->participant_qty;
+    }
 }

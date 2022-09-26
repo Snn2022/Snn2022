@@ -37,50 +37,55 @@
                                 </div>
                                 @endif
                                 <div class="card-header">
-                                    <h3 class="card-title">Payment</h3>
+                                    <h3 class="card-title">Payment -> bKash</h3>
                                 </div>
 
                                 <!-- /.card-header -->
-                                <div class="card-body">
-                                    <form action="{{route('payment-checkout')}}" method="GET">
+                                <div class="card-body col-md-6 offset-md-3">
+                                    <div style="background-color:purple;" class="card-header text-center">
+                                      <strong> Payment to bKash No.</strong> <h5>01857797647</h5>
+                                    </div>
+                                    <form action="{{route('payment-checkout')}}" method="POST">
                                         @csrf
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-left">T-Shirts</th>
-                                                    <th>Rate</th>
-                                                    <th>Qty</th>
-                                                    <th>Amount</th>
+                                                    <th>total Item</th>
+                                                    <th>Total Payment</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($data as $key => $item)
                                                 <tr>
-                                                    <td class="text-left">{{$item->tShirt_size}}</td>
-                                                    <td>{{$item->tShirt_rate}}</td>
-                                                    <td class="text-right">{{$item->participant_qty}}</td>
-                                                    <td class="text-right">{{$item->total}}</td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                            <tfoot class="card-header">
-                                                <tr>
-                                                    <td colspan="3" class="text-right">
-                                                        <strong>Total =
-                                                            {{$data->sum('participant_qty')}}</strong>
+                                                    <td>
+                                                        <strong>
+                                                            {{$checkout->sum('participant_qty')}}</strong>
                                                         <input type="hidden" id="total_item" name="total_item"
-                                                            value="{{$data->sum('participant_qty')}}">
+                                                            value="{{$checkout->sum('participant_qty')}}">
                                                     </td>
-                                                    <td class="text-right">
-                                                        <strong>Total =
-                                                            {{$data->sum('total')}}</strong>
-                                                        <input type="hidden" id="total_payment" name="total_payment" value="{{$data->sum('total')}}">
-
+                                                    <td>
+                                                        <strong>
+                                                            {{$checkout->sum('total')}}</strong>
+                                                        <input type="hidden" id="total_payment" name="total_payment"
+                                                            value="{{$checkout->sum('total')}}">
                                                     </td>
                                                 </tr>
-                                            </tfoot>
+                                                <tr>
+                                                    <td>Your Bkash Number :</td>
+                                                    <td>
+                                                        <input type="text" class="form-control text-center"
+                                                            id="member_bkash" name="member_bkash">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Transaction ID :</td>
+                                                    <td>
+                                                        <input type="text" class="form-control text-center" id="trx_id"
+                                                            name="trx_id">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
                                         </table>
-                                        <button class="btn btn-info text-bold">Pay Now</button>
+                                        <button class="btn btn-default text-bold">Confirm</button>
                                     </form>
                                 </div>
                                 <!-- /.card-body -->
