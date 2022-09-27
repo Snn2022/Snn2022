@@ -53,6 +53,9 @@ Route::get('package-delete/{id}',[PackageController::class,'packageDelete'])->na
 //payment start
 Route::get('payment',[PaymentController::class,'index'])->name('payment');
 Route::get('payment-checkout',[PaymentController::class,'paymentCheckout'])->name('payment-checkout');
+Route::post('payment-confirm',[PaymentController::class,'paymentConfirm'])->name('payment-confirm');
+Route::get('payment-list',[PaymentController::class,'paymentList'])->name('payment-list');
+Route::get('payment-details/{id}',[PaymentController::class,'paymentDetails'])->name('payment-details');
 
 
 //invoice start

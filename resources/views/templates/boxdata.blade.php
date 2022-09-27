@@ -144,7 +144,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="{{route('user-profile')}}" class="btn btn-success small-box-footer">
+                    <a href="{{route('payment-list')}}" class="btn btn-success small-box-footer">
                         <h6 class="text-default text-bold">Payments &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h6>
                     </a>
