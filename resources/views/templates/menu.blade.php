@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link text-center">
-         <span class="brand-text font-weight-light">Re-Union Team</span>
+         <span class="brand-text font-weight-light">সততা সঞ্চয় সমিতি।</span>
      </a>
 
      <!-- Sidebar -->
@@ -75,7 +75,7 @@
                  <li class="nav-item mt-4">
                      <form method="POST" action="{{ route('logout') }}">
                          @csrf
-                         <button class="btn btn-danger form-control">Logout</button>
+                         <button class="btn btn-danger form-control">লগ-আউট</button>
                      </form>
                  </li>
              </ul>
@@ -128,7 +128,7 @@
                  <li class="nav-item mt-4">
                      <form method="POST" action="{{ route('logout') }}">
                          @csrf
-                         <button class="btn btn-danger form-control">Logout</button>
+                         <button class="btn btn-danger form-control">লগ-আউট</button>
                      </form>
                  </li>
              </ul>

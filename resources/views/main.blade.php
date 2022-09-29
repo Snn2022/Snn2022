@@ -1,16 +1,16 @@
 <x-header />
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <h4 class="text-bold text-info"> Re-Union Member Login </h4>
-        </div>
+    <div style="margin-top:5%;" class="col-md-4 offset-md-8">
 
         <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <div class="login-logo">
-
+        <div style="border:2px solid green;" class="card">
+            <div class="card-header bg-blue text-center">
+                <h1 class="text-bold text-white"> সততা সঞ্চয় সমিতি। </h1>
+            </div>
+            <div class="card-body">
+                <div class="logo text-center p-2 mb-4">
+                    <img class="img-fluid" src="{{asset('images/sss_logo.png')}}" alt="">
                 </div>
                 <div class="text-cener text-danger">
                     <x-jet-validation-errors />
@@ -22,7 +22,7 @@
                             placeholder="Email" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-envelope text-blue"></span>
                             </div>
                         </div>
                     </div>
@@ -31,36 +31,22 @@
                             required autocomplete="current-password">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="fas fa-lock text-blue"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember_me" name="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <!-- /.col -->
+                    <div class="mb-4">
+                        <button type="submit" class="btn btn-blue form-control p-2 text-bold text-white">
+                            <h5>লগিন করুন</h5>
+                        </button>
                     </div>
                 </form>
-                <p class="mb-1">
-                    @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}">I forgot my password</a>
-                    @endif
-
-                </p>
             </div>
-            <div class="card-footer bg-primary">
-            <p class="mb-0">
-                <a href="{{route('register')}}" class="text-center text-light">Register a new membership</a>
+            <div style="background-color:#0000ff;" class="card-footer text-center mt-4">
+                <p class="mb-0">
+                    @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}" class="text-white"> পাসওয়ার্ড ভুলে গেছেন ? </a>
+                    @endif
                 </p>
             </div>
             <!-- /.login-card-body -->
