@@ -1,8 +1,8 @@
  <!-- Main Sidebar Container -->
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
+ <aside class="main-sidebar sidebar-dark-primary elevation-4 text-white">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link text-center">
-         <span class="brand-text font-weight-light">সততা সঞ্চয় সমিতি।</span>
+     <a href="https://www.facebook.com/md.nasirul.5/" target="_blank" class="brand-link text-center">
+     <span class="brand-text font-weight-bold">JK-Inspiration</span>
      </a>
 
      <!-- Sidebar -->
@@ -11,7 +11,7 @@
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
              <div class="image">
-                 <img class="img-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                 <img class="img-circle bg-light" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
                  <a href="{{route('user-profile')}}" class="d-block"> {{ Auth::user()->name }}</a>
@@ -29,7 +29,7 @@
                  <li class="nav-item">
                      <a href="{{route('dashboard')}}" class="nav-link active">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
-                         <p>সদস্যগণ</p>
+                         <p>ড্যাশর্বোড</p>
 
                      </a>
                  </li>
@@ -38,18 +38,25 @@
                      <a href="#" class="nav-link">
                          <i class="fas fa-user"></i>
                          <p>
-                             Members
+                         সদস্যগণ
                              <i class="fas fa-angle-left right"></i>
                              <span class="badge badge-info right">6</span>
                          </p>
                      </a>
-                     <ul class="nav nav-treeview">
+                     <ul style="border:1px solid #fff;" class="nav nav-treeview">
                          <li class="nav-item">
                              <a href="{{route('user-list')}}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Members List</p>
+                                 <i class="fa fa-user-plus nav-icon"></i>
+                                 <p>সদস্য যুক্ত করুন</p>
                              </a>
                          </li>
+                         <li class="nav-item">
+                             <a href="{{route('user-list')}}" class="nav-link">
+                                 <i class="fa fa-list nav-icon"></i>
+                                 <p>সদস্য তালিকা</p>
+                             </a>
+                         </li>
+                        
                      </ul>
                  </li>
                  
