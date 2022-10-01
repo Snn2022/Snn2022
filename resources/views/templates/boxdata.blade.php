@@ -46,7 +46,7 @@
                     <div class="icon">
                         <i class="fa fa-user"></i>
                     </div>
-                    <a href="{{route('user-list')}}" class="btn btn-primary small-box-footer">
+                    <a href="{{route('members')}}" class="btn btn-primary small-box-footer">
                         <h5 class="text-default text-bold">বিস্তারিত &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>

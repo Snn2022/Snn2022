@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Users List</h1>
+                            <h1 class="m-0">সদস্য তালিকা</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active">Users List</li>
+                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">ড্যাশর্বোড</a></li>
+                                <li class="breadcrumb-item active">সদস্য তালিকা</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -32,41 +32,23 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">All Users List</h3>
+                                    <h3 class="card-title"> <a href="{{route('createMember')}}" class="btn btn-blue">নতুন সদস্য যুক্ত করুন</a> </h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>SL</th>
-                                                <td>Name</td>
-                                                <td>Email</td>
-                                                <td>Phone</td>
-                                                <th style="text-align: center">Action</th>
+                                                <th>সদস্য নং</th>
+                                                <td>নাম</td>
+                                                <td>ফোন</td>
+                                                <td>ঠিকানা</td>
+                                                <th style="text-align: center">#</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($data as $key => $item)
-                                            <tr>
-                                                <td>{{$key+1}}</td>
-                                                <td>{{$item->name}}</td>
-                                                <td>{{$item->email}}</td>
-                                                <td>{{$item->phone}}</td>
-                                                <td class="text-center">
-                                                    <button class="btn btn-success form-control">View</button>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>SL</th>
-                                                <td>Room Type</td>
-                                                <td>Rate</td>
-                                                <th style="text-align: center">Action</th>
-                                            </tr>
-                                        </tfoot>
+                                            
+                                        </tbody>                                      
                                     </table>
                                 </div>
                                 <!-- /.card-body -->

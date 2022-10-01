@@ -44,34 +44,21 @@
                          </p>
                      </a>
                      <ul style="border:1px solid #fff;" class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{route('user-list')}}" class="nav-link">
-                                 <i class="fa fa-user-plus nav-icon"></i>
-                                 <p>সদস্য যুক্ত করুন</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="{{route('user-list')}}" class="nav-link">
+                     <li class="nav-item">
+                             <a href="{{route('members')}}" class="nav-link">
                                  <i class="fa fa-list nav-icon"></i>
                                  <p>সদস্য তালিকা</p>
                              </a>
                          </li>
-                        
+                         <li class="nav-item">
+                             <a href="{{route('createMember')}}" class="nav-link">
+                                 <i class="fa fa-user-plus nav-icon"></i>
+                                 <p>সদস্য যুক্ত করুন</p>
+                             </a>
+                         </li>
                      </ul>
-                 </li>
-                 
-                 <li class="nav-item">
-                     <a href="{{route('profile.show')}}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>Payments</p>
-                     </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="{{route('profile.show')}}" class="nav-link">
-                         <i class="far fa-circle nav-icon"></i>
-                         <p>T-Shirt's</p>
-                     </a>
-                 </li>
+                 </li>                 
+                
                  <li class="nav-item">
                      <a href="{{route('profile.show')}}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>

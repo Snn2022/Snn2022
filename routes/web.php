@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SourceController;
-use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PackageController;
-use App\Http\Controllers\TshirtController;
-use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +26,9 @@ Route::get('login', function () {
     return view('login');
 })->name('login');
 
-Route::get('register', function () {
-    return view('register');
-})->name('register');
+Route::get('add-member', function () {
+    return view('templates.Users.index');
+})->name('add-member');
 
 Route::post('dashboard', function () {
     return view('dashboard');
@@ -39,6 +36,10 @@ Route::post('dashboard', function () {
 
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
 
+//members
+Route::get('members',[MembersController::class,'index'])->name('members');
+Route::get('add-member',[MembersController::class,'memberCreate'])->name('createMember');
+Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
 //profile
 Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
 Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
