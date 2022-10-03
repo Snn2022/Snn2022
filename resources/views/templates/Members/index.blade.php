@@ -24,7 +24,7 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-header -->         
+            <!-- /.content-header -->
 
             <section class="content">
                 <div class="container-fluid">
@@ -32,7 +32,8 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title"> <a href="{{route('createMember')}}" class="btn btn-blue">নতুন সদস্য যুক্ত করুন</a> </h3>
+                                    <h3 class="card-title"> <a href="{{route('createMember')}}"
+                                            class="btn btn-blue">নতুন সদস্য যুক্ত করুন</a> </h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -40,15 +41,23 @@
                                         <thead>
                                             <tr>
                                                 <th>সদস্য নং</th>
-                                                <td>নাম</td>
-                                                <td>ফোন</td>
-                                                <td>ঠিকানা</td>
+                                                <th>নাম</th>
+                                                <th>ফোন</th>
+                                                <th>ঠিকানা</th>
                                                 <th style="text-align: center">#</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
-                                        </tbody>                                      
+                                            @foreach($members as $key => $member)
+                                            <tr>
+                                                <td>{{$member->member_id}}</td>
+                                                <td>{{$member->member_name}}</td>
+                                                <td>{{$member->phone}}</td>
+                                                <td>{{$member->village}}</td>
+                                                <td><a href="#" class="btn btn-info form-control"> view</a></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->

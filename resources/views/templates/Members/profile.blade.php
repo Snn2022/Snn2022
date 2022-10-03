@@ -26,10 +26,10 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                    @if(session()->has('success'))
-                                <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
-                                    {{session('success')}}</h5>
-                                @endif
+                        @if(session()->has('success'))
+                        <h5 id="successMessage" class="col-md-4 offset-md-4 text-center alert-success p-2 mt-1">
+                            {{session('success')}}</h5>
+                        @endif
                     </div>
                     @if(empty($profiles->user_id))
                     <div class="row">
@@ -100,7 +100,7 @@
                             <div class="card">
                                 <div class="card-header bg-primary p-2 text-center">
                                     <h4>Submit your profile information</h4>
-                                </div><!-- /.card-header -->                                
+                                </div><!-- /.card-header -->
                                 <div class="card-body">
                                     <form method="POST" action="{{ route('profile-info-submit') }}">
                                         @csrf
@@ -246,7 +246,7 @@
                         <!-- profile sections end-->
                         <!-- info sections start-->
                         <div class="col-md-8">
-                        <div class="card">
+                            <div class="card">
                                 <div class="card-header bg-primary p-2 text-center">
                                     <h4>Profile information</h4>
                                 </div><!-- /.card-header -->
@@ -292,10 +292,10 @@
                                         </table>
                                     </div><!-- /.card-body -->
                                 </div>
-                            <!-- info sections end-->
+                                <!-- info sections end-->
+                            </div>
                         </div>
-                    </div>
-                    @endif
+                        @endif
             </section>
 
 

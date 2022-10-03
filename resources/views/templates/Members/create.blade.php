@@ -30,14 +30,21 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="card col-md-8 offset-md-2">
+                            <div class="row">
+                                @if(session()->has('success'))
+                                <h5 id="successMessage" class="text-center alert-success p-2 mt-1">
+                                    {{session('success')}}</h5>
+                                @endif
+                            </div>
                             <div class="card-body register-card-body">
                                 <h4 class="login-box-msg">সদস্য নিবন্ধন ফরম</h4>
                                 <div class="text-cener text-danger">
                                     <x-jet-validation-errors />
                                 </div>
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('submitNewMember') }}">
                                     @csrf
                                     <div class="mb-2">
+                                        <input type="hidden" id="member_id" name="member_id" value="0001">
                                         <input class="form-control" type="text" id="member_name" name="member_name"
                                             :value="old('member_name')" required autofocus autocomplete="member_name"
                                             placeholder="সদস্যের নাম ইংরেজীতে">
@@ -96,16 +103,16 @@
                                     <!--address section end-->
                                     <div class="mb-3">
                                         <input class="form-control" type="number" id="phone" name="phone"
-                                            placeholder="ফোন নাম্বার">
+                                            placeholder="ফোন নাম্বার" required>
                                     </div>
                                     <div class="row">
-                                        <label class="col-md-3">ছবি সংযুক্ত করুন :</label>
+                                        <label class="col-md-4">ছবি সংযুক্ত করুন :</label>
                                         <div class="col-md-3 mb-3">
                                             <input type="file" id="photo" name="photo">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-md-3">ভোটার আইডি কপি :</label>
+                                        <label class="col-md-4">ভোটার আইডি কপি :</label>
                                         <div class="col-md-3 mb-3">
                                             <input type="file" id="nid_photo" name="nid_photo">
                                         </div>

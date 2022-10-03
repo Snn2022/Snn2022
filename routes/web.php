@@ -39,7 +39,8 @@ Route::get('user-list',[UserController::class,'index'])->name('user-list');
 //members
 Route::get('members',[MembersController::class,'index'])->name('members');
 Route::get('add-member',[MembersController::class,'memberCreate'])->name('createMember');
-Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
+Route::post('create-member',[MembersController::class,'memberStore'])->name('submitNewMember');
+
 //profile
 Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
 Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
