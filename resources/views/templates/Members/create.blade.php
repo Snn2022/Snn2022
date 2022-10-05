@@ -41,7 +41,7 @@
                                 <div class="text-cener text-danger">
                                     <x-jet-validation-errors />
                                 </div>
-                                <form method="POST" action="{{ route('submitNewMember') }}">
+                                <form method="POST" action="{{ route('submitNewMember') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-2">
                                         <input type="hidden" id="member_id" name="member_id" value="0001">

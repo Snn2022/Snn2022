@@ -53,8 +53,9 @@
                                                 <td>{{$member->member_id}}</td>
                                                 <td>{{$member->member_name}}</td>
                                                 <td>{{$member->phone}}</td>
-                                                <td>{{$member->village}}</td>
-                                                <td><a href="#" class="btn btn-info form-control"> view</a></td>
+                                                <td>{{$member->village}}</td>                                               
+                                                
+                                                <td><a href="{{route('membersDetails',['id' =>$member->id])}}" class="btn btn-info form-control"> view</a></td>
                                             </tr>
                                             @endforeach
                                         </tbody>

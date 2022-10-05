@@ -40,6 +40,7 @@ Route::get('user-list',[UserController::class,'index'])->name('user-list');
 Route::get('members',[MembersController::class,'index'])->name('members');
 Route::get('add-member',[MembersController::class,'memberCreate'])->name('createMember');
 Route::post('create-member',[MembersController::class,'memberStore'])->name('submitNewMember');
+Route::get('members-profile/{id}',[MembersController::class,'memberProfile'])->name('membersDetails');
 
 //profile
 Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
