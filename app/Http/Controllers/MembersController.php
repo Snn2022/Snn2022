@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Members;
+use App\Models\Account;
 
 class MembersController extends Controller
 {
@@ -14,18 +15,20 @@ class MembersController extends Controller
        return view("templates.Members.index",['members'=>$members]);
     }
 
-     public function memberCreate(Request $request) {
-       // $profiles = Profile::where('user_id',Auth::user()->id)->first();       
-               
-        return view("templates.Members.create");
+     public function memberCreate(Request $request) {      
+       $lastmemberId = Members::get('member_id')->max();       
+             
+        return view("templates.Members.create",['lastmemberId' => $lastmemberId]);
     }
    
-     public function memberStore(Request $request) { 
-      $memberId = Members::get('member_id')->max();    
+     public function memberStore(Request $request) {   
+
+      $accounts= New Account;
+      $accounts->member_id = $request->member_id;      
+      $accounts->member_name= $request->member_name;
+      $accounts->save();
       $data= New Members;
-
-      $data->member_id = $request->member_id;
-
+      $data->member_id = $request->member_id;      
       $data->member_name= $request->member_name;
       $data->father_name= $request->father_name;
       $data->mother_name= $request->mother_name;
@@ -40,10 +43,17 @@ class MembersController extends Controller
 
       $url= "storage/";
       $photo= $request->file('photo');
-      $name= $photo->getClientOriginalName();
-      $storage= $photo->storeAs("public/uploads",$name);
-      $photo_path = 'storage/uploads/'.$name;
+      $photo_name= $photo->getClientOriginalName();
+      $photo_storage= $photo->storeAs("public/uploads",$photo_name);
+      $photo_path = 'storage/uploads/'.$photo_name;
+
+      $nid_photo= $request->file('nid_photo');
+      $nid_photo_name= $nid_photo->getClientOriginalName();
+      $nid_photo_storage= $nid_photo->storeAs("public/uploads",$nid_photo_name);
+      $nid_photo_path = 'storage/uploads/'.$nid_photo_name;
+
       $data->photo= $photo_path;     
+      $data->nid_photo= $nid_photo_path; 
       $data->save();
         
        //Members::create($data);        

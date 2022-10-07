@@ -14,7 +14,7 @@
                  <img class="img-circle bg-light" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
-                 <a href="{{route('user-profile')}}" class="d-block"> {{ Auth::user()->name }}</a>
+                 <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
              </div>
              @endif
          </div>
@@ -58,7 +58,12 @@
                          </li>
                      </ul>
                  </li>                 
-                
+                 <li class="nav-item">
+                             <a href="{{route('loanList')}}" class="nav-link">
+                             <i class="fa fa-list nav-icon"></i>
+                                 <p>লোন</p>
+                             </a>
+                         </li>
                  <li class="nav-item">
                      <a href="{{route('profile.show')}}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>

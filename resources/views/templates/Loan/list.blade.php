@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Booking Source List</h1>
+                            <h1 class="m-0">Room List</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Booking Source</li>
+                                <li class="breadcrumb-item active">Room List</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -33,7 +33,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">All Source List</h3>
+                                    <h3 class="card-title">All Room List</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="col-md-9 offset-md-1 card-body">
@@ -41,7 +41,8 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <td>Source Type</td>
+                                                <td>Room Type</td>
+                                                <td>Rate</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
@@ -49,7 +50,8 @@
                                             @foreach ($data as $key => $item)
                                             <tr>
                                                 <td>{{$key+1}}</td>
-                                                <td>{{$item->source_name}}</td>
+                                                <td>{{$item->room_name}}</td>
+                                                <td>{{$item->room_rate}}</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-success form-control">Edit</button>
                                                 </td>
@@ -57,9 +59,10 @@
                                             @endforeach
                                         </tbody>
                                         <tfoot>
-                                        <tr>
+                                            <tr>
                                                 <th>SL</th>
-                                                <td>Source Type</td>
+                                                <td>Room Type</td>
+                                                <td>Rate</td>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </tfoot>

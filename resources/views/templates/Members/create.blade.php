@@ -41,10 +41,18 @@
                                 <div class="text-cener text-danger">
                                     <x-jet-validation-errors />
                                 </div>
-                                <form method="POST" action="{{ route('submitNewMember') }}" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('submitNewMember') }}"
+                                    enctype="multipart/form-data">
                                     @csrf
+                                    @if(is_null($lastmemberId))
+                                    <input type="hidden" id="member_id" name="member_id" value="1">
+                                    @else
+                                    <input type="hidden" id="member_id" name="member_id"
+                                        value="{{$lastmemberId->member_id+1}}">
+                                    @endif
+
                                     <div class="mb-2">
-                                        <input type="hidden" id="member_id" name="member_id" value="0001">
+
                                         <input class="form-control" type="text" id="member_name" name="member_name"
                                             :value="old('member_name')" required autofocus autocomplete="member_name"
                                             placeholder="সদস্যের নাম ইংরেজীতে">
@@ -131,20 +139,6 @@
                 <!-- /.container-fluid -->
             </section>
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
     <x-footer />

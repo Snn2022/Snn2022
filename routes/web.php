@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MembersController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -42,9 +42,12 @@ Route::get('add-member',[MembersController::class,'memberCreate'])->name('create
 Route::post('create-member',[MembersController::class,'memberStore'])->name('submitNewMember');
 Route::get('members-profile/{id}',[MembersController::class,'memberProfile'])->name('membersDetails');
 
-//profile
-Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
-Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
+//Loan
+Route::get('loan-list',[LoanController::class,'index'])->name('loanList');
+Route::get('add-loan',[LoanController::class,'loanCreate'])->name('createLoan');
+Route::post('submit-loan',[LoanController::class,'loanSubmit'])->name('submitLoan');
+
+
 
 //package
 Route::get('package',[PackageController::class,'index'])->name('package');

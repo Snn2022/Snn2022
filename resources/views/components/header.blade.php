@@ -82,6 +82,11 @@
         font-size:16px;
         text-transform:capitalize;
     }
+    #memberInfo tbody td {
+        text-align: left;
+        font-size:16px;
+        text-transform:capitalize;
+    }
 
     #example2 tr td {
         text-align: center;

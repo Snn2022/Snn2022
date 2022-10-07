@@ -1,3 +1,11 @@
+<footer class="main-footer">
+            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">সততা সঞ্চয় সমিতি</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.1.0
+            </div>
+        </footer> 
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

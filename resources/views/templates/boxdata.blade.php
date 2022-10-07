@@ -30,7 +30,7 @@
 
                     </div>
 
-                    <a href="{{route('user-profile')}}" class="btn btn-primary small-box-footer">
+                    <a href="#" class="btn btn-primary small-box-footer">
                         <h5 class="text-default text-bold">বিস্তারিত &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>
@@ -61,7 +61,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="{{route('user-profile')}}" class="btn btn-primary small-box-footer">
+                    <a href="#" class="btn btn-primary small-box-footer">
                         <h5 class="text-default text-bold">বিস্তারিত &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>
