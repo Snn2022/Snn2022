@@ -122,6 +122,12 @@
                                             {{$data->nid_number}}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>জন্ম তারিখ : </td>
+                                        <td>
+                                            {{$data->dob}}
+                                        </td>
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -129,37 +135,22 @@
                         <div class="col-md-3 text-center">
                             <img style="height:180px; width:180px;" class="img-circle img-fluid"
                                 src="{{asset('')}}{{$data->photo}}" alt="member photo">
-                            <img style="height:220px; width:180px;" class="img-thumbnail img-fluid"
+                            <img style="height:200px; width:180px;" class="img-thumbnail img-fluid mt-2"
                                 src="{{asset('')}}{{$data->nid_photo}}" alt="member photo">
                         </div>
                     </div>
                     <div class="row">
-                        <div>
-                            <table id="memberInfo" class="table table-primary">
+                        <div class="col-md-9">
+                            <table id="memberInfo" class="table table-bordered table-primary">
                                 <tbody>
                                     <tr>
-                                        <td>গ্রামের নাম :</td>
-                                        <td>
-                                            {{$data->member_name}}
-                                        </td>
-                                        <td>পোস্ট :</td>
-                                        <td>
-                                            {{$data->member_name}}
-                                        </td>
-                                        <td>ইউনিয়ন : </td>
-                                        <td>
-                                            {{$data->member_name}}
-                                        </td>
+                                        <td>গ্রামের নাম : &nbsp; {{$data->village}}</td>                                        
+                                        <td>পোস্ট : &nbsp; {{$data->post}}</td>                                        
+                                        <td>ইউনিয়ন : &nbsp; {{$data->union}}</td>                                        
                                     </tr>
                                     <tr>
-                                        <td>থানা : </td>
-                                        <td>
-                                            {{$data->member_name}}
-                                        </td>
-                                        <td class="text-left">জেলা : </td>
-                                        <td class="text-left">
-                                            {{$data->member_name}}
-                                        </td>
+                                        <td>থানা : &nbsp; {{$data->thana}}</td>                                        
+                                        <td class="text-left">জেলা : &nbsp; {{$data->district}}</td>                                        
                                         <td colspan="3" class="text-left"></td>
                                     </tr>
                                 </tbody>

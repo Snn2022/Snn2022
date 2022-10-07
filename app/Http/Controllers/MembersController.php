@@ -34,6 +34,7 @@ class MembersController extends Controller
       $data->mother_name= $request->mother_name;
       $data->spouse_name= $request->spouse_name;
       $data->nid_number= $request->nid_number;
+      $data->dob= $request->dob;
       $data->village= $request->village;
       $data->post= $request->post;
       $data->union= $request->union;

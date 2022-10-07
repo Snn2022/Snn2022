@@ -57,9 +57,18 @@
                                         </select>                                       
                                     </div>
                                     <div class="mb-2">
+                                        <select name="saving_skim" id="saving_skim" class="col-md-4 p-1 mb-2">
+                                            <option value="">সঞ্চয় স্কিম নির্বাচন করুন</option>
+                                            <option value="40">40 টাকা দৈনিক</option>
+                                            <option value="60">60 টাকা দৈনিক</option>
+                                            <option value="80">80 টাকা দৈনিক</option>
+                                            <option value="100">100 টাকা দৈনিক</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-2">
                                         <select name="loan_skim" id="loan_skim" class="col-md-4 p-1 mb-2">
                                             <option value="">লোন স্কিম নির্বাচন করুন</option>
-                                            <option value="10000">10000</option>
+                                            <option value="10000">10,000 টাকা </option>
                                         </select>
                                     </div>
                                     <div class="mb-2">

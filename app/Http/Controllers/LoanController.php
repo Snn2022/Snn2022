@@ -19,14 +19,19 @@ class LoanController extends Controller
         return view("templates.Loan.create", ['members' => $members]);
      }
     public function loanSubmit(Request $request) {  
-        $profit_perctnt = $request->loan_skim*30/100;
-        $profit =$request->loan_skim+$profit_perctnt;
+        $profit_percent = $request->loan_skim*30/100;
+        $loan_payable =$request->loan_skim+$profit_percent;
+       
         $data = New Account;
-      $data = Account::where('member_id',$request->loan_receiver)->first();         
-        $data->savings_skim = $request->loan_skim;
+        $data = Account::where('member_id',$request->loan_receiver)->first();         
+        $data->savings_skim = $request->saving_skim;
+        $data->loan_skim = $request->loan_skim;
+        $data->profit_loan = $profit_percent;
+        $data->saving_status = $request->saving_skim;
+        $data->loan_status = $loan_payable;
         $data->start_date = $request->loan_date;       
         $data->duration = $request->duration;
-        $data->installment =  $profit/$request->duration;
+        $data->installment = $loan_payable/$request->duration;
         $data->update();
         
         //return view("templates.Loan.create", ['members' => $members]);

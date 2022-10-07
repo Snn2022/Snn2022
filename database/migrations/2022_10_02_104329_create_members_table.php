@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('mother_name');
             $table->string('spouse_name');
             $table->string('nid_number');
+            $table->string('dob');
             $table->string('village');
             $table->string('post');
             $table->string('union');
