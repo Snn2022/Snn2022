@@ -32,15 +32,15 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title"> <a href="{{route('createLoan')}}"
-                                            class="btn btn-blue"> লোন প্রদান করুন</a> </h3>
+                                    <h3 class="card-title"> <a href="{{route('createLoan')}}" class="btn btn-blue"> লোন
+                                            প্রদান করুন</a> </h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>নাম</th>                                               
+                                                <th>নাম</th>
                                                 <th>ফোন</th>
                                                 <th>পরিমান</th>
                                                 <th>তারিখ</th>
@@ -48,8 +48,18 @@
                                                 <th style="text-align: center">#</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                           {{$data}}
+                                        <tbody>                                       
+                                            @foreach($data as $key => $loan)
+                                            <tr>
+                                                <td>{{$loan->members->member_name}}</td>
+                                                <td>{{$loan->members->phone}}</td>
+                                                <td>{{$loan->loan_skim}}</td>
+                                                <td>{{$loan->start_date}}</td>
+                                                <td>{{$loan->loan_status}}</td>
+                                                <td><a href="#"
+                                                        class="btn btn-info form-control"> view</a></td>
+                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

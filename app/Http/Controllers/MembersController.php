@@ -11,7 +11,7 @@ class MembersController extends Controller
      //index
      public function index(Request $request) {      
        $members = Members::all(); 
-
+      
        return view("templates.Members.index",['members'=>$members]);
     }
 

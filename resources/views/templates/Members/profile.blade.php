@@ -10,11 +10,14 @@
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-md-6">
-                            <h4> <strong> সদস্য নাম্বার : {{$data->member_id}}</strong> </h4>
+                        <div class="col-md-4">
+                            <h4> <strong> সদস্য নং : {{$data->member_id}}</strong> </h4>
+                        </div>
+                        <div class="col-md-4">
+                            <h4> <strong> বহি নং : {{$data->account->book_no}}</strong> </h4>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{route('members')}}">সদস্য তালিকা</a></li>
                                 <li class="breadcrumb-item active">সদস্যের তথ্যাবলি</li>
@@ -36,44 +39,34 @@
                                 <tbody>
                                     <tr>
                                         <td>লোন স্কিম :</td>
-                                        <td>{{ '10,000'}}</td>
+                                        <td>{{ $data->account->loan_skim}}</td>
                                     </tr>
                                     <tr>
-                                        <td>প্রফিট হার (40%) :</td>
-                                        <td>
-                                            {{4000}}
-                                        </td>
+                                        <td>প্রফিট হার (30%) :</td>
+                                        <td>{{ $data->account->profit_loan}}</td>
                                     </tr>
                                     <tr>
                                         <td>পরিশোধ সময়কাল :</td>
-                                        <td>
-                                            {{100}} দিন
-                                        </td>
+                                        <td>{{ $data->account->duration}} দিন</td>
                                     </tr>
                                     <tr>
                                         <td>কিস্তি প্রতি হার :</td>
-                                        <td>
-                                            {{40}} টাকা/দিন
-                                        </td>
+                                        <td>{{ $data->account->per_installment}} টাকা/দিন</td>
                                     </tr>
                                     <tr>
                                         <td>মোট পরিশোধ যোগ্য :</td>
-                                        <td>
-                                            {{'14,000'}}
-                                        </td>
+                                        <td>{{ $data->account->loan_skim + $data->account->profit_loan}} টাকা</td>
                                     </tr>
                                 </tbody>
                                 <tbody>
                                     <tr>
                                         <td>সঞ্চয় হার :</td>
-                                        <td>{{ '40'}}</td>
+                                        <td>{{ $data->account->savings_skim}} টাকা/দিন</td>
                                     </tr>
 
                                     <tr>
                                         <td>মোট সঞ্চয় স্থিতি :</td>
-                                        <td>
-                                            {{'4,000'}}
-                                        </td>
+                                        <td>{{ $data->account->saving_status}} টাকা</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -144,13 +137,13 @@
                             <table id="memberInfo" class="table table-bordered table-primary">
                                 <tbody>
                                     <tr>
-                                        <td>গ্রামের নাম : &nbsp; {{$data->village}}</td>                                        
-                                        <td>পোস্ট : &nbsp; {{$data->post}}</td>                                        
-                                        <td>ইউনিয়ন : &nbsp; {{$data->union}}</td>                                        
+                                        <td>গ্রামের নাম : &nbsp; {{$data->village}}</td>
+                                        <td>পোস্ট : &nbsp; {{$data->post}}</td>
+                                        <td>ইউনিয়ন : &nbsp; {{$data->union}}</td>
                                     </tr>
                                     <tr>
-                                        <td>থানা : &nbsp; {{$data->thana}}</td>                                        
-                                        <td class="text-left">জেলা : &nbsp; {{$data->district}}</td>                                        
+                                        <td>থানা : &nbsp; {{$data->thana}}</td>
+                                        <td class="text-left">জেলা : &nbsp; {{$data->district}}</td>
                                         <td colspan="3" class="text-left"></td>
                                     </tr>
                                 </tbody>

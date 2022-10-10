@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('member_id');
             $table->string('member_name');
+            $table->string('book_no')->nullable();
             $table->string('savings_skim')->nullable();
             $table->string('loan_skim')->nullable();
             $table->string('profit_loan')->nullable();
@@ -26,6 +27,7 @@ return new class extends Migration
             $table->string('expire_date')->nullable();
             $table->string('duration')->nullable();
             $table->string('installment')->nullable();
+            $table->string('per_installment')->nullable();
             $table->timestamps();
         });
     }
