@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\LoanController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,10 @@ Route::get('loan-list',[LoanController::class,'index'])->name('loanList');
 Route::get('add-loan',[LoanController::class,'loanCreate'])->name('createLoan');
 Route::post('submit-loan',[LoanController::class,'loanSubmit'])->name('submitLoan');
 
+//collection
+Route::get('collection',[TransactionController::class,'index'])->name('collection');
+Route::post('search-collection',[TransactionController::class,'search'])->name('collectionSearch');
+Route::post('collection-submit',[TransactionController::class,'transaction'])->name('submitTransaction');
 
 
 //package

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('member_id');           
             $table->string('date');           
-            $table->string('saving');           
+            $table->string('saving')->nullable();           
             $table->string('installment'); 
             $table->string('amount'); 
             $table->string('collector_id'); 

@@ -65,6 +65,13 @@
                              </a>
                          </li>
                  <li class="nav-item">
+                 <li class="nav-item">
+                             <a href="{{route('collection')}}" class="nav-link">
+                             <i class="fa fa-list nav-icon"></i>
+                                 <p>দৈনিক কালেকশন</p>
+                             </a>
+                         </li>
+                 <li class="nav-item">
                      <a href="{{route('profile.show')}}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
                          <p>Settings</p>
