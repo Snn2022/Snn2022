@@ -27,15 +27,9 @@ class TransactionController extends Controller
 
     public function transaction(Request $request ) {
         $today = Carbon::today();
-        $check = Transactions::find($request->member_id)->where('date',$today)->first();
-       
-        if(empty( $check == 'NULL')){
-            return 'no data';
-        }else{
-            return 'check date';
-        }
-       if($today == $check->date){
-       
+        $check = Transactions::where('member_id',$request->member_id)->value('date'); 
+                  
+       if($today == $check){       
         session()->flash('error',' দু:খিত আজকের কিস্তি ইতিমধ্যে জমা হয়েছে..!!');  
         return redirect()->route('collection');
        }else{

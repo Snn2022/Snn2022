@@ -69,6 +69,7 @@
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>তারিখ</th>
                                                 <th>নাম</th>
                                                 <th>সঞ্চয়</th>
                                                 <th>কিস্তি</th>
@@ -79,7 +80,7 @@
                                           
                                             @foreach($transaction as $key => $installment)
                                             <tr>
-                                                <td>{{$installment->date}}</td>
+                                                <td>{{Carbon\Carbon::parse($installment->date)->toFormattedDateString()}}</td>
                                                 <td>{{$installment->members->member_name}}</td>
                                                 <td>{{$installment->saving}}</td>
                                                 <td>{{$installment->amount}}</td>
