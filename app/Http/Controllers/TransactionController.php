@@ -12,8 +12,10 @@ use Carbon\Carbon;
 class TransactionController extends Controller
 {
     public function index(Request $request ) {
+        $today = Carbon::today();
+         $transaction = Transactions::where('date',$today)->get();
               
-        return view("templates.Collection.index");
+        return view("templates.Collection.index",['transaction' => $transaction]);
              
     }
 
@@ -24,6 +26,20 @@ class TransactionController extends Controller
     }
 
     public function transaction(Request $request ) {
+        $today = Carbon::today();
+        $check = Transactions::find($request->member_id)->where('date',$today)->first();
+       
+        if(empty( $check == 'NULL')){
+            return 'no data';
+        }else{
+            return 'check date';
+        }
+       if($today == $check->date){
+       
+        session()->flash('error',' দু:খিত আজকের কিস্তি ইতিমধ্যে জমা হয়েছে..!!');  
+        return redirect()->route('collection');
+       }else{
+      
         $date = Carbon::today();
         $transaction= New Transactions;
         $transaction->member_id = $request->member_id;
@@ -45,6 +61,8 @@ class TransactionController extends Controller
         $account->update();
 
         session()->flash('success',' কালেকশন সম্পন্ন হয়েছে।..!!');  
-        return redirect()->route('collection');            
+        return redirect()->route('collection'); 
+       }
+                 
     }
 }

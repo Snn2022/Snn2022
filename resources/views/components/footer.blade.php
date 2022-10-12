@@ -161,6 +161,11 @@ $(document).ready(function() {
         $("#successMessage").fadeOut('slow')
     }, 2000);
 
+     //error message autohide
+     setTimeout(function() {
+        $("#errorMessage").fadeOut('slow')
+    }, 2000);
+
     function fetchTshirts() {
         $('#tShirt_id').change(function() {
             //set empty value 

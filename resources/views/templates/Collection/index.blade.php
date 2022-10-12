@@ -37,6 +37,12 @@
                                         {{session('success')}}</h5>
                                     @endif
                                 </div>
+                                <div class="row">
+                                    @if(session()->has('error'))
+                                    <h5 id="errorMessage" class="text-center alert-danger p-2 mt-1">
+                                        {{session('error')}}</h5>
+                                    @endif
+                                </div>
                                 <div class="card-header">
                                     <div class="col-md-4 mb-3">
                                         <form method="POST" action="{{ route('collectionSearch') }}"
@@ -59,6 +65,30 @@
                                 </div>
                                 <!-- /.card-header -->
                                 @if(empty($data))
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>নাম</th>
+                                                <th>সঞ্চয়</th>
+                                                <th>কিস্তি</th>
+                                                <th style="text-align: center">#</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          
+                                            @foreach($transaction as $key => $installment)
+                                            <tr>
+                                                <td>{{$installment->date}}</td>
+                                                <td>{{$installment->members->member_name}}</td>
+                                                <td>{{$installment->saving}}</td>
+                                                <td>{{$installment->amount}}</td>
+                                                <td>#</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                                 @else
                                 <form method="POST" action="{{ route('submitTransaction') }}"
                                     enctype="multipart/form-data">
@@ -106,7 +136,7 @@
                                     </div>
                                 </form>
                                 @endif
-
+                              
                             </div>
 
                         </div>

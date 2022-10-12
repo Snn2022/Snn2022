@@ -9,4 +9,9 @@ class Transactions extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    function members()
+    {    	
+    	return $this->belongsTo(Members::class,'member_id','id');
+    }
 }
