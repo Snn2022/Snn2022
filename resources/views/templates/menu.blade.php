@@ -134,24 +134,29 @@
              <li class="nav-item">
                <a href="{{route('members')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
-                 <p>আয়</p>
+                 <p>কালেকশন</p>
                </a>
              </li>
              <li class="nav-item">
                <a href="{{route('members')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
-                 <p>ব্যয়</p>
+                 <p>বেতন</p>
                </a>
              </li>
              <li class="nav-item">
+               <a href="{{route('members')}}" class="nav-link">
+                 <i class="fa fa-list nav-icon"></i>
+                 <p>স্টেটমেন্ট</p>
+               </a>
+             </li> 
+           </ul>
+         </li>
+         <li class="nav-item">
                <a href="{{route('members')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
                  <p>উদ্বর্ত-পত্র</p>
                </a>
              </li>
-
-           </ul>
-         </li>
          <li class="nav-item">
            <a href="{{route('profile.show')}}" class="nav-link">
              <i class="far fa-circle nav-icon"></i>

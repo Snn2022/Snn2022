@@ -109,5 +109,11 @@
         padding: 5px;
         font-size: 13px;
     }
+    .member_account_status{
+        font-size:16px;
+    }
+    .member_account_status span{
+        font-size:18px;
+    }
     </style>
 </head>

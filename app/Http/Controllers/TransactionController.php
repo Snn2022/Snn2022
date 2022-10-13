@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Transactions;
+use App\Models\GeneralReport;
 use Carbon\Carbon;
 
 
@@ -34,10 +35,10 @@ class TransactionController extends Controller
         return redirect()->route('collection');
        }else{
       
-        $date = Carbon::today();
+       
         $transaction= New Transactions;
         $transaction->member_id = $request->member_id;
-        $transaction->date = $date;
+        $transaction->date = $today;
         $transaction->saving = $request->daily_saving;
         $transaction->installment = $request->installment_day;
         $transaction->amount = $request->installment_rate * $request->installment_day;
@@ -53,6 +54,14 @@ class TransactionController extends Controller
         $account->saving_status = $saving_update;        
         $account->loan_status = $loan_update;
         $account->update();
+
+        $generalReport = New GeneralReport;
+        $transaction= Transactions::where('member_id',$request->member_id)->first();
+        $generalReport->date = $today;
+        $generalReport->source = $request->member_id;
+        $generalReport->gl_head = 'collection';
+        $generalReport->amount = $transaction->amount+$transaction->saving;
+        $generalReport->save();
 
         session()->flash('success',' কালেকশন সম্পন্ন হয়েছে।..!!');  
         return redirect()->route('collection'); 
