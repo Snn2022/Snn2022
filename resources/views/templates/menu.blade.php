@@ -89,7 +89,7 @@
                    </a>
                  </li>
                  <li class="nav-item">
-                   <a href="{{route('collection')}}" class="nav-link">
+                   <a href="{{route('mscIncome')}}" class="nav-link">
                      <i class="fa fa-list nav-icon"></i>
                      <p>বিবিধ আয়</p>
                    </a>
@@ -132,7 +132,7 @@
            </a>
            <ul style="border:1px solid #fff;" class="nav nav-treeview">
              <li class="nav-item">
-               <a href="{{route('members')}}" class="nav-link">
+               <a href="{{route('collectionReport')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
                  <p>কালেকশন</p>
                </a>

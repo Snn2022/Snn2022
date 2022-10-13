@@ -9,4 +9,8 @@ class GeneralReport extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    function transaction() {
+        return $this->belongsTo(Transactions::class,'source','member_id');
+    }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ReportsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +52,11 @@ Route::post('submit-loan',[LoanController::class,'loanSubmit'])->name('submitLoa
 Route::get('collection',[TransactionController::class,'index'])->name('collection');
 Route::post('search-collection',[TransactionController::class,'search'])->name('collectionSearch');
 Route::post('collection-submit',[TransactionController::class,'transaction'])->name('submitTransaction');
-
+//Msc. income
+Route::get('msc-income',[TransactionController::class,'mscIncome'])->name('mscIncome');
+Route::post('msc-income-submit',[TransactionController::class,'mscIncomeSubmit'])->name('submitMscIncome');
+//reports
+Route::get('report-collection',[ReportsController::class,'index'])->name('collectionReport');
 
 //package
 Route::get('package',[PackageController::class,'index'])->name('package');

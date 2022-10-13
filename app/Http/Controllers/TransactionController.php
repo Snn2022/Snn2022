@@ -68,4 +68,26 @@ class TransactionController extends Controller
        }
                  
     }
+
+    public function mscIncome(Request $request ) {
+        $today = Carbon::today();
+        $gl_head = 'misc_income';         
+        $mscIncomes =  GeneralReport::where('gl_head',$gl_head )->get();     
+
+        return view("templates.Miscellenious.index", ['mscIncomes' => $mscIncomes]);             
+}
+    public function mscIncomeSubmit(Request $request ) {
+        $today = Carbon::today();
+        $data = $request->all(); 
+        $generalReport = New GeneralReport;        
+        $generalReport->date = $today;
+        $generalReport->source = $request->particular;
+        $generalReport->gl_head = 'misc_income';
+        $generalReport->amount = $request->amount;
+        $generalReport->save(); 
+
+        session()->flash('success','  বিবিধ আয় হিসাবভুক্ত হয়েছে।..!!');  
+        return redirect()->route('mscIncome');
+                     
+}
 }

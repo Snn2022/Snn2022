@@ -112,7 +112,7 @@
                   <div class="row">
                     <label class="col-md-4">ছবি সংযুক্ত করুন :</label>
                     <div class="col-md-3 mb-3">
-                      <input type="file" id="photo" name="photo">
+                      <input type="file" id="photo" name="photo" capture="user" accept="image/*">
                     </div>
                   </div>
                   <div class="row">
