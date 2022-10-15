@@ -14,10 +14,8 @@ class TransactionController extends Controller
 {
     public function index(Request $request ) {
         $today = Carbon::today();
-         $transaction = Transactions::where('date',$today)->get();
-              
-        return view("templates.Collection.index",['transaction' => $transaction]);
-             
+         $transaction = Transactions::where('date',$today)->get();              
+        return view("templates.Collection.index",['transaction' => $transaction]);             
     }
 
     public function search(Request $request ) {
@@ -71,8 +69,9 @@ class TransactionController extends Controller
 
     public function mscIncome(Request $request ) {
         $today = Carbon::today();
-        $gl_head = 'misc_income';         
-        $mscIncomes =  GeneralReport::where('gl_head',$gl_head )->get();     
+        $glHead = 'misc_income';       
+        $mscIncomes = GeneralReport::where('gl_head', $glHead)
+       ->where('date', $today)->get();    
 
         return view("templates.Miscellenious.index", ['mscIncomes' => $mscIncomes]);             
 }
@@ -90,4 +89,28 @@ class TransactionController extends Controller
         return redirect()->route('mscIncome');
                      
 }
+
+public function salary(Request $request ) {   
+     $today = Carbon::today();
+     $glHead = 'salary';       
+     $salary = GeneralReport::where('gl_head', $glHead)
+    ->where('date', $today)->get(); 
+    
+    return view("templates.Salary.index",['salary' => $salary]);             
+}
+
+public function submitSalary(Request $request ) {
+    $today = Carbon::today();
+    $data = $request->all(); 
+    $generalReport = New GeneralReport;        
+    $generalReport->date = $today;
+    $generalReport->source = $request->particular;
+    $generalReport->gl_head = 'salary';
+    $generalReport->amount = $request->amount;
+    $generalReport->save();    
+    
+    session()->flash('success',' বেতন প্রদান হিসাবভুক্ত হয়েছে।..!!');  
+    return redirect()->route('salary');
+}
+
 }

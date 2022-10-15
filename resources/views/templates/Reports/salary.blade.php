@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">বিবিধ আয়</h1>
+                            <h1 class="m-0"> বেতন রিপোর্ট</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">ড্যাশর্বোড</a></li>
-                                <li class="breadcrumb-item active">বিবিধ আয়</li>
+                                <li class="breadcrumb-item active">  বেতন রিপোর্ট</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -31,41 +31,10 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="row">
-                                    @if(session()->has('success'))
-                                    <h5 id="successMessage" class="text-center alert-success p-2 mt-1">
-                                        {{session('success')}}</h5>
-                                    @endif
-                                </div>
-                                <div class="row">
-                                    @if(session()->has('error'))
-                                    <h5 id="errorMessage" class="text-center alert-danger p-2 mt-1">
-                                        {{session('error')}}</h5>
-                                    @endif
-                                </div>
-                                <div class="card-header">
-                                    <div class="mb-3">
-                                        <form method="POST" action="{{ route('submitMscIncome') }}"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" id="particular"
-                                                        name="particular" placeholder="হিসাবের বিবরন" required>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="number" class="form-control" id="amount" name="amount"
-                                                        placeholder="টাকার পরিমান" required>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <button class="btn btn-primary">সাবমিট</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+
+                                <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>তারিখ</th>
@@ -74,7 +43,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($mscIncomes as $key => $item)
+                                            @foreach($data as $key => $item)
                                             <tr>
                                                 <td>{{Carbon\Carbon::parse($item->date)->toFormattedDateString()}}</td>
                                                 <td>{{$item->source}}</td>
@@ -84,6 +53,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+
                             </div>
 
                         </div>

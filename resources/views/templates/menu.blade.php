@@ -106,7 +106,7 @@
                </a>
                <ul style="border:1px solid #fff;" class="nav nav-treeview">
                  <li class="nav-item">
-                   <a href="{{route('collection')}}" class="nav-link">
+                   <a href="{{route('salary')}}" class="nav-link">
                      <i class="fa fa-list nav-icon"></i>
                      <p>বেতন</p>
                    </a>
@@ -138,13 +138,13 @@
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{route('members')}}" class="nav-link">
+               <a href="{{route('salaryReport')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
                  <p>বেতন</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="{{route('members')}}" class="nav-link">
+               <a href="{{route('statementReport')}}" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
                  <p>স্টেটমেন্ট</p>
                </a>
@@ -152,13 +152,13 @@
            </ul>
          </li>
          <li class="nav-item">
-               <a href="{{route('members')}}" class="nav-link">
+               <a href="#" class="nav-link">
                  <i class="fa fa-list nav-icon"></i>
                  <p>উদ্বর্ত-পত্র</p>
                </a>
              </li>
          <li class="nav-item">
-           <a href="{{route('profile.show')}}" class="nav-link">
+           <a href="#" class="nav-link">
              <i class="far fa-circle nav-icon"></i>
              <p>Settings</p>
            </a>
@@ -191,29 +191,13 @@
            </a>
          </li>
          <li class="nav-item">
-           <a href="{{route('profile.show')}}" class="nav-link">
+           <a href="#" class="nav-link">
              <i class="fas fa-cogs"></i>
              <p>
                Settings
              </p>
            </a>
-         </li>
-         <li class="nav-item">
-           <a href="{{route('profile.show')}}" class="nav-link">
-             <i class="ion ion-bag"></i>
-             <p>
-               Package
-               <i class="fas fa-angle-left right"></i>
-             </p>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="{{route('profile.show')}}" class="nav-link">
-             <i class="far fa-circle nav-icon"></i>
-             <p>Payments</p>
-           </a>
-         </li>
-
+         </li>         
          <li class="nav-item mt-4">
            <form method="POST" action="{{ route('logout') }}">
              @csrf

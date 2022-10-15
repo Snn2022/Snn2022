@@ -59,6 +59,7 @@
                                                 <th>কিস্তি</th>
                                                 <th>সঞ্চয়</th>
                                                 <th>মোট</th>
+                                                <th>জমাকারী</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -70,6 +71,7 @@
                                                 <td>{{$collection->transaction->amount}} টাকা                 </td>
                                                 <td>{{$collection->transaction->saving}} টাকা</td>
                                                 <td>{{$collection->amount}} টাকা</td>
+                                                <td>{{$collection->transaction->collector_id}}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>

@@ -24,7 +24,8 @@ class MembersController extends Controller
      public function memberStore(Request $request) {   
 
       $accounts= New Account;
-      $accounts->member_id = $request->member_id;      
+      $sku = '000'.$request->member_id;;
+      $accounts->member_id = $sku;     
       $accounts->member_name= $request->member_name;
       $accounts->save();
       $data= New Members;

@@ -23,6 +23,10 @@ Route::get('/', function () {
     return view('main');
 })->name('main');
 
+Route::get('register', function () {
+    return view('register');
+})->name('register');
+
 Route::get('login', function () {
     return view('login');
 })->name('login');
@@ -55,9 +59,14 @@ Route::post('collection-submit',[TransactionController::class,'transaction'])->n
 //Msc. income
 Route::get('msc-income',[TransactionController::class,'mscIncome'])->name('mscIncome');
 Route::post('msc-income-submit',[TransactionController::class,'mscIncomeSubmit'])->name('submitMscIncome');
+//salary
+Route::get('salary',[TransactionController::class,'salary'])->name('salary');
+Route::post('submit-salary',[TransactionController::class,'submitSalary'])->name('submitSalary');
 //reports
 Route::get('report-collection',[ReportsController::class,'index'])->name('collectionReport');
 Route::post('report-collection-search',[ReportsController::class,'searchCollection'])->name('searchCollectionReport');
+Route::get('report-salary',[ReportsController::class,'salaryReport'])->name('salaryReport');
+Route::get('report-statement',[ReportsController::class,'statementReport'])->name('statementReport');
 
 //package
 Route::get('package',[PackageController::class,'index'])->name('package');
