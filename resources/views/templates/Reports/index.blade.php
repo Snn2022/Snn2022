@@ -33,13 +33,11 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="col-md-4 mb-3">
-                                        <form method="POST" action="{{ route('collectionSearch') }}"
+                                        <form method="POST" action="{{ route('searchCollectionReport') }}"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="input-group">
-                                                <input type="text" class="form-control" id="book_no" name="book_no"
-                                                    placeholder="বহি : নং লিখুন।" aria-describedby="book_noPrepend"
-                                                    required>
+                                                <input type="date" class="form-control" id="collection_report_date" name="collection_report_date" required>
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-success input-group-text"
                                                         id="book_noPrepend">

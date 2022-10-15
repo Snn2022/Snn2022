@@ -57,6 +57,7 @@ Route::get('msc-income',[TransactionController::class,'mscIncome'])->name('mscIn
 Route::post('msc-income-submit',[TransactionController::class,'mscIncomeSubmit'])->name('submitMscIncome');
 //reports
 Route::get('report-collection',[ReportsController::class,'index'])->name('collectionReport');
+Route::post('report-collection-search',[ReportsController::class,'searchCollection'])->name('searchCollectionReport');
 
 //package
 Route::get('package',[PackageController::class,'index'])->name('package');
