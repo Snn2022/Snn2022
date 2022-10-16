@@ -37,7 +37,8 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="input-group">
-                                                <input type="date" class="form-control" id="collection_report_date" name="collection_report_date" required>
+                                                <input type="date" class="form-control" id="collection_report_date"
+                                                    name="collection_report_date" required>
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-success input-group-text"
                                                         id="book_noPrepend">
@@ -54,7 +55,7 @@
                                         <thead>
                                             <tr>
                                                 <th>তারিখ</th>
-                                                <th>সদস্য নং</th>                                                
+                                                <th>সদস্য নং</th>
                                                 <th>কিস্তির সংখ্যা</th>
                                                 <th>কিস্তি</th>
                                                 <th>সঞ্চয়</th>
@@ -65,15 +66,37 @@
                                         <tbody>
                                             @foreach($data as $key => $collection)
                                             <tr>
-                                                <td>{{Carbon\Carbon::parse($collection->date)->toFormattedDateString()}}</td>
-                                                <td>{{$collection->source}}</td>                                                
+                                                <td>{{Carbon\Carbon::parse($collection->date)->toFormattedDateString()}}
+                                                </td>
+                                                <td>{{$collection->source}}</td>
                                                 <td>{{$collection->transaction->installment}}</td>
-                                                <td>{{$collection->transaction->amount}} টাকা                 </td>
+                                                <td>{{$collection->transaction->amount}} টাকা </td>
                                                 <td>{{$collection->transaction->saving}} টাকা</td>
                                                 <td>{{$collection->amount}} টাকা</td>
                                                 <td>{{$collection->transaction->collector_id}}</td>
-                                            </tr>
+                                            </tr>                                           
                                             @endforeach
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-right">মোট = </td>
+                                                <td class="text-right"><span class="doubleUnderline"><span
+                                                            style="font-size:20px;">{{$collection->transaction->sum('amount')}}</span>
+                                                        টাকা </span></td>
+                                                <td class="text-right"><span class="doubleUnderline"> <span
+                                                            style="font-size:20px;">{{$collection->transaction->sum('saving')}}</span>
+                                                        টাকা </span></td>
+                                                <td class="text-right"><span class="doubleUnderline"> <span
+                                                            style="font-size:20px;">{{$data->sum('amount')}}</span>
+                                                        টাকা </span></td>
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <th colspan="5" class="text-right">সর্মোট = &nbsp; <strong
+                                                        class="doubleUnderline"><span style="font-size:20px;">
+                                                          {{$collection->transaction->sum('amount')+$collection->transaction->sum('saving')+$data->sum('amount')}} </span>
+                                                        টাকা</strong></th>
+                                            </tr>
+                                        </tfoot>
                                         </tbody>
                                     </table>
                                 </div>

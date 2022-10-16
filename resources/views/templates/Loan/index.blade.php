@@ -44,6 +44,7 @@
                                                 <th>ফোন</th>
                                                 <th>পরিমান</th>
                                                 <th>তারিখ</th>
+                                                <th>মেয়াদ</th>
                                                 <th>স্থিতি</th>
                                                 <th style="text-align: center">#</th>
                                             </tr>
@@ -54,7 +55,8 @@
                                                 <td>{{$loan->members->member_name}}</td>
                                                 <td>{{$loan->members->phone}}</td>
                                                 <td>{{$loan->loan_skim}}</td>
-                                                <td>{{$loan->start_date}}</td>
+                                                <td>{{Carbon\Carbon::parse($loan->start_date)->toFormattedDateString()}}</td>
+                                                <td>{{Carbon\Carbon::parse($loan->expire_date)->toFormattedDateString()}}</td>
                                                 <td>{{$loan->loan_status}}</td>
                                                 <td><a href="#"
                                                         class="btn btn-info form-control"> view</a></td>

@@ -54,11 +54,16 @@
                                             <option value="{{$member->member_id}}" class="form-control">
                                                 {{$member->member_name}}</option>
                                             @endforeach
+                                            @foreach($paidMembers as $key => $paidMember)
+                                            <option value="{{$member->paidMember}}" class="form-control">
+                                                {{$paidMember->member_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-2">
                                         <select name="saving_skim" id="saving_skim" class="form-control p-2 mb-2">
                                             <option value="">সঞ্চয় স্কিম নির্বাচন করুন</option>
+                                            <option value="20">20 টাকা দৈনিক</option>
                                             <option value="40">40 টাকা দৈনিক</option>
                                             <option value="60">60 টাকা দৈনিক</option>
                                             <option value="80">80 টাকা দৈনিক</option>
@@ -68,7 +73,16 @@
                                     <div class="mb-2">
                                         <select name="loan_skim" id="loan_skim" class="form-control p-2 mb-2">
                                             <option value="">লোন স্কিম নির্বাচন করুন</option>
+                                            <option value="5000">5,000 টাকা </option>
                                             <option value="10000">10,000 টাকা </option>
+                                            <option value="15000">15,000 টাকা </option>
+                                            <option value="20000">20,000 টাকা </option>
+                                            <option value="25000">25,000 টাকা </option>
+                                            <option value="30000">30,000 টাকা </option>
+                                            <option value="35000">35,000 টাকা </option>
+                                            <option value="40000">40,000 টাকা </option>
+                                            <option value="45000">45,000 টাকা </option>
+                                            <option value="50000">50,000 টাকা </option>
                                         </select>
                                     </div>
                                     <div class="mb-2">

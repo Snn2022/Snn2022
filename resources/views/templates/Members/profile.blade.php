@@ -120,7 +120,7 @@
                       <tr>
                         <td>জন্ম তারিখ : </td>
                         <td>
-                          {{$data->dob}}
+                          {{Carbon\Carbon::parse($data->dob)->toFormattedDateString()}}
                         </td>
                       </tr>
 

@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
 
     <style>
+        .doubleUnderline { border-bottom: 3px double; }
         .login-page{
             background-image: url('{{ asset('images/main_bg.jpg')}}'); 
             background-repeat: no-repeat, repeat;
@@ -109,11 +110,18 @@
         padding: 5px;
         font-size: 13px;
     }
-    .member_account_status{
+    .member_account_status #example1 thead th{
+        text-align:left;
         font-size:16px;
     }
     .member_account_status span{
         font-size:18px;
     }
+
+    /* Mobile device */
+@media (max-width:600px) {
+  
+
+}
     </style>
 </head>

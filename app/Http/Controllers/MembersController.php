@@ -21,15 +21,20 @@ class MembersController extends Controller
         return view("templates.Members.create",['lastmemberId' => $lastmemberId]);
     }
    
-     public function memberStore(Request $request) {   
-
-      $accounts= New Account;
+     public function memberStore(Request $request) { 
+     //check if member exist
+      $memberID = Members::where('nid_number', $request->nid_number)->first();     
+      if(!empty($memberID)){
+        session()->flash('error',' দুখিত: উক্ত ভোটার আইডি  ইতিমধ্যে ব্যবহৃত হচ্ছে ...!!');  
+        return redirect()->back();
+      }else{
+        $accounts= New Account;
       $sku = '000'.$request->member_id;;
       $accounts->member_id = $sku;     
       $accounts->member_name= $request->member_name;
       $accounts->save();
       $data= New Members;
-      $data->member_id = $request->member_id;      
+      $data->member_id =  $sku;      
       $data->member_name= $request->member_name;
       $data->father_name= $request->father_name;
       $data->mother_name= $request->mother_name;
@@ -60,8 +65,9 @@ class MembersController extends Controller
         
        //Members::create($data);        
        session()->flash('success',' নতুন সদস্য যুক্ত হয়েছে।..!!');  
-       return redirect()->back();         
-        //return view("templates.Members.create");
+       return redirect()->back(); 
+      }     
+       
     }
 
     public function memberProfile(Request $request, $id) {

@@ -15,9 +15,10 @@ class LoanController extends Controller
         return view("templates.Loan.index", ['data'=> $data]);
      }
     public function loanCreate(Request $request) {      
-        $members = Members::all(); 
+        $members = Account::whereNull('loan_status')->get(); 
+        $paidMembers = Account::where('loan_status', '<=', 50)->get(); 
  
-        return view("templates.Loan.create", ['members' => $members]);
+        return view("templates.Loan.create", ['members' => $members, 'paidMembers' => $paidMembers]);
      }
     public function loanSubmit(Request $request) { 
         

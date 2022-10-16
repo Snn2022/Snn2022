@@ -6,6 +6,7 @@ use App\Http\Controllers\MembersController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::post('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('setting',[ProfileController::class,'index'])->name('setting');
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
 
 //members

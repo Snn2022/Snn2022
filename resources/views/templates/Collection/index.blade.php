@@ -66,27 +66,38 @@
                                 <!-- /.card-header -->
                                 @if(empty($data))
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table  class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>তারিখ</th>
-                                                <th>নাম</th>
-                                                <th>সঞ্চয়</th>
-                                                <th>কিস্তি</th>
+                                                <th class="text-left">তারিখ</th>
+                                                <th class="text-left">নাম</th>
+                                                <th class="text-right">সঞ্চয়</th>
+                                                <th class="text-right">কিস্তি</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             @foreach($transaction as $key => $installment)
                                             <tr>
-                                                <td>{{Carbon\Carbon::parse($installment->date)->toFormattedDateString()}}
+                                                <td class="text-left">{{Carbon\Carbon::parse($installment->date)->toFormattedDateString()}}
                                                 </td>
-                                                <td>{{$installment->members->member_name}}</td>
-                                                <td>{{$installment->saving}}</td>
-                                                <td>{{$installment->amount}}</td>
+                                                <td class="text-left">{{$installment->members->member_name}}</td>
+                                                <td class="text-right">{{$installment->saving}} টাকা</td>
+                                                <td class="text-right">{{$installment->amount}} টাকা</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="2" class="text-right" >মোট = </td>
+                                                <td class="text-right"><span class="doubleUnderline"><span style="font-size:20px;">{{$transaction->sum('saving')}}</span> টাকা  </span></td>
+                                                <td class="text-right"><span class="doubleUnderline"> <span style="font-size:20px;">{{$transaction->sum('amount')}}</span> টাকা </span></td>                                               
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <th colspan="3" class="text-right">সর্মোট = &nbsp; <strong class="doubleUnderline"><span style="font-size:20px;"> {{$transaction->sum('saving')+$transaction->sum('amount')}}</span> টাকা</strong></th>                                              
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                                 @else
@@ -95,33 +106,47 @@
                                     @csrf
                                     <div class="member_account_status card card-body mt-0">
                                         <div class="row">
-                                            <div class="col-md-7">
-                                                <div class="row">
-                                                    <div class="col-md-5">
-                                                        <strong> নাম : <span>
-                                                                {{$data->member_name}}
-                                                            </span></strong>
-                                                    </div>
-                                                    <div class="col-md-7">
-                                                        <strong class="mr-3"> সঞ্চয় : <span>
-                                                                {{$data->savings_skim}} </span> টাকা। </strong>
-                                                        <strong> কিস্তি : <span>
-                                                                {{$data->per_installment}} </span> টাকা। </strong>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-2 p-2">
+                                                <img style="width:50%;" class="img-fluid"
+                                                    src="{{asset('')}}{{$data->members->photo}}" alt="member photo">
                                             </div>
-                                            <div class="col-md-5">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <strong> সঞ্চয় স্থিতি : <span>
-                                                                {{$data->saving_status}} </span> টাকা। </strong>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <strong> লোন স্থিতি : <span>
-                                                                {{$data->loan_status}}
-                                                            </span> টাকা। </strong>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-10 text-left">
+                                                <table id="example1" class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <th>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong> নাম : <span>
+                                                                            {{$data->member_name}}
+                                                                        </span></strong>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <strong> সঞ্চয় : <span>
+                                                                            {{$data->savings_skim}} </span> টাকা।
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <strong> কিস্তি : <span>
+                                                                            {{$data->per_installment}} </span> টাকা।
+                                                                    </strong>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong> সঞ্চয় স্থিতি : <span>
+                                                                            {{$data->saving_status}} </span> টাকা।
+                                                                    </strong>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <strong> লোন স্থিতি : <span>
+                                                                            {{$data->loan_status}}
+                                                                        </span> টাকা। </strong>
+                                                                </div>
+
+                                                            </div>
+                                                        </th>
+                                                    </thead>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
