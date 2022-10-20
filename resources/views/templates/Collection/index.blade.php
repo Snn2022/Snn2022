@@ -66,7 +66,7 @@
                                 <!-- /.card-header -->
                                 @if(empty($data))
                                 <div class="card-body">
-                                    <table  class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th class="text-left">তারিখ</th>
@@ -79,7 +79,8 @@
 
                                             @foreach($transaction as $key => $installment)
                                             <tr>
-                                                <td class="text-left">{{Carbon\Carbon::parse($installment->date)->toFormattedDateString()}}
+                                                <td class="text-left">
+                                                    {{Carbon\Carbon::parse($installment->date)->toFormattedDateString()}}
                                                 </td>
                                                 <td class="text-left">{{$installment->members->member_name}}</td>
                                                 <td class="text-right">{{$installment->saving}} টাকা</td>
@@ -89,13 +90,20 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="2" class="text-right" >মোট = </td>
-                                                <td class="text-right"><span class="doubleUnderline"><span style="font-size:20px;">{{$transaction->sum('saving')}}</span> টাকা  </span></td>
-                                                <td class="text-right"><span class="doubleUnderline"> <span style="font-size:20px;">{{$transaction->sum('amount')}}</span> টাকা </span></td>                                               
+                                                <td colspan="2" class="text-right">মোট = </td>
+                                                <td class="text-right"><span class="doubleUnderline"><span
+                                                            style="font-size:20px;">{{$transaction->sum('saving')}}</span>
+                                                        টাকা </span></td>
+                                                <td class="text-right"><span class="doubleUnderline"> <span
+                                                            style="font-size:20px;">{{$transaction->sum('amount')}}</span>
+                                                        টাকা </span></td>
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <th colspan="3" class="text-right">সর্মোট = &nbsp; <strong class="doubleUnderline"><span style="font-size:20px;"> {{$transaction->sum('saving')+$transaction->sum('amount')}}</span> টাকা</strong></th>                                              
+                                                <th colspan="3" class="text-right">সর্মোট = &nbsp; <strong
+                                                        class="doubleUnderline"><span style="font-size:20px;">
+                                                            {{$transaction->sum('saving')+$transaction->sum('amount')}}</span>
+                                                        টাকা</strong></th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -151,7 +159,12 @@
                                         </div>
                                     </div>
                                     <div class="card card-body mt-0">
-                                        <div class="row">
+                                    <div class="row mb-2">
+                                                <div class="mb-2">
+                                                    <input type="date" name="custom_date">
+                                                </div>                                               
+                                            </div>
+                                        <div class="row">                                          
                                             <div class="col-md-4 mb-2">
                                                 <input type="hidden" name="member_id" value="{{$data->member_id}}">
                                                 <input class="form-control" type="text" name="daily_saving"

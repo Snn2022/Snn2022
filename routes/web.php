@@ -7,6 +7,7 @@ use App\Http\Controllers\LoanController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BypassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::post('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('bypass',[BypassController::class,'index'])->name('bypass');
+Route::post('create-bypass-member',[BypassController::class,'bypassMemberStore'])->name('submitBypassMember');
+Route::get('bypass-loan',[BypassController::class,'bypassloanCreate'])->name('bypasscreateLoan');
+
 Route::get('setting',[ProfileController::class,'index'])->name('setting');
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
 
@@ -53,6 +58,9 @@ Route::get('members-profile/{id}',[MembersController::class,'memberProfile'])->n
 Route::get('loan-list',[LoanController::class,'index'])->name('loanList');
 Route::get('add-loan',[LoanController::class,'loanCreate'])->name('createLoan');
 Route::post('submit-loan',[LoanController::class,'loanSubmit'])->name('submitLoan');
+Route::post('members-details',[LoanController::class,'nameSearchCollection'])->name('nameSearchloan');
+Route::get('view-details/{id}',[LoanController::class,'getdetails'])->name('getdetails');
+
 
 //collection
 Route::get('collection',[TransactionController::class,'index'])->name('collection');
@@ -66,7 +74,9 @@ Route::get('salary',[TransactionController::class,'salary'])->name('salary');
 Route::post('submit-salary',[TransactionController::class,'submitSalary'])->name('submitSalary');
 //reports
 Route::get('report-collection',[ReportsController::class,'index'])->name('collectionReport');
-Route::post('report-collection-search',[ReportsController::class,'searchCollection'])->name('searchCollectionReport');
+Route::post('report-date-collection-search',[ReportsController::class,'dateSearchCollection'])->name('dateSearchCollection');
+Route::post('report-book-collection-search',[ReportsController::class,'bookSearchCollection'])->name('bookSearchCollection');
+Route::post('report-name-collection-search',[ReportsController::class,'nameSearchCollection'])->name('nameSearchCollection');
 Route::get('report-salary',[ReportsController::class,'salaryReport'])->name('salaryReport');
 Route::get('report-statement',[ReportsController::class,'statementReport'])->name('statementReport');
 

@@ -25,7 +25,9 @@ class TransactionController extends Controller
     }
 
     public function transaction(Request $request ) {
-        $today = Carbon::today();
+
+        $today =  $start = Carbon::parse($request->custom_date);
+        //$today = Carbon::today();
         $check = Transactions::where('member_id',$request->member_id)->get('date')->max();
         
         if(empty($check->date)){
@@ -82,7 +84,7 @@ class TransactionController extends Controller
             $account->update();
     
             $generalReport = New GeneralReport;
-            $transaction= Transactions::where('member_id',$request->member_id)->first();
+            $transaction= Transactions::orderBy('date','Desc')->where('member_id',$request->member_id)->first();
             $generalReport->date = $today;
             $generalReport->source = $request->member_id;
             $generalReport->gl_head = 'collection';

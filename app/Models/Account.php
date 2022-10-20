@@ -14,4 +14,7 @@ class Account extends Model
     {    	
     	return $this->belongsTo(Members::class,'member_id','id');
     }
+    function transaction() {
+        return $this->belongsTo(Transactions::class,'member_id');
+    }
 }

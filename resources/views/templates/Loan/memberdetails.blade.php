@@ -89,7 +89,7 @@
                                         <td>{{Carbon\Carbon::parse($loan->start_date)->toFormattedDateString()}}</td>
                                         <td>{{Carbon\Carbon::parse($loan->expire_date)->toFormattedDateString()}}</td>
                                         <td>{{$loan->loan_status}}</td>
-                                        <td><a href="#" class="btn btn-info form-control"> view</a></td>
+                                        <td><a href="{{route('getdetails',['id'=>$loan->member_id])}}" class="btn btn-info form-control"> view</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

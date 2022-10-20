@@ -66,21 +66,10 @@
                                         </select>
                                     </div>
                                     <div class="mb-2">
-                                        <select name="saving_skim" id="saving_skim" class="form-control p-2 mb-2">
-                                            <option value="">সঞ্চয় স্কিম নির্বাচন করুন</option>
-                                            @for($i=5; $i <'155'; $i+=5)
-                                            <option value="{{$i}}">{{$i}} টাকা দৈনিক</option>
-                                            @endfor
-                                            
-                                        </select>
+                                      <input type="text" name="saving_skim" placeholder="সঞ্চয় স্কিম">
                                     </div>
                                     <div class="mb-2">
-                                        <select name="loan_skim" id="loan_skim" class="form-control p-2 mb-2">
-                                            <option value="">লোন স্কিম নির্বাচন করুন</option>
-                                            @for($i=5000; $i <'105000'; $i+=5000)
-                                            <option value="{{$i}}">{{$i}} টাকা</option>
-                                            @endfor                                           
-                                        </select>
+                                    <input type="text" name="loan_skim" placeholder="লোন স্কিম">
                                     </div>
                                     <div class="mb-2">
                                         <select name="duration" id="duration" class="form-control p-2 mb-2">
