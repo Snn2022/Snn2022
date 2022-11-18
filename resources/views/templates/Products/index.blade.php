@@ -30,41 +30,32 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                            @if(session()->has('success'))
-                                       <div id="successMessage" class="text-center text-success p-1">
-                                        {{session('success')}}
-                                       </div>
-                                       @endif
+                                @if(session()->has('success'))
+                                <div id="successMessage" class="text-center text-success p-1">
+                                    {{session('success')}}
+                                </div>
+                                @endif
                                 <div class="card-body">
-                                <form method="POST" action="{{route('tshirt-submit')}}">
+                                    <form method="POST" action="{{route('productsSubmit')}}">
                                         @csrf
                                         <div class="input-group">
-                                            <select class="col-md-3 form-control mr-1" name="tShirt_size" id="tShirt_size">
-                                                <option value="Small">Select T-Shirt Size</option>
-                                                <option value="S-Small">S-Small</option>
-                                                <option value="M-Medium">M-Medium</option>
-                                                <option value="L-Large">L-Large</option>
-                                                <option value="XL-Extra Large">XL-Extra Large</option>
-                                            </select>  
-                                            <input class="col-md-3 form-control ml-1" type="text" id="rate"
-                                                name="rate" :value="old('rate')" required
-                                                autofocus autocomplete="rate"
-                                                placeholder="Enter rate">
-                                               
-                                                <button type="submit" class="btn btn-primary col-md-2 form-control ml-1">Submit</button>
-                                                                                    
-                                        </div>                                      
+                                            <input class="col-md-3 form-control ml-1" type="text" id="code" name="code"
+                                                placeholder="Enter Prodcut Code">
+                                            <input class="col-md-3 form-control ml-1" type="text" id="name" name="name"
+                                                placeholder="Enter Prodcut Name">
+                                            <input class="col-md-3 form-control ml-1" type="text" id="rate" name="rate"
+                                                placeholder="Enter Product rate">
+                                            <button type="submit" class="btn btn-primary col-md-2 form-control ml-1">
+                                                Submit
+                                            </button>
 
-                                        <div class="row">
-                                           
-                                            <!-- /.col -->
                                         </div>
                                     </form>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">T-shirt List</h3>
+                                    <h3 class="card-title">Product List</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -72,19 +63,22 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>T-shirt Size</th>
-                                                <th>Price</th>
+                                                <th>Code</th>
+                                                <th>Name</th>
+                                                <th>Rate</th>
                                                 <th style="text-align: center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                       @foreach($data as $key=> $item)                                      
+                                            @foreach($data as $key=> $item)
                                             <tr>
                                                 <td>{{$key+1}}</td>
-                                                <td>{{$item->tShirt_size}}</td>
+                                                <td>{{$item->code}}</td>
+                                                <td>{{$item->name}}</td>
                                                 <td>{{$item->rate}}</td>
                                                 <td class="text-center">
-                                                  <a href="{{route('tshirt-edit',['id'=>$item->id])}}">  <button class="btn btn-info form-control">Edit</button></a>
+                                                    <a href="{{route('tshirt-edit',['id'=>$item->id])}}"> <button
+                                                            class="btn btn-info form-control">Edit</button></a>
                                                 </td>
                                             </tr>
                                             @endforeach

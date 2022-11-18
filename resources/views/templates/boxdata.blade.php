@@ -41,12 +41,12 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner p-4">
-                        <h2>Members</h2>
+                        <h2>Orders</h2>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="{{route('user-list')}}" class="btn btn-info small-box-footer">
+                    <a href="{{route('orders')}}" class="btn btn-info small-box-footer">
                         <h5 class="text-default text-bold">All members &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>

@@ -152,6 +152,54 @@ $(document).ready(function() {
     setTimeout(function() {
         $("#successMessage").fadeOut('slow')
     }, 2000);
+    //erase message autohide
+    setTimeout(function() {
+        $("#eraseMessage").fadeOut('slow')
+    }, 2000);
+    //fetch products data into order table
+    function fetchOrders() {
+        $('#product_id').change(function() {
+            //set empty value 
+            $('#orderTable').empty();
+            var data = $(this).val();
+
+            $.ajax({
+                url: "fetch-products/" + data,
+                type: "GET",
+                success: function(response) {
+
+                    //get value
+                    var productCode = response.code;
+                    var productName = response.name;
+                    var productRate = response.rate; 
+                    $('#product_code').val(productCode);
+                    console.log(productCode);
+                    //assign value                   
+                    $('#orderTable').append('<tr>' +
+                        '<td>' +
+                        '<input type="hidden" class="form-control text-center" id="product_code" name="product_code" value=' +
+                        productCode + '>' + productCode +
+                        '</td>' +
+
+                        '<td>' +
+                        '<input type="hidden" class="form-control text-center" id="product_name" name="product_name" value=' +
+                        productName + '>' + productName +
+                        '</td>' +
+
+                        '<td>' +
+                        '<input type="hidden" class="form-control text-center" id="product_rate" name="product_rate" value=' +
+                        productRate + '>' + productRate +
+                        '</td>' +
+
+                        '<td style="width:30%;">' +
+                        '<input type="text" class="form-control text-center" id="product_qty" name="product_qty">' +
+                        '</td>' +
+                        '</tr>')
+                }
+            });
+        });
+    }
+    fetchOrders();
 
     function fetchTshirts() {
         $('#tShirt_id').change(function() {

@@ -19,7 +19,6 @@ class PackageController extends Controller
     }
     public function submitParticipant(Request $request) {          
            $data = $request->all();           
-          //return $data;
            Package::create($data);
         
            session()->flash('success','Participant add success..!!');  

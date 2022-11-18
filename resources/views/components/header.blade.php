@@ -82,5 +82,17 @@
         padding: 5px;
         font-size: 13px;
     }
+    #successMessage{
+        position: absolute;
+        top:-10%;
+        left:1%;
+        z-index: 1;
+    }
+    #eraseMessage{
+        position: absolute;
+        top:-10%;
+        left:1%;
+        z-index: 1;        
+    }
     </style>
 </head>

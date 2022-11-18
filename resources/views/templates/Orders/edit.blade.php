@@ -13,12 +13,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Payment</h1>
+                            <h1 class="m-0">Edit-Package</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-                                <li class="breadcrumb-item active">Payment</li>
+                                <li class="breadcrumb-item active">Edit-Package</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -32,59 +32,46 @@
                         <div class="col-12">
                             <div class="card">
                                 @if(session()->has('success'))
-                                <div id="successMessage" class="text-center text-success p-1">
+                                <div id="successMessage" class="text-center text-danger p-1">
                                     {{session('success')}}
                                 </div>
                                 @endif
                                 <div class="card-header">
-                                    <h3 class="card-title">Payment</h3>
+                                    <h3 class="card-title">My package</h3>
                                 </div>
-
-                                <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('payment-checkout')}}" method="GET">
+                                    <div class="text-cener text-danger">
+                                        <x-jet-validation-errors />
+                                    </div>
+                                    <form method="POST" action="{{route('submit-participant')}}">
                                         @csrf
+
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
-                                                <tr>
-                                                    <th class="text-left">T-Shirts</th>
-                                                    <th>Rate</th>
-                                                    <th>Qty</th>
-                                                    <th>Amount</th>
-                                                </tr>
+                                                <th>Participant</th>
+                                                <th>T-Shirt</th>
+                                                <th>Amount</th>
+                                                <th>Action</th>
                                             </thead>
                                             <tbody>
-                                                {{$data}}
-                                                @foreach($data as $key => $item)
+                                                @foreach($data as $key=>$item)
                                                 <tr>
-                                                    <td class="text-left">{{$item->tShirt_size}}</td>
-                                                    <td>{{$item->tShirt_rate}}</td>
-                                                    <td class="text-right">{{$item->participant_qty}}</td>
-                                                    <td class="text-right">{{$item->total}}</td>
+                                                    <td>{{$item->participant_qty}}</td>
+                                                    <td>{{$item->tShirt_size}}</td>
+                                                    <td>{{$item->tShirt_rate*$item->participant_qty}}</td>
+                                                    <td>
+                                                    <a href="{{route('package-delete',['id'=>$item->id])}}" class="btn btn-danger">X</a> 
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-                                            <tfoot class="card-header">
-                                                <tr>
-                                                    <td colspan="3" class="text-right">
-                                                        <strong>Total =
-                                                            {{$data->sum('participant_qty')}}</strong>
-                                                        <input type="hidden" id="total_item" name="total_item"
-                                                            value="{{$data->sum('participant_qty')}}">
-                                                    </td>
-                                                    <td class="text-right">
-                                                        <strong>Total =
-                                                            {{$data->sum('total')}}</strong>
-                                                        <input type="hidden" id="total_payment" name="total_payment" value="{{$data->sum('total')}}">
-
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
                                         </table>
-                                        <button class="btn btn-info text-bold">Pay Now</button>
+                                        <div class="col-sm-2">
+                                            <a href="{{route('package')}}" class="btn btn-secondary btn-block">Back to
+                                                Package</a>
+                                        </div>
                                     </form>
                                 </div>
-                                <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
                         </div>
