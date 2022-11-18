@@ -24,14 +24,14 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner p-4">
-                        <h2>Profile</h2>
+                        <h2>Product</h2>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
 
                     </div>
 
-                    <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer">
+                    <a href="{{route('products')}}" class="btn btn-danger small-box-footer">
                         <h5 class="text-default text-bold">Edit profile &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>
@@ -62,7 +62,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="{{route('user-profile')}}" class="btn btn-success small-box-footer">
+                    <a href="#" class="btn btn-success small-box-footer">
                         <h5 class="text-default text-bold">Payments &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h5>
                     </a>
@@ -114,7 +114,7 @@
 
                     </div>
 
-                    <a href="{{route('user-profile')}}" class="btn btn-danger small-box-footer">
+                    <a href="#" class="btn btn-danger small-box-footer">
                         <h6 class="text-default text-bold">Edit profile &nbsp; <i class="fas fa-arrow-circle-right"></i>
                         </h6>
                     </a>

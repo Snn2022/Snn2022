@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\TshirtController;
 use App\Http\Controllers\PaymentController;
@@ -39,9 +40,16 @@ Route::post('dashboard', function () {
 
 Route::get('user-list',[UserController::class,'index'])->name('user-list');
 
-//profile
-Route::get('user-profile',[ProfileController::class,'index'])->name('user-profile');
+//Product
+Route::get('products',[ProductController::class,'index'])->name('products');
+
 Route::post('profile-info-submit',[ProfileController::class,'store'])->name('profile-info-submit');
+//tshirt start
+Route::get('tshirt-list',[TshirtController::class,'index'])->name('tshirt-list');
+Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-submit');
+Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
+Route::get('fetch-tshirts',[TshirtController::class,'fetchTshirts']);
+Route::get('fetch-tshirts/{id}',[TshirtController::class,'fetchTshirtsData']);
 
 //package
 Route::get('package',[PackageController::class,'index'])->name('package');
@@ -79,12 +87,7 @@ Route::get('fetch-rooms',[CollectionController::class,'fetchRooms']);
 
 Route::get('test',[CollectionController::class,'test'])->name('test');
 
-//tshirt start
-Route::get('tshirt-list',[TshirtController::class,'index'])->name('tshirt-list');
-Route::post('tshirt-submit',[TshirtController::class,'store'])->name('tshirt-submit');
-Route::get('tshirt-edit/{id}',[TshirtController::class,'edit'])->name('tshirt-edit');
-Route::get('fetch-tshirts',[TshirtController::class,'fetchTshirts']);
-Route::get('fetch-tshirts/{id}',[TshirtController::class,'fetchTshirtsData']);
+
 
 Route::middleware([
     'auth:sanctum',

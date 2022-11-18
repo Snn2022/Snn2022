@@ -14,7 +14,7 @@
                  <img class="img-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
              </div>
              <div class="info">
-                 <a href="{{route('user-profile')}}" class="d-block"> {{ Auth::user()->name }}</a>
+                 <a href="#" class="d-block"> {{ Auth::user()->name }}</a>
              </div>
              @endif
          </div>
