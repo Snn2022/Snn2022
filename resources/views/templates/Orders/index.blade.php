@@ -37,14 +37,12 @@
                                 </div>
                                 @endif
                                 <div class="card-body">
-                                    <div class="text-cener text-danger">
-                                        <x-jet-validation-errors />
-                                    </div>
                                     <form method="POST" action="{{route('submitOrders')}}">
                                         @csrf
                                         <div class="input-group mb-3">
                                             <input type="hidden" name="user_id" id="user_id"
                                                 value="{{Auth::user()->id}}">
+                                            <input type="hidden" name="status" id="status" value="queue">
                                             <select class="col-md-3 form-control" name="product_id" id="product_id">
                                                 <option value="">Select Product</option>
                                                 @foreach($data as $key=>$product)
@@ -82,43 +80,47 @@
                                 <div id="eraseMessage" class="col-md-6 offset-3 text-center alert-danger p-1">
                                     {{session('erase')}}
                                 </div>
-                                @endif 
-                                <div class="card-body">                                                            
-                                    <form action="">
+                                @endif
+                                <div class="card-body">
+                                    <form action="{{route('createOrders')}}" method="POST">
+                                        @csrf
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
-                                                <tr>                                                   
+                                                <tr>
                                                     <th>Code</th>
                                                     <th>Name</th>
                                                     <th>Rate</th>
                                                     <th>Qty</th>
-                                                    <th style="width:20%;">Amount</th>
-                                                    <th style="width:10%;">#</th>
+                                                    <th style="width:15%;">Amount</th>
+                                                    <th style="width:5%;">#</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($orders as $key=> $order)
-                                                <tr>                                                    
+                                                <tr>
                                                     <td class="text-left">{{$order->product_code}}</td>
                                                     <td class="text-left">{{$order->product_name}}</td>
                                                     <td class="text-right">{{$order->product_rate}}</td>
                                                     <td class="text-right">{{$order->product_qty}}</td>
                                                     <td class="text-right">{{$order->total}}</td>
-                                                    <td><a href="{{route('ordersDelete', ['id' => $order->id])}}" class="btn btn-danger">X</a> </td>
+                                                    <td><a href="{{route('ordersDelete', ['id' => $order->id])}}"
+                                                            class="btn btn-danger">X</a> </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td colspan="5" class="text-right text-bold">Total Items : {{$orders->sum('product_qty')}}</td>
-                                                    <td class="text-right text-bold">Total Amount : {{$orders->sum('total')}}</td>
+                                                    <td colspan="4" class="text-right text-bold">Total Items :
+                                                        {{$orders->sum('product_qty')}}</td>
+                                                    <td colspan="2" class="text-left text-bold">Total Amount :
+                                                        {{$orders->sum('total')}}</td>
                                                 </tr>
                                             </tfoot>
                                         </table>
                                         @if(!empty($orders))
-                                        <div>                                           
-                                            <a href="{{route('payment')}}" class="col-md-3 btn btn-dark">Submit Order </a>
-                                        </div>
+                                        <button class="col-md-3 btn btn-dark">
+                                            Submit Order
+                                        </button>
                                         @endif
                                     </form>
                                 </div>

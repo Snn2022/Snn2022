@@ -13,7 +13,8 @@ class OrderController extends Controller {
     public function index(Request $request) 
     {          
         $data = Product::all();             
-        $orders = Orders::where('user_id',Auth::user()->id)->get();
+        $orders = Orders::where('user_id',Auth::user()->id)
+        ->where('status','queue')->get();
         //$package = Package::find($package->tShirt_id)->getTshirt; 
         //return $package;
         return view("templates.Orders.index",['data'=>$data,'orders'=>$orders]);
@@ -22,6 +23,17 @@ class OrderController extends Controller {
     {          
         $data = $request->all();
         Orders::create($data);
+    
+        session()->flash('success','Product added ..!!');  
+        return redirect()->back();  
+    }
+    public function createOrders(Request $request)
+    {   
+        $createOrder = new Orders;
+        $createOrder = Orders::where('user_id',Auth::user()->id)
+        ->where('status','queue')->get();
+        $createOrder->status = 'received';
+       $createOrder->save();
     
         session()->flash('success','Product added ..!!');  
         return redirect()->back();  

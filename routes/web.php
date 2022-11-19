@@ -50,6 +50,7 @@ Route::get('fetch-products/{id}',[ProductController::class,'fetchProductsData'])
 //Orders
 Route::get('orders',[OrderController::class,'index'])->name('orders');
 Route::post('submit-orders',[OrderController::class,'submitOrders'])->name('submitOrders');
+Route::post('create-orders',[OrderController::class,'createOrders'])->name('createOrders');
 Route::get('orders-delete/{id}',[OrderController::class,'ordersDelete'])->name('ordersDelete');
 Route::get('fetch-orders',[OrderController::class,'fetchOrders'])->name('fetchOrders');
 
