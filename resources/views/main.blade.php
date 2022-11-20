@@ -3,7 +3,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <h4 class="text-bold text-info"> Re-Union Member Login </h4>
+            <h4 class="text-bold text-info"> Joohns Project </h4>
         </div>
 
         <!-- /.login-logo -->

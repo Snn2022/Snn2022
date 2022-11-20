@@ -83,14 +83,6 @@
                                             </tr>
                                             @endforeach
                                         </tbody>
-                                        <tfoot class="text-center">
-                                            <tr>
-                                                <td>SL</td>
-                                                <td>T-shirt Size</td>
-                                                <td>Price</td>
-                                                <td>Action</td>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                                 <!-- /.card-body -->

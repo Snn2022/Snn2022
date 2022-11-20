@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link text-center">
-         <span class="brand-text font-weight-light">Re-Union Team</span>
+         <span class="brand-text font-weight-light">Joohns Project</span>
      </a>
 
      <!-- Sidebar -->
@@ -33,36 +33,29 @@
 
                      </a>
                  </li>
-
-                 <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="fas fa-user"></i>
-                         <p>
-                             Members
-                             <i class="fas fa-angle-left right"></i>
-                             <span class="badge badge-info right">6</span>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="{{route('user-list')}}" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Members List</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
                  
                  <li class="nav-item">
-                     <a href="{{route('profile.show')}}" class="nav-link">
+                     <a href="{{route('products')}}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
-                         <p>Payments</p>
+                         <p>Products</p>
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="{{route('profile.show')}}" class="nav-link">
+                     <a href="{{route('orders')}}" class="nav-link">
                          <i class="far fa-circle nav-icon"></i>
-                         <p>T-Shirt's</p>
+                         <p>Orders</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('orders')}}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Invoices</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="{{route('orders')}}" class="nav-link">
+                         <i class="far fa-circle nav-icon"></i>
+                         <p>Payments</p>
                      </a>
                  </li>
                  <li class="nav-item">

@@ -192,7 +192,7 @@ $(document).ready(function() {
                         '</td>' +
 
                         '<td style="width:30%;">' +
-                        '<input type="text" class="form-control text-center" id="product_qty" name="product_qty">' +
+                        '<input type="text" class="form-control text-center" id="product_qty" name="product_qty" required>' +
                         '</td>' +
                         '</tr>')
                 }
